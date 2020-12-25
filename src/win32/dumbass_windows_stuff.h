@@ -3,7 +3,7 @@
 #ifndef _WIN32_DUMBASS_WINDOWS_STUFF_H
 #define _WIN32_DUMBASS_WINDOWS_STUFF_H 1
 
-#include <windows.h>
+#include <Windows.h>
 
 /**
  * Dear Microsoft:

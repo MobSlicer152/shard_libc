@@ -8,6 +8,6 @@
  * @param __argc Unused here
  * @param __argv Also unused
  */
-extern char **__get_envp(int __argc, char **__argv)
+extern char **__get_envp(int __argc, char **__argv);
 
 #endif /* !_WIN32_ENV_H */

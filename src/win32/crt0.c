@@ -1,6 +1,6 @@
 #include <heapapi.h>
 #include <shellapi.h>
-#include <windows.h>
+#include <Windows.h>
 #include "dumbass_windows_stuff.h"
 #include "internal/startup.h"
 
@@ -22,6 +22,7 @@ int startup(void)
 	char **argv;
 	wchar_t *cmdline;
 	wchar_t **argv_w;
+	int i;
 
 	/* Retrieve a handle to the heap */
 	__libc_windows_heap = GetProcessHeap();
@@ -33,5 +34,7 @@ int startup(void)
 	argv_w = CommandLineToArgvW(cmdline, &argc);
 
 	/* And finally turn it into ASCII */
-
+	for (i = 0; i < argc; i++) {
+		
+	}
 }

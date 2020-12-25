@@ -9,9 +9,16 @@
  */
 extern char **environ;
 
+#ifdef __linux__
 /**
  * @brief A likely entirely broken wrapper for making system calls.
  */
 extern long __syscall(unsigned long number, ...);
+
+/* For the sake of being nice to glibc-dependant code, this is here */
+#ifdef _GNU_SOURCE
+#define syscall __syscall
+#endif
+#endif /* __linux__ */
 
 #endif /* !_UNISTD_H */

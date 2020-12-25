@@ -4,11 +4,12 @@
 #define _SYSCALL_H 1
 
 #ifdef __linux__
-#include <asm/unistd.h>
+#include <asm/unistd.h> /* This, which is from the Linux kernel sources, gives us all the syscall numbers */
 #elif defined _WIN32
-#include <windows.h> /* 
-		      * Technically this defines the signatures for a lot of Windows API
-		      * functions (which are as close as you get to system calls on Windows)
+#include <Windows.h> /* 
+		      * This defines the signatures for a lot of Windows API
+		      * functions (which are as close as you (practically) get
+		      * to system calls on Windows)
 		      */
 #endif
 

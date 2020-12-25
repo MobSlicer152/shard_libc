@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.10)
 
 set(LINUX_HEADERS
-	linux/${TARGET_ARCH}/env.h
+	linux/${SHARD_LIBC_TARGET_ARCH}/env.h
 )
 
 set(LINUX_SOURCES
 	# Startup assembly
-	linux/${TARGET_ARCH}/crt0.s
-	linux/${TARGET_ARCH}/crti.s
-	linux/${TARGET_ARCH}/crtn.s
+	linux/${SHARD_LIBC_TARGET_ARCH}/crt0.s
+	linux/${SHARD_LIBC_TARGET_ARCH}/crti.s
+	linux/${SHARD_LIBC_TARGET_ARCH}/crtn.s
 
 	# Miscellaneous utility stuff
-	linux/${TARGET_ARCH}/env.c
+	linux/${SHARD_LIBC_TARGET_ARCH}/env.c
 
 	# stdlib.h implementations that are platform specific
-	linux/${TARGET_ARCH}/stdlib/exit.c
+	linux/${SHARD_LIBC_TARGET_ARCH}/stdlib/exit.c
 )
 
 set(WINDOWS_HEADERS
@@ -48,7 +48,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES Windows)
 endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
-	include_directories(linux/${TARGET_ARCH})
+	include_directories(linux/${SHARD_LIBC_TARGET_ARCH})
 	list(APPEND INTERNAL_HEADERS ${LINUX_HEADERS})
 	list(APPEND INTERNAL_SOURCES ${LINUX_SOURCES})
 endif()
@@ -59,3 +59,11 @@ add_library(c_shard
 	${INTERNAL_HEADERS}
 	${ALL_SOURCES}
 )
+
+if (${SHARD_LIBC_ENABLE_TESTS})
+	add_custom_command(
+		TARGET c_shard
+		POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:c_shard> ${CMAKE_BINARY_DIR}/tests
+	)
+endif()
