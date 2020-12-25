@@ -1,7 +1,7 @@
 ## shard_libc
 
 ### What this project is and why the hell I'm doing it
-This project is a 13-year-old's attempt at implementing the ISO C2x standard, purely for the sake of learning as much as possible about how C works internally and maybe (hopefully) creating a usable implementation somewhere down the road.
+This project is an attempt at implementing the ISO C2x standard, purely for the sake of learning as much as possible about how C works internally and maybe (hopefully) creating a usable implementation somewhere down the road.
 
 Currently, there's the beginnings of the code necessary to (almost) call `main` and have `argc`, `argv`, and `envp`/`environ` available on Windows (currently need quite a bit of stuff like `malloc`) and Linux (currently segfaults somewhere around `main` for reasons only K&R know) running under x86-64.
 
