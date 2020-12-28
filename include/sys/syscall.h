@@ -6,6 +6,9 @@
 #ifdef __linux__
 #include <asm/unistd.h> /* This, which is from the Linux kernel sources, gives us all the syscall numbers */
 #elif defined _WIN32
+/* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
+#include "wchar.h"
+
 #include <Windows.h> /* 
 		      * This defines the signatures for a lot of Windows API
 		      * functions (which are as close as you (practically) get

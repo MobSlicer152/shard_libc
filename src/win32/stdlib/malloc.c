@@ -1,4 +1,4 @@
-#include <Windows.h>
+#include <heapapi.h>
 #include "win32/dumbass_windows_stuff.h"
 #include "stdlib.h"
 

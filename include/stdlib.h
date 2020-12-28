@@ -4,7 +4,7 @@
 #define _STDLIB_H 1
 
 /* Yay laziness! */
-#define __need_stdlib_types
+#define __need_size_t
 #include "internal/alltypes.h"
 
 /** @brief Terminate program execution with code __status and do cleanup. */

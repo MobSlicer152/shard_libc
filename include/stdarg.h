@@ -4,7 +4,7 @@
 #define _STDARG_H 1
 
 #define __need_int64_t
-#define __need_stdarg_types
+#define __need_va_list
 #include "internal/alltypes.h"
 
 /** @brief The definition for the real name of va_list */

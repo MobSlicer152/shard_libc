@@ -3,8 +3,8 @@
 #ifndef _STDINT_H
 #define _STDINT_H 1
 
-/* Yay laziness! */
-#define __need_stdint_types
+#define __need_int64_t
+#define __need_uint64_t
 #include "internal/alltypes.h"
 
 #endif

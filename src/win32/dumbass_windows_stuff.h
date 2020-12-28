@@ -3,6 +3,9 @@
 #ifndef _WIN32_DUMBASS_WINDOWS_STUFF_H
 #define _WIN32_DUMBASS_WINDOWS_STUFF_H 1
 
+/* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
+#include "wchar.h"
+
 #include <Windows.h>
 
 /**

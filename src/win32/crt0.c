@@ -1,12 +1,11 @@
+/* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
+#include "wchar.h"
+
 #include <heapapi.h>
 #include <shellapi.h>
 #include <Windows.h>
 #include "dumbass_windows_stuff.h"
 #include "internal/startup.h"
-
-/* wchar_t might not be defined by the compiler */
-#define __need_wchar_t
-#include "alltypes.h"
 
 #ifdef _WINMAIN_
 #define startup WinMainCRTStartup

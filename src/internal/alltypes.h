@@ -11,28 +11,19 @@
  * both glibc and musl libc.
  */
 
-#ifdef __need_stdarg_types
-#define __need_va_list
-#endif /* __need_stdarg_types */
-
-#ifdef __need_stdint_types
-#define __need_int64_t
-#define __need_uint64_t
-#endif /* __need_stdint_types */
-
 #ifdef __need_stdlib_types
 #define __need_size_t
 #endif /* __need_stdlib_types */
 
 /* stdint types */
-#ifdef __need_int64_t
+#if defined __need_int64_t
 #ifndef __int64_t_defined
 typedef long long int64_t;
 #define __int64_t_defined 1
 #endif /* !__int64_t_defined */
 #endif /* __need_int64_t */
 
-#ifdef __need_uint64_t
+#if defined __need_uint64_t
 #ifndef __uint64_t_defined
 typedef unsigned long long uint64_t;
 #define __uint64_t_defined
@@ -68,6 +59,7 @@ typedef char *__va_list_t;
 #endif /* !__va_list_t_defined */
 #endif /* __need_va_list */
 
+/* wchar type */
 #ifdef __need_wchar_t
 #ifndef __wchar_t_defined
 typedef short wchar_t;
