@@ -106,6 +106,24 @@
 
 #undef _Outptr_result_buffer_
 #undef _Outptr_result_bytebuffer_
+
+#undef _Outptr_opt_result_buffer_
+#undef _Outptr_opt_result_bytebuffer_
+
+#undef _Outptr_result_buffer_to_
+#undef _Outptr_result_bytebuffer_to_
+
+#undef _Outptr_opt_result_buffer_to_
+#undef _Outptr_opt_result_bytebuffer_to_
+
+#undef _Result_nullonfailure_
+#undef _Result_zeroonfailure_
+
+#undef _Outptr_result_nullonfailure_
+
+#undef _Outptr_opt_result_nullonfailure_
+
+#undef _Outref_result_nullonfailure_
 #endif /* _SAL_VERSION */
 
 #endif /* !_SAL_DISABLE_H */

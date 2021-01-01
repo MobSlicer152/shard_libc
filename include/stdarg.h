@@ -7,9 +7,6 @@
 #define __need_va_list
 #include "internal/alltypes.h"
 
-/** @brief The definition for the real name of va_list */
-typedef __va_list_t va_list;
-
 #ifdef _MSC_VER
 #define va_start(__list, __start) __va_start(&__list, __start)
 #define va_end(__list) ((void)(__list = (va_list)0))

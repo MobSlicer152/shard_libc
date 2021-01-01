@@ -18,8 +18,8 @@ if (SHARD_LIBC_TARGET_ARCH STREQUAL "x86-64")
 	endif()
 
 if (MSVC)
-	# Disable SAL and standard headers plus some other good flags
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Gm- -GR- -EHa- -Oi -X -D_In_ -D_Inout_ -D_Out_ -D_Outptr_ -D_In_opt_ -D_Inout_opt_ -D_Out_opt_ -D_Outptr_opt")
+	# Disable standard headers and libraries plus enable some other good flags
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Gm- -GR- -EHa- -Oi -X")
 	set(CMAKE_EXE_LINKER_FLAGS "-nodefaultlib kernel32.lib shell32.lib -subsystem:console")
 	include_directories("C:\\Program Files (x86)\\Windows Kits\\10\\Include\\${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}\\um" "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}\\shared")
 
@@ -29,7 +29,13 @@ if (MSVC)
 		set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -machine:X86")
 	endif()
 else()
-	set(CMAKE_C_FLAGS "-ffreestanding -nostdlib -march=${SHARD_LIBC_TARGET_ARCH}")
+	set(CMAKE_C_FLAGS "-ffreestanding -nostdinc -march=${SHARD_LIBC_TARGET_ARCH}")
+
+	if (SHARD_LIBC_TARGET_ARCH STREQUAL "x86-64")
+		set(CMAKE_C_FLAGS "-include /usr/include/asm/unistd_64.h")
+	else()
+		set(CMAKE_C_FLAGS "-include /usr/include/asm/unistd_32.h")
+	endif()
 endif()
 
 add_subdirectory(src)

@@ -1,6 +1,8 @@
-#include "registers.h"
+#include "internal/registers.h"
 #include "stdarg.h"
 #include "unistd.h"
+
+typedef __builtin_va_list va_list;
 
 long __syscall(unsigned long number, ...)
 {
@@ -14,7 +16,7 @@ long __syscall(unsigned long number, ...)
 	va_start(args, number);
 
 	/* Put the arguments in their registers */
-	rax = va_arg(args, long);
+	rax = number;
 	rdi = va_arg(args, long);
 	rsi = va_arg(args, long);
 	rdx = va_arg(args, long);

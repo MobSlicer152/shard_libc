@@ -1,4 +1,5 @@
 #include <asm/unistd_64.h>
+#include "unistd.h"
 #include "stdlib.h"
 
 extern void exit(int __status)

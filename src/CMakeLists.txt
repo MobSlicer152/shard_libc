@@ -15,6 +15,9 @@ set(LINUX_SOURCES
 
 	# stdlib.h implementations that are platform specific
 	linux/${SHARD_LIBC_TARGET_ARCH}/stdlib/exit.c
+
+	# unistd.h implementations
+	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.c
 )
 
 set(WINDOWS_HEADERS
