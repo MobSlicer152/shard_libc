@@ -3,10 +3,16 @@
 #ifndef _STDARG_H
 #define _STDARG_H 1
 
-#define __need_int64_t
-#define __need_va_list
-#include "internal/alltypes.h"
+#ifndef _MSC_VER
+typedef __builtin_va_list va_list;
+#else /* !_MSC_VER */
+typedef char *va_list;
+#endif /* !_MSC_VER */
 
+/**
+ * To ensure they work properly, these are either builtins
+ * or slightly changed versions of Microsoft's functions
+ */
 #ifdef _MSC_VER
 #define va_start(__list, __start) __va_start(&__list, __start)
 #define va_end(__list) ((void)(__list = (va_list)0))

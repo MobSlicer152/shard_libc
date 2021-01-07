@@ -11,7 +11,7 @@ extern char **environ;
 
 #ifdef __linux__
 /**
- * @brief A likely entirely broken wrapper for making system calls.
+ * @brief A (so far) usable wrapper for making system calls.
  */
 extern long __syscall(unsigned long number, ...);
 

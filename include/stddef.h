@@ -3,10 +3,20 @@
 #ifndef _STDDEF_H
 #define _STDDEF_H 1
 
-#define __need_ptrdiff_t
-#define __need_size_t
-#define __need_wchar_t
-#include "internal/alltypes.h"
+/**
+ * @brief Can hold the max value for an integer.
+ */
+typedef long long intmax_t;
+
+/**
+ * @brief Used to store the sizes of things.
+ */
+typedef unsigned long size_t;
+
+/**
+ * @brief wchar_t holds wide characters (i.e. beyond ASCII)
+ */
+typedef short wchar_t;
 
 /**
  * @brief NULL is used to represent pointers

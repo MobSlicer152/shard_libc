@@ -4,7 +4,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "/home/mobslicer152/builds/shard_libc/tests/test_main",
+			"program": "${workspaceFolder}/build/tests/test_main",
 			"args": [
 				"asdf"
 			],

@@ -2,8 +2,6 @@
 #include "stdarg.h"
 #include "unistd.h"
 
-typedef __builtin_va_list va_list;
-
 long __syscall(unsigned long number, ...)
 {
 	/* Some registers don't have shorthands */

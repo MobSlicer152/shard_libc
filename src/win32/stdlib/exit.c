@@ -1,5 +1,5 @@
 /* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
-#include "wchar.h"
+#include "stddef.h"
 
 #include <Windows.h>
 #include "stdlib.h"
