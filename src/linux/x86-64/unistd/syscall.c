@@ -2,6 +2,9 @@
 #include "stdarg.h"
 #include "unistd.h"
 
+/**
+ * Thank you GNU and Linus Torvalds for making this function so easy to make.
+ */
 long __syscall(unsigned long number, ...)
 {
 	/* Some registers don't have shorthands */
