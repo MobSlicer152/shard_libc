@@ -98,11 +98,3 @@ add_library(c_shard
 )
 
 target_link_libraries(c_shard gcc)
-
-if (${SHARD_LIBC_ENABLE_TESTS})
-	add_custom_command(
-		TARGET c_shard
-		POST_BUILD
-		COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:c_shard> ${CMAKE_BINARY_DIR}/tests
-	)
-endif()
