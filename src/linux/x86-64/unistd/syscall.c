@@ -4,6 +4,7 @@
 
 /**
  * Thank you GNU and Linus Torvalds for making this function so easy to make.
+ * This implementation is somewhere between musl libc's and glibc's.
  */
 long __syscall(unsigned long number, ...)
 {

@@ -5,6 +5,9 @@
 
 #include "stdint.h"
 
+/**
+ * @brief All the x86-64 registers defined as 64-bit unsigned integers.
+ */
 #define __X86_64_REG_DEFS	register uint64_t rax __asm__("rax");	\
 				register uint64_t rbx __asm__("rbx");	\
 				register uint64_t rcx __asm__("rcx");	\
