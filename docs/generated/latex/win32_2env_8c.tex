@@ -1,0 +1,39 @@
+\hypertarget{win32_2env_8c}{}\doxysection{src/win32/env.c File Reference}
+\label{win32_2env_8c}\index{src/win32/env.c@{src/win32/env.c}}
+{\ttfamily \#include \char`\"{}wchar.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}env.\+h\char`\"{}}\newline
+Include dependency graph for env.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{win32_2env_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{win32_2env_8c_a32cdf847c4dbf5b97afbc4866c702efb}{\+\_\+\+\_\+get\+\_\+envp}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
+\begin{DoxyCompactList}\small\item\em Finds where the environment variables start. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{win32_2env_8c_a32cdf847c4dbf5b97afbc4866c702efb}\label{win32_2env_8c_a32cdf847c4dbf5b97afbc4866c702efb}} 
+\index{env.c@{env.c}!\_\_get\_envp@{\_\_get\_envp}}
+\index{\_\_get\_envp@{\_\_get\_envp}!env.c@{env.c}}
+\doxysubsubsection{\texorpdfstring{\_\_get\_envp()}{\_\_get\_envp()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ \+\_\+\+\_\+get\+\_\+envp (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
+
+
+
+Finds where the environment variables start. 
+
+Gets the environment variables for the program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+argc} & The number of arguments (from the stack) \\
+\hline
+{\em \+\_\+\+\_\+argv} & The argument pointer (also from the stack) \\
+\hline
+\end{DoxyParams}

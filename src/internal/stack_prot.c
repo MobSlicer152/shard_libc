@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * This file stops GCC and maybe Clang from
+ * @file This file stops GCC and maybe Clang from
  * complaining about this stuff being undefined
  */
 

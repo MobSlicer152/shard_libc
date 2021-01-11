@@ -1,0 +1,84 @@
+\hypertarget{stdlib_8h}{}\doxysection{include/stdlib.h File Reference}
+\label{stdlib_8h}\index{include/stdlib.h@{include/stdlib.h}}
+{\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
+Include dependency graph for stdlib.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{stdlib_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stdlib_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{stdlib_8h_a1a4b240b10a14e25bb58d14212c5bc2e}{\+\_\+\+S\+T\+D\+L\+I\+B\+\_\+H}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}{abort}} (void) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Terminate program execution abnormally. Only use this when something goes {\itshape really} wrong. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}{exit}} (int \+\_\+\+\_\+status) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and once I implement it, atexit registered functions). \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc}} (\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Allocate some memory from the heap of size \+\_\+\+\_\+size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{stdlib_8h_a1a4b240b10a14e25bb58d14212c5bc2e}\label{stdlib_8h_a1a4b240b10a14e25bb58d14212c5bc2e}} 
+\index{stdlib.h@{stdlib.h}!\_STDLIB\_H@{\_STDLIB\_H}}
+\index{\_STDLIB\_H@{\_STDLIB\_H}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{\_STDLIB\_H}{\_STDLIB\_H}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+D\+L\+I\+B\+\_\+H~1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}\label{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}} 
+\index{stdlib.h@{stdlib.h}!abort@{abort}}
+\index{abort@{abort}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{abort()}{abort()}}
+{\footnotesize\ttfamily void abort (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Terminate program execution abnormally. Only use this when something goes {\itshape really} wrong. 
+
+\begin{DoxyReturn}{Returns}
+If this happens, try rebuilding your compiler. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}\label{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}} 
+\index{stdlib.h@{stdlib.h}!exit@{exit}}
+\index{exit@{exit}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{exit()}{exit()}}
+{\footnotesize\ttfamily void exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+
+
+
+Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and once I implement it, atexit registered functions). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+status} & is the code to exit with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+It shouldn\textquotesingle{}t come to this. If it does, something is very, very wrong. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}\label{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}} 
+\index{stdlib.h@{stdlib.h}!malloc@{malloc}}
+\index{malloc@{malloc}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{malloc()}{malloc()}}
+{\footnotesize\ttfamily void$\ast$ malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Allocate some memory from the heap of size \+\_\+\+\_\+size. 
+

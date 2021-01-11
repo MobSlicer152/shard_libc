@@ -6,7 +6,7 @@
  * Thank you GNU and Linus Torvalds for making this function so easy to make.
  * This implementation is somewhere between musl libc's and glibc's.
  */
-long __syscall(unsigned long number, ...)
+long syscall(unsigned long __number, ...)
 {
 	/* Some registers don't have shorthands */
 	__X86_64_REG_DEFS;
@@ -15,10 +15,10 @@ long __syscall(unsigned long number, ...)
 	long ret;
 
 	/* Get our arguments */
-	va_start(args, number);
+	va_start(args, __number);
 
 	/* Put the arguments in their registers */
-	rax = number;
+	rax = __number;
 	rdi = va_arg(args, long);
 	rsi = va_arg(args, long);
 	rdx = va_arg(args, long);

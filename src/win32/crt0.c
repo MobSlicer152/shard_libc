@@ -3,7 +3,7 @@
 
 #include <heapapi.h>
 #include <shellapi.h>
-#include <Windows.h>
+#include <windows.h>
 #include "dumbass_windows_stuff.h"
 #include "internal/startup.h"
 

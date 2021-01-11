@@ -1,6 +1,0 @@
-#include "unistd.h"
-
-long write(int __fd, const void *__buf, size_t __n)
-{
-	return __syscall(__NR_write, __fd, __buf, __n);
-}

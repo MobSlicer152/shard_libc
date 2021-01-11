@@ -12,5 +12,8 @@
 	},
 	
 	"editor.insertSpaces": false,
-	"editor.tabCompletion": "on"
+	"editor.tabCompletion": "on",
+	"files.associations": {
+		"startup.h": "c"
+	}
 }

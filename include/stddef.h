@@ -22,17 +22,19 @@ typedef short wchar_t;
  * @brief NULL is used to represent pointers
  * that don't point anywhere (hence the name)
  */
-#ifdef __need_NULL
 #define NULL (void *)0
-#endif /*  __need_NULL */
 
 /**
  * @brief The offsetof macro finds the offset
- * of a given member of a structure. This version
- * is totally cribbed off of Wikipedia's. Basically
+ * of a given member of a structure.
+ * 
+ * @param structure is the name of the structure type
+ * @param member is the name of the member to get the offset of
+ * 
+ * This version is totally cribbed off of Wikipedia's. Basically
  * it gets the address of the member as if it was
  * part of a structure starting at 0, which means it's
- * just the offset of the member from 0 or the
+ * just the offset of the member from 0 or in other words the
  * start of the structure.
  */
 #define offsetof(structure, member) \

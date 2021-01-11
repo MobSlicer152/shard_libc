@@ -1,0 +1,27 @@
+\hypertarget{syscall_8c}{}\doxysection{src/linux/x86-\/64/unistd/syscall.c File Reference}
+\label{syscall_8c}\index{src/linux/x86-\/64/unistd/syscall.c@{src/linux/x86-\/64/unistd/syscall.c}}
+{\ttfamily \#include \char`\"{}internal/registers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdarg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
+Include dependency graph for syscall.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{syscall_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{syscall_8c_a2485816888633ce82efea564e855618f}{syscall}} (unsigned long \+\_\+\+\_\+number,...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{syscall_8c_a2485816888633ce82efea564e855618f}\label{syscall_8c_a2485816888633ce82efea564e855618f}} 
+\index{syscall.c@{syscall.c}!syscall@{syscall}}
+\index{syscall@{syscall}!syscall.c@{syscall.c}}
+\doxysubsubsection{\texorpdfstring{syscall()}{syscall()}}
+{\footnotesize\ttfamily long syscall (\begin{DoxyParamCaption}\item[{unsigned long}]{\+\_\+\+\_\+number,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Thank you G\+NU and Linus Torvalds for making this function so easy to make. This implementation is somewhere between musl libc\textquotesingle{}s and glibc\textquotesingle{}s. 

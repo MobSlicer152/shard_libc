@@ -1,32 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 
-if (SHARD_LIBC_TARGET_ARCH STREQUAL "x86-64")
-		set(CMAKE_C_FLAGS "-D_AMD64_")
-	else()
-		set(CMAKE_C_FLAGS "-D_X86_")
-	endif()
-
-if (MSVC)
-	# Disable standard headers and libraries plus enable some other good flags
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Gm- -GR- -EHa- -Oi -X")
-	set(CMAKE_EXE_LINKER_FLAGS "-nodefaultlib kernel32.lib shell32.lib -subsystem:console")
-	include_directories("C:\\Program Files (x86)\\Windows Kits\\10\\Include\\${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}\\um" "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}\\shared")
-
-	if (SHARD_LIBC_TARGET_ARCH STREQUAL "x86-64")
-		set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -machine:X64")
-	else()
-		set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -machine:X86")
-	endif()
-else()
-	set(CMAKE_C_FLAGS "-ffreestanding -nostdlib -nostdinc -march=${SHARD_LIBC_TARGET_ARCH}")
-
-	if (SHARD_LIBC_TARGET_ARCH STREQUAL "x86-64")
-		set(CMAKE_C_FLAGS "-include /usr/include/x86_64-linux-gnu/asm/unistd_64.h")
-	else()
-		set(CMAKE_C_FLAGS "-include /usr/include/x86_64-linux-gnu/asm/unistd_32.h")
-	endif()
-endif()
-
 set(LINUX_HEADERS
 	linux/${SHARD_LIBC_TARGET_ARCH}/env.h
 )
@@ -40,11 +13,12 @@ set(LINUX_SOURCES
 	# Miscellaneous utility stuff
 	linux/${SHARD_LIBC_TARGET_ARCH}/env.c
 
-	# stdlib.h implementations that are platform specific
-	linux/${SHARD_LIBC_TARGET_ARCH}/stdlib/exit.c
+	# stdlib.h implementations that are Linux specific
+	linux/stdlib/exit.c
 
 	# unistd.h implementations
 	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.c
+	linux/unistd/write.c
 )
 
 set(WINDOWS_HEADERS
@@ -73,6 +47,15 @@ set(INTERNAL_SOURCES
 	internal/startup.c
 )
 
+set(STRING_SOURCES
+	string/memccpy.c
+	string/memcpy.c
+	string/memmove.c
+	string/strlen.c
+)
+
+set(PUBLIC_SOURCES ${STRING_SOURCES})
+
 if (NOT MSVC)
 	list(APPEND INTERNAL_SOURCES
 		internal/stack_prot.c
@@ -80,6 +63,7 @@ if (NOT MSVC)
 endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES Windows)
+	include_directories(win32)
 	list(APPEND INTERNAL_HEADERS ${WINDOWS_HEADERS})
 	list(APPEND INTERNAL_SOURCES ${WINDOWS_SOURCES})
 endif()

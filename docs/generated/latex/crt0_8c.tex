@@ -1,0 +1,54 @@
+\hypertarget{crt0_8c}{}\doxysection{src/win32/crt0.c File Reference}
+\label{crt0_8c}\index{src/win32/crt0.c@{src/win32/crt0.c}}
+{\ttfamily \#include \char`\"{}wchar.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$heapapi.\+h$>$}\newline
+{\ttfamily \#include $<$shellapi.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}dumbass\+\_\+windows\+\_\+stuff.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}internal/startup.\+h\char`\"{}}\newline
+Include dependency graph for crt0.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{crt0_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{crt0_8c_ab7862540fda67cb6cc6b55355ecc4e4e}{startup}}~main\+C\+R\+T\+Startup
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+H\+A\+N\+D\+LE \mbox{\hyperlink{crt0_8c_a1e5919f236fbe478eb860777ce130e00}{\+\_\+\+\_\+libc\+\_\+windows\+\_\+heap}}
+\begin{DoxyCompactList}\small\item\em A handle to the heap returned by Get\+Process\+Heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{crt0_8c_ab7862540fda67cb6cc6b55355ecc4e4e}\label{crt0_8c_ab7862540fda67cb6cc6b55355ecc4e4e}} 
+\index{crt0.c@{crt0.c}!startup@{startup}}
+\index{startup@{startup}!crt0.c@{crt0.c}}
+\doxysubsubsection{\texorpdfstring{startup}{startup}}
+{\footnotesize\ttfamily int startup~main\+C\+R\+T\+Startup}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{crt0_8c_a1e5919f236fbe478eb860777ce130e00}\label{crt0_8c_a1e5919f236fbe478eb860777ce130e00}} 
+\index{crt0.c@{crt0.c}!\_\_libc\_windows\_heap@{\_\_libc\_windows\_heap}}
+\index{\_\_libc\_windows\_heap@{\_\_libc\_windows\_heap}!crt0.c@{crt0.c}}
+\doxysubsubsection{\texorpdfstring{\_\_libc\_windows\_heap}{\_\_libc\_windows\_heap}}
+{\footnotesize\ttfamily H\+A\+N\+D\+LE \+\_\+\+\_\+libc\+\_\+windows\+\_\+heap}
+
+
+
+A handle to the heap returned by Get\+Process\+Heap. 
+
+Dear Microsoft\+:
+
+I kind of don\textquotesingle{}t like the Windows A\+PI that much. It\textquotesingle{}s easy to use and really well documented, but I hate the way it\textquotesingle{}s designed. I mean, a handle is {\itshape literally just an arbitrary value with no f$\ast$cking use or meaning} that the kernel gives you and keeps track of. I would much rather just use {\itshape sane, logical, Hungarian notation and Camel\+Case free structs and parameter names, and non-\/renamed P\+O\+S\+IX functions \char`\"{}for standard conformance\char`\"{}}, like Linux has.
+
+It drives people away from developping for Windows. Please consider this.
+
+That said, this file contains handles for Windows-\/y stuff such as the process\textquotesingle{}s heap. 

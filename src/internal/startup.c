@@ -1,5 +1,7 @@
 #include "startup.h"
 
+char **environ;
+
 /**
  * @brief The address of where the
  * environment variable buffer starts, which is
@@ -7,10 +9,12 @@
  */
 char **__env;
 
-int __init_libc(int argc, char *argv[])
+int __init_libc(int __argc, char **__argv)
 {
 	/* Get the location of envp */
-	__env = __get_envp(argc, argv);
+	__env = __get_envp(__argc, __argv);
+
+	environ = __env;
 
 	return 0;
 }

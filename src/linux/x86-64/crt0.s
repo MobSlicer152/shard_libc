@@ -4,7 +4,7 @@
 _start:
 	# Put main's arguments in the right places
 	popq %rdi # argc
-	popq %rsi # argv
+	movq %rsp, %rsi # argv
 
 	# Set up the end of the stack frame list
 	xorq %rbp, %rbp
@@ -27,5 +27,9 @@ _start:
 	# Exit
 	movl %eax, %edi
 	call exit
+
+	# Already said this in the exit file, but
+	# exit returning means something is really wrong
+	hlt
 
 .size _start, . - _start

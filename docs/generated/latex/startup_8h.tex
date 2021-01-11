@@ -1,0 +1,88 @@
+\hypertarget{startup_8h}{}\doxysection{src/internal/startup.h File Reference}
+\label{startup_8h}\index{src/internal/startup.h@{src/internal/startup.h}}
+{\ttfamily \#include \char`\"{}registers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys/syscall.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
+Include dependency graph for startup.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{startup_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{startup_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{startup_8h_af0079a24d101b63630385360a33d1623}{\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+H}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{startup_8h_a173a20f19acf36985bbac6786a02b544}{\+\_\+fini}} (void)
+\begin{DoxyCompactList}\small\item\em The signature for \+\_\+fini, which is for global destructors on Linux. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{startup_8h_a647f21a28344e1d9c643f4115516d7c9}{main}} (int argc, char $\ast$$\ast$argv, char $\ast$$\ast$envp)
+\begin{DoxyCompactList}\small\item\em The signature for the main function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{startup_8h_a9c86baa57011b326981ccdc98b28fbac}{\+\_\+\+\_\+init\+\_\+libc}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
+\begin{DoxyCompactList}\small\item\em Sets stuff up, and retrieves envp. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
+\begin{DoxyCompactList}\small\item\em Calls main. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{startup_8h_af0079a24d101b63630385360a33d1623}\label{startup_8h_af0079a24d101b63630385360a33d1623}} 
+\index{startup.h@{startup.h}!\_STARTUP\_H@{\_STARTUP\_H}}
+\index{\_STARTUP\_H@{\_STARTUP\_H}!startup.h@{startup.h}}
+\doxysubsubsection{\texorpdfstring{\_STARTUP\_H}{\_STARTUP\_H}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+H~1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{startup_8h_a9c86baa57011b326981ccdc98b28fbac}\label{startup_8h_a9c86baa57011b326981ccdc98b28fbac}} 
+\index{startup.h@{startup.h}!\_\_init\_libc@{\_\_init\_libc}}
+\index{\_\_init\_libc@{\_\_init\_libc}!startup.h@{startup.h}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_libc()}{\_\_init\_libc()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+init\+\_\+libc (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
+
+
+
+Sets stuff up, and retrieves envp. 
+
+\mbox{\Hypertarget{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}\label{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}} 
+\index{startup.h@{startup.h}!\_\_libc\_call\_main@{\_\_libc\_call\_main}}
+\index{\_\_libc\_call\_main@{\_\_libc\_call\_main}!startup.h@{startup.h}}
+\doxysubsubsection{\texorpdfstring{\_\_libc\_call\_main()}{\_\_libc\_call\_main()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
+
+
+
+Calls main. 
+
+\mbox{\Hypertarget{startup_8h_a173a20f19acf36985bbac6786a02b544}\label{startup_8h_a173a20f19acf36985bbac6786a02b544}} 
+\index{startup.h@{startup.h}!\_fini@{\_fini}}
+\index{\_fini@{\_fini}!startup.h@{startup.h}}
+\doxysubsubsection{\texorpdfstring{\_fini()}{\_fini()}}
+{\footnotesize\ttfamily void \+\_\+fini (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The signature for \+\_\+fini, which is for global destructors on Linux. 
+
+\mbox{\Hypertarget{startup_8h_a647f21a28344e1d9c643f4115516d7c9}\label{startup_8h_a647f21a28344e1d9c643f4115516d7c9}} 
+\index{startup.h@{startup.h}!main@{main}}
+\index{main@{main}!startup.h@{startup.h}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv,  }\item[{char $\ast$$\ast$}]{envp }\end{DoxyParamCaption})}
+
+
+
+The signature for the main function. 
+

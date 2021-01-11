@@ -1,0 +1,79 @@
+\hypertarget{unistd_8h}{}\doxysection{include/unistd.h File Reference}
+\label{unistd_8h}\index{include/unistd.h@{include/unistd.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for unistd.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{unistd_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unistd_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unistd_8h_a02d58076bab13bda3f7849f0593f1414}{\+\_\+\+U\+N\+I\+S\+T\+D\+\_\+H}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{unistd_8h_a673831ddd118b3f2f97c19a399d5881b}{write}} (int \+\_\+\+\_\+fd, const void $\ast$\+\_\+\+\_\+buf, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Writes \+\_\+\+\_\+n bytes of \+\_\+\+\_\+buf to \+\_\+\+\_\+fd. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{unistd_8h_aa006daaf11f1e2e45a6ababaf463212b}{environ}}
+\begin{DoxyCompactList}\small\item\em The P\+O\+S\+I\+X-\/specified variable that contains the environment variables for the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unistd_8h_a02d58076bab13bda3f7849f0593f1414}\label{unistd_8h_a02d58076bab13bda3f7849f0593f1414}} 
+\index{unistd.h@{unistd.h}!\_UNISTD\_H@{\_UNISTD\_H}}
+\index{\_UNISTD\_H@{\_UNISTD\_H}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{\_UNISTD\_H}{\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define \+\_\+\+U\+N\+I\+S\+T\+D\+\_\+H~1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unistd_8h_a673831ddd118b3f2f97c19a399d5881b}\label{unistd_8h_a673831ddd118b3f2f97c19a399d5881b}} 
+\index{unistd.h@{unistd.h}!write@{write}}
+\index{write@{write}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily long write (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+fd,  }\item[{const void $\ast$}]{\+\_\+\+\_\+buf,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+Writes \+\_\+\+\_\+n bytes of \+\_\+\+\_\+buf to \+\_\+\+\_\+fd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+fd} & is the file descriptor to write to \\
+\hline
+{\em \+\_\+\+\_\+buf} & is the buffer to write \\
+\hline
+{\em \+\_\+\+\_\+n} & is the number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written or -\/1 if an error occurs 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{unistd_8h_aa006daaf11f1e2e45a6ababaf463212b}\label{unistd_8h_aa006daaf11f1e2e45a6ababaf463212b}} 
+\index{unistd.h@{unistd.h}!environ@{environ}}
+\index{environ@{environ}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{environ}{environ}}
+{\footnotesize\ttfamily char$\ast$$\ast$ environ}
+
+
+
+The P\+O\+S\+I\+X-\/specified variable that contains the environment variables for the program. 
+

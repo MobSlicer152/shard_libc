@@ -1,0 +1,10 @@
+<map id="include/stdlib.h" name="include/stdlib.h">
+<area shape="rect" id="node1" title=" " alt="" coords="364,5,485,32"/>
+<area shape="rect" id="node2" href="$stack__prot_8c.html" title=" " alt="" coords="5,80,140,121"/>
+<area shape="rect" id="node3" href="$startup_8h.html" title=" " alt="" coords="165,87,322,114"/>
+<area shape="rect" id="node6" href="$linux_2stdlib_2exit_8c.html" title=" " alt="" coords="346,87,503,114"/>
+<area shape="rect" id="node7" href="$win32_2stdlib_2exit_8c.html" title=" " alt="" coords="528,87,692,114"/>
+<area shape="rect" id="node8" href="$malloc_8c.html" title=" " alt="" coords="716,87,899,114"/>
+<area shape="rect" id="node4" href="$startup_8c.html" title=" " alt="" coords="83,169,239,196"/>
+<area shape="rect" id="node5" href="$crt0_8c.html" title=" " alt="" coords="263,169,387,196"/>
+</map>

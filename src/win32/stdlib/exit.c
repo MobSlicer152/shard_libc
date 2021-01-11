@@ -1,7 +1,7 @@
 /* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
 #include "stddef.h"
 
-#include <Windows.h>
+#include <windows.h>
 #include "stdlib.h"
 
 void exit(int __status)

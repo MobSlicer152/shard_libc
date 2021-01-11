@@ -1,0 +1,42 @@
+\hypertarget{memcpy_8c}{}\doxysection{src/string/memcpy.c File Reference}
+\label{memcpy_8c}\index{src/string/memcpy.c@{src/string/memcpy.c}}
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+Include dependency graph for memcpy.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{memcpy_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{memcpy_8c_aa96cc5990d853d21a1fcd6af8eaa2dc5}{memcpy}} (void $\ast$restrict \+\_\+\+\_\+dst, const void $\ast$restrict \+\_\+\+\_\+src, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memcpy_8c_aa96cc5990d853d21a1fcd6af8eaa2dc5}\label{memcpy_8c_aa96cc5990d853d21a1fcd6af8eaa2dc5}} 
+\index{memcpy.c@{memcpy.c}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!memcpy.c@{memcpy.c}}
+\doxysubsubsection{\texorpdfstring{memcpy()}{memcpy()}}
+{\footnotesize\ttfamily void$\ast$ memcpy (\begin{DoxyParamCaption}\item[{void $\ast$restrict}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$restrict}]{\+\_\+\+\_\+src,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst. 
+
+If \+\_\+\+\_\+src and \+\_\+\+\_\+dst overlap then you get undefined behaviour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+dst} & is where to copy to \\
+\hline
+{\em \+\_\+\+\_\+src} & is where to copy from \\
+\hline
+{\em \+\_\+\+\_\+n} & is how many bytes to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of \+\_\+\+\_\+dst. 
+\end{DoxyReturn}

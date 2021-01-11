@@ -1,0 +1,103 @@
+\hypertarget{string_8h}{}\doxysection{include/string.h File Reference}
+\label{string_8h}\index{include/string.h@{include/string.h}}
+{\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
+Include dependency graph for string.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{string_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{string_8h_a89db202336b6ef78e06991c8b44a1302}{\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+H}}~1
+\begin{DoxyCompactList}\small\item\em String/buffer related functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{string_8h_aa96cc5990d853d21a1fcd6af8eaa2dc5}{memcpy}} (void $\ast$restrict \+\_\+\+\_\+dst, const void $\ast$restrict \+\_\+\+\_\+src, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{string_8h_ae7a771593fafcee568f29c3507cba899}{memccpy}} (void $\ast$restrict \+\_\+\+\_\+dst, const void $\ast$restrict \+\_\+\+\_\+src, int \+\_\+\+\_\+c, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Copies up to \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst until \+\_\+\+\_\+c occurs. Returns a pointer to the byte after \+\_\+\+\_\+c\textquotesingle{}s occurence or N\+U\+LL. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{string_8h_ae3c07f47a52b48692ea924fa8299ebef}{memmove}} (void $\ast$\+\_\+\+\_\+dst, const void $\ast$\+\_\+\+\_\+src, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to a temporary buffer and then into \+\_\+\+\_\+dst. Returns \+\_\+\+\_\+dst. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \mbox{\hyperlink{string_8h_accd92aebde496377aff85f39aa99071f}{strlen}} (const char $\ast$\+\_\+\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Returns the number of characters in \+\_\+\+\_\+str. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{string_8h_a89db202336b6ef78e06991c8b44a1302}\label{string_8h_a89db202336b6ef78e06991c8b44a1302}} 
+\index{string.h@{string.h}!\_STRING\_H@{\_STRING\_H}}
+\index{\_STRING\_H@{\_STRING\_H}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{\_STRING\_H}{\_STRING\_H}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+R\+I\+N\+G\+\_\+H~1}
+
+
+
+String/buffer related functions. 
+
+Contains the definitions of the standard library functions for string and memory manipulation. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{string_8h_ae7a771593fafcee568f29c3507cba899}\label{string_8h_ae7a771593fafcee568f29c3507cba899}} 
+\index{string.h@{string.h}!memccpy@{memccpy}}
+\index{memccpy@{memccpy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memccpy()}{memccpy()}}
+{\footnotesize\ttfamily void$\ast$ memccpy (\begin{DoxyParamCaption}\item[{void $\ast$restrict}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$restrict}]{\+\_\+\+\_\+src,  }\item[{int}]{\+\_\+\+\_\+c,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+Copies up to \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst until \+\_\+\+\_\+c occurs. Returns a pointer to the byte after \+\_\+\+\_\+c\textquotesingle{}s occurence or N\+U\+LL. 
+
+\mbox{\Hypertarget{string_8h_aa96cc5990d853d21a1fcd6af8eaa2dc5}\label{string_8h_aa96cc5990d853d21a1fcd6af8eaa2dc5}} 
+\index{string.h@{string.h}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memcpy()}{memcpy()}}
+{\footnotesize\ttfamily void$\ast$ memcpy (\begin{DoxyParamCaption}\item[{void $\ast$restrict}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$restrict}]{\+\_\+\+\_\+src,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst. 
+
+If \+\_\+\+\_\+src and \+\_\+\+\_\+dst overlap then you get undefined behaviour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+dst} & is where to copy to \\
+\hline
+{\em \+\_\+\+\_\+src} & is where to copy from \\
+\hline
+{\em \+\_\+\+\_\+n} & is how many bytes to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of \+\_\+\+\_\+dst. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{string_8h_ae3c07f47a52b48692ea924fa8299ebef}\label{string_8h_ae3c07f47a52b48692ea924fa8299ebef}} 
+\index{string.h@{string.h}!memmove@{memmove}}
+\index{memmove@{memmove}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memmove()}{memmove()}}
+{\footnotesize\ttfamily void$\ast$ memmove (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$}]{\+\_\+\+\_\+src,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to a temporary buffer and then into \+\_\+\+\_\+dst. Returns \+\_\+\+\_\+dst. 
+
+\mbox{\Hypertarget{string_8h_accd92aebde496377aff85f39aa99071f}\label{string_8h_accd92aebde496377aff85f39aa99071f}} 
+\index{string.h@{string.h}!strlen@{strlen}}
+\index{strlen@{strlen}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strlen()}{strlen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} strlen (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Returns the number of characters in \+\_\+\+\_\+str. 
+

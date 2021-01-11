@@ -1,7 +1,7 @@
 /* Windows needs wchar_t */
 #include "stddef.h"
 
-#include <Windows.h>
+#include <windows.h>
 #include "unistd.h"
 
 long write(int __fd, const void *__buf, size_t __n)
