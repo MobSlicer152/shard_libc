@@ -2,7 +2,7 @@
 #include "unistd.h"
 #include "stdlib.h"
 
-extern void _exit(int __status)
+void _exit(int __status)
 {
 	while (1) {
 #ifdef __NR_exit_group
