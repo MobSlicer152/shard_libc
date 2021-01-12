@@ -81,27 +81,30 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if defined __linux__ &amp;&amp; defined __x86_64__</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="linux_2x86-64_2env_8h.html">linux/x86-64/env.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined __linux__ &amp;&amp; defined __X86_64__ */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">_fini</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="startup_8h.html#a647f21a28344e1d9c643f4115516d7c9">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv, <span class="keywordtype">char</span> **envp);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="startup_8h.html#a9c86baa57011b326981ccdc98b28fbac">__init_libc</a>(<span class="keywordtype">int</span> __argc, <span class="keywordtype">char</span> **__argv);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="startup_8h.html#ae3ae52ba2f276c1db1d047d10288e7b5">__libc_call_main</a>(<span class="keywordtype">int</span> __argc, <span class="keywordtype">char</span> **__argv);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !_STARTUP_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#elif defined _WIN32</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="win32_2env_8h.html">win32/env.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined __linux__ &amp;&amp; defined __X86_64__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">_fini</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="startup_8h.html#a647f21a28344e1d9c643f4115516d7c9">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv, <span class="keywordtype">char</span> **envp);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="startup_8h.html#a9c86baa57011b326981ccdc98b28fbac">__init_libc</a>(<span class="keywordtype">int</span> __argc, <span class="keywordtype">char</span> **__argv);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="startup_8h.html#ab87a2d62aa906189a4e708e6f75f1aeb">__libc_call_main</a>(<span class="keywordtype">int</span> __argc, <span class="keywordtype">char</span> **__argv);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !_STARTUP_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astartup_8h_html_a9c86baa57011b326981ccdc98b28fbac"><div class="ttname"><a href="startup_8h.html#a9c86baa57011b326981ccdc98b28fbac">__init_libc</a></div><div class="ttdeci">int __init_libc(int __argc, char **__argv)</div><div class="ttdoc">Sets stuff up, and retrieves envp.</div><div class="ttdef"><b>Definition:</b> startup.c:12</div></div>
+<div class="ttc" id="astartup_8h_html_a9c86baa57011b326981ccdc98b28fbac"><div class="ttname"><a href="startup_8h.html#a9c86baa57011b326981ccdc98b28fbac">__init_libc</a></div><div class="ttdeci">int __init_libc(int __argc, char **__argv)</div><div class="ttdoc">Sets stuff up, and retrieves envp.</div><div class="ttdef"><b>Definition:</b> startup.c:6</div></div>
+<div class="ttc" id="awin32_2env_8h_html"><div class="ttname"><a href="win32_2env_8h.html">env.h</a></div></div>
 <div class="ttc" id="asyscall_8h_html"><div class="ttname"><a href="syscall_8h.html">syscall.h</a></div></div>
 <div class="ttc" id="alinux_2x86-64_2env_8h_html"><div class="ttname"><a href="linux_2x86-64_2env_8h.html">env.h</a></div></div>
-<div class="ttc" id="astartup_8h_html_ae3ae52ba2f276c1db1d047d10288e7b5"><div class="ttname"><a href="startup_8h.html#ae3ae52ba2f276c1db1d047d10288e7b5">__libc_call_main</a></div><div class="ttdeci">int __libc_call_main(int __argc, char **__argv)</div><div class="ttdoc">Calls main.</div><div class="ttdef"><b>Definition:</b> startup.c:22</div></div>
-<div class="ttc" id="astartup_8h_html_a173a20f19acf36985bbac6786a02b544"><div class="ttname"><a href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">_fini</a></div><div class="ttdeci">void _fini(void)</div><div class="ttdoc">The signature for _fini, which is for global destructors on Linux.</div></div>
+<div class="ttc" id="astartup_8h_html_a173a20f19acf36985bbac6786a02b544"><div class="ttname"><a href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">_fini</a></div><div class="ttdeci">void _fini(void)</div><div class="ttdoc">The signature for _fini, which is for global destructors in GCC.</div></div>
 <div class="ttc" id="aunistd_8h_html"><div class="ttname"><a href="unistd_8h.html">unistd.h</a></div></div>
 <div class="ttc" id="astartup_8h_html_a647f21a28344e1d9c643f4115516d7c9"><div class="ttname"><a href="startup_8h.html#a647f21a28344e1d9c643f4115516d7c9">main</a></div><div class="ttdeci">int main(int argc, char **argv, char **envp)</div><div class="ttdoc">The signature for the main function.</div></div>
 <div class="ttc" id="astdlib_8h_html"><div class="ttname"><a href="stdlib_8h.html">stdlib.h</a></div></div>
 <div class="ttc" id="aregisters_8h_html"><div class="ttname"><a href="registers_8h.html">registers.h</a></div></div>
+<div class="ttc" id="astartup_8h_html_ab87a2d62aa906189a4e708e6f75f1aeb"><div class="ttname"><a href="startup_8h.html#ab87a2d62aa906189a4e708e6f75f1aeb">__libc_call_main</a></div><div class="ttdeci">void __libc_call_main(int __argc, char **__argv)</div><div class="ttdoc">Calls main.</div><div class="ttdef"><b>Definition:</b> startup.c:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

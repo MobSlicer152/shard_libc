@@ -111,7 +111,7 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a173a20f19acf36985bbac6786a02b544"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">_fini</a> (void)</td></tr>
-<tr class="memdesc:a173a20f19acf36985bbac6786a02b544"><td class="mdescLeft">&#160;</td><td class="mdescRight">The signature for _fini, which is for global destructors on Linux.  <a href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">More...</a><br /></td></tr>
+<tr class="memdesc:a173a20f19acf36985bbac6786a02b544"><td class="mdescLeft">&#160;</td><td class="mdescRight">The signature for _fini, which is for global destructors in GCC.  <a href="startup_8h.html#a173a20f19acf36985bbac6786a02b544">More...</a><br /></td></tr>
 <tr class="separator:a173a20f19acf36985bbac6786a02b544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a647f21a28344e1d9c643f4115516d7c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="startup_8h.html#a647f21a28344e1d9c643f4115516d7c9">main</a> (int argc, char **argv, char **envp)</td></tr>
 <tr class="memdesc:a647f21a28344e1d9c643f4115516d7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The signature for the main function.  <a href="startup_8h.html#a647f21a28344e1d9c643f4115516d7c9">More...</a><br /></td></tr>
@@ -119,9 +119,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9c86baa57011b326981ccdc98b28fbac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="startup_8h.html#a9c86baa57011b326981ccdc98b28fbac">__init_libc</a> (int __argc, char **__argv)</td></tr>
 <tr class="memdesc:a9c86baa57011b326981ccdc98b28fbac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets stuff up, and retrieves envp.  <a href="startup_8h.html#a9c86baa57011b326981ccdc98b28fbac">More...</a><br /></td></tr>
 <tr class="separator:a9c86baa57011b326981ccdc98b28fbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3ae52ba2f276c1db1d047d10288e7b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="startup_8h.html#ae3ae52ba2f276c1db1d047d10288e7b5">__libc_call_main</a> (int __argc, char **__argv)</td></tr>
-<tr class="memdesc:ae3ae52ba2f276c1db1d047d10288e7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls main.  <a href="startup_8h.html#ae3ae52ba2f276c1db1d047d10288e7b5">More...</a><br /></td></tr>
-<tr class="separator:ae3ae52ba2f276c1db1d047d10288e7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87a2d62aa906189a4e708e6f75f1aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="startup_8h.html#ab87a2d62aa906189a4e708e6f75f1aeb">__libc_call_main</a> (int __argc, char **__argv)</td></tr>
+<tr class="memdesc:ab87a2d62aa906189a4e708e6f75f1aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls main.  <a href="startup_8h.html#ab87a2d62aa906189a4e708e6f75f1aeb">More...</a><br /></td></tr>
+<tr class="separator:ab87a2d62aa906189a4e708e6f75f1aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="af0079a24d101b63630385360a33d1623"></a>
@@ -169,14 +169,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae3ae52ba2f276c1db1d047d10288e7b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3ae52ba2f276c1db1d047d10288e7b5">&#9670;&nbsp;</a></span>__libc_call_main()</h2>
+<a id="ab87a2d62aa906189a4e708e6f75f1aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87a2d62aa906189a4e708e6f75f1aeb">&#9670;&nbsp;</a></span>__libc_call_main()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int __libc_call_main </td>
+          <td class="memname">void __libc_call_main </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>__argc</em>, </td>
@@ -215,7 +215,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The signature for _fini, which is for global destructors on Linux. </p>
+<p>The signature for _fini, which is for global destructors in GCC. </p>
 
 </div>
 </div>

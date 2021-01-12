@@ -1,0 +1,37 @@
+\hypertarget{exit_8c}{}\doxysection{src/stdlib/exit.c File Reference}
+\label{exit_8c}\index{src/stdlib/exit.c@{src/stdlib/exit.c}}
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+Include dependency graph for exit.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{exit_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{exit_8c_a037e1211798125c945a26bfbfdf26b8f}{exit}} (int \+\_\+\+\_\+status)
+\begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and once I implement it, atexit registered functions). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{exit_8c_a037e1211798125c945a26bfbfdf26b8f}\label{exit_8c_a037e1211798125c945a26bfbfdf26b8f}} 
+\index{exit.c@{exit.c}!exit@{exit}}
+\index{exit@{exit}!exit.c@{exit.c}}
+\doxysubsubsection{\texorpdfstring{exit()}{exit()}}
+{\footnotesize\ttfamily void exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+
+
+
+Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and once I implement it, atexit registered functions). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+status} & is the code to exit with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+It shouldn\textquotesingle{}t come to this. If it does, something is very, very wrong. 
+\end{DoxyReturn}

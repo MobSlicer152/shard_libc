@@ -27,12 +27,12 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{startup_8h_a173a20f19acf36985bbac6786a02b544}{\+\_\+fini}} (void)
-\begin{DoxyCompactList}\small\item\em The signature for \+\_\+fini, which is for global destructors on Linux. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The signature for \+\_\+fini, which is for global destructors in G\+CC. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{startup_8h_a647f21a28344e1d9c643f4115516d7c9}{main}} (int argc, char $\ast$$\ast$argv, char $\ast$$\ast$envp)
 \begin{DoxyCompactList}\small\item\em The signature for the main function. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{startup_8h_a9c86baa57011b326981ccdc98b28fbac}{\+\_\+\+\_\+init\+\_\+libc}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
 \begin{DoxyCompactList}\small\item\em Sets stuff up, and retrieves envp. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
+void \mbox{\hyperlink{startup_8h_ab87a2d62aa906189a4e708e6f75f1aeb}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
 \begin{DoxyCompactList}\small\item\em Calls main. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -56,11 +56,11 @@ int \mbox{\hyperlink{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}{\+\_\+\+\_\+l
 
 Sets stuff up, and retrieves envp. 
 
-\mbox{\Hypertarget{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}\label{startup_8h_ae3ae52ba2f276c1db1d047d10288e7b5}} 
+\mbox{\Hypertarget{startup_8h_ab87a2d62aa906189a4e708e6f75f1aeb}\label{startup_8h_ab87a2d62aa906189a4e708e6f75f1aeb}} 
 \index{startup.h@{startup.h}!\_\_libc\_call\_main@{\_\_libc\_call\_main}}
 \index{\_\_libc\_call\_main@{\_\_libc\_call\_main}!startup.h@{startup.h}}
 \doxysubsubsection{\texorpdfstring{\_\_libc\_call\_main()}{\_\_libc\_call\_main()}}
-{\footnotesize\ttfamily int \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
 
 
 
@@ -74,7 +74,7 @@ Calls main.
 
 
 
-The signature for \+\_\+fini, which is for global destructors on Linux. 
+The signature for \+\_\+fini, which is for global destructors in G\+CC. 
 
 \mbox{\Hypertarget{startup_8h_a647f21a28344e1d9c643f4115516d7c9}\label{startup_8h_a647f21a28344e1d9c643f4115516d7c9}} 
 \index{startup.h@{startup.h}!main@{main}}

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['cmakelists_2etxt_82',['CMakeLists.txt',['../CMakeLists_8txt.html',1,'']]],
-  ['crt0_2ec_83',['crt0.c',['../crt0_8c.html',1,'']]],
-  ['ctype_2eh_84',['ctype.h',['../ctype_8h.html',1,'']]]
+  ['_5fexit_2ec_81',['_exit.c',['../linux_2stdlib_2__exit_8c.html',1,'(Global Namespace)'],['../win32_2stdlib_2__exit_8c.html',1,'(Global Namespace)']]]
 ];

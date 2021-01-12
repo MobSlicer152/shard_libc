@@ -13,7 +13,7 @@ Include dependency graph for startup.\+c\+:\nopagebreak
 \item 
 int \mbox{\hyperlink{startup_8c_a9c86baa57011b326981ccdc98b28fbac}{\+\_\+\+\_\+init\+\_\+libc}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
 \begin{DoxyCompactList}\small\item\em Sets stuff up, and retrieves envp. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
+void \mbox{\hyperlink{startup_8c_ab87a2d62aa906189a4e708e6f75f1aeb}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
 \begin{DoxyCompactList}\small\item\em Calls main. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -21,7 +21,7 @@ int \mbox{\hyperlink{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}{\+\_\+\+\_\+l
 char $\ast$$\ast$ \mbox{\hyperlink{startup_8c_aa006daaf11f1e2e45a6ababaf463212b}{environ}}
 \begin{DoxyCompactList}\small\item\em The P\+O\+S\+I\+X-\/specified variable that contains the environment variables for the program. \end{DoxyCompactList}\item 
 char $\ast$$\ast$ \mbox{\hyperlink{startup_8c_ab8b8619e373c6d9c2f44b31219f2d8ab}{\+\_\+\+\_\+env}}
-\begin{DoxyCompactList}\small\item\em The address of where the environment variable buffer starts, which is determined by \+\_\+\+\_\+get\+\_\+envp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -35,11 +35,11 @@ char $\ast$$\ast$ \mbox{\hyperlink{startup_8c_ab8b8619e373c6d9c2f44b31219f2d8ab}
 
 Sets stuff up, and retrieves envp. 
 
-\mbox{\Hypertarget{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}\label{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}} 
+\mbox{\Hypertarget{startup_8c_ab87a2d62aa906189a4e708e6f75f1aeb}\label{startup_8c_ab87a2d62aa906189a4e708e6f75f1aeb}} 
 \index{startup.c@{startup.c}!\_\_libc\_call\_main@{\_\_libc\_call\_main}}
 \index{\_\_libc\_call\_main@{\_\_libc\_call\_main}!startup.c@{startup.c}}
 \doxysubsubsection{\texorpdfstring{\_\_libc\_call\_main()}{\_\_libc\_call\_main()}}
-{\footnotesize\ttfamily int \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
 
 
 
@@ -53,10 +53,6 @@ Calls main.
 \index{\_\_env@{\_\_env}!startup.c@{startup.c}}
 \doxysubsubsection{\texorpdfstring{\_\_env}{\_\_env}}
 {\footnotesize\ttfamily char$\ast$$\ast$ \+\_\+\+\_\+env}
-
-
-
-The address of where the environment variable buffer starts, which is determined by \+\_\+\+\_\+get\+\_\+envp. 
 
 \mbox{\Hypertarget{startup_8c_aa006daaf11f1e2e45a6ababaf463212b}\label{startup_8c_aa006daaf11f1e2e45a6ababaf463212b}} 
 \index{startup.c@{startup.c}!environ@{environ}}

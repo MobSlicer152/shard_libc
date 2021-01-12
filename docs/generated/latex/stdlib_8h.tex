@@ -8,7 +8,8 @@ Include dependency graph for stdlib.\+h\+:\nopagebreak
 \includegraphics[width=171pt]{stdlib_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,6 +28,8 @@ void \mbox{\hyperlink{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}{abort}} (void
 \begin{DoxyCompactList}\small\item\em Terminate program execution abnormally. Only use this when something goes {\itshape really} wrong. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}{exit}} (int \+\_\+\+\_\+status) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
 \begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and once I implement it, atexit registered functions). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stdlib_8h_a90b6ca18ef307f34c9afb3826b23956b}{\+\_\+exit}} (int \+\_\+\+\_\+status) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status without doing any cleanup. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc}} (\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Allocate some memory from the heap of size \+\_\+\+\_\+size. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -41,6 +44,24 @@ void $\ast$ \mbox{\hyperlink{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stdlib_8h_a90b6ca18ef307f34c9afb3826b23956b}\label{stdlib_8h_a90b6ca18ef307f34c9afb3826b23956b}} 
+\index{stdlib.h@{stdlib.h}!\_exit@{\_exit}}
+\index{\_exit@{\_exit}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{\_exit()}{\_exit()}}
+{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+
+
+
+Terminate program execution with code \+\_\+\+\_\+status without doing any cleanup. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+status} & is the code to exit with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Like exit, something is wrong if this happens 
+\end{DoxyReturn}
 \mbox{\Hypertarget{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}\label{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}} 
 \index{stdlib.h@{stdlib.h}!abort@{abort}}
 \index{abort@{abort}!stdlib.h@{stdlib.h}}

@@ -1,0 +1,39 @@
+\hypertarget{linux_2stdlib_2__exit_8c}{}\doxysection{src/linux/stdlib/\+\_\+exit.c File Reference}
+\label{linux_2stdlib_2__exit_8c}\index{src/linux/stdlib/\_exit.c@{src/linux/stdlib/\_exit.c}}
+{\ttfamily \#include \char`\"{}sys/syscall.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+Include dependency graph for \+\_\+exit.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{linux_2stdlib_2__exit_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{linux_2stdlib_2__exit_8c_a6a7c6128f83e1cabd41803e0065bdaca}{\+\_\+exit}} (int \+\_\+\+\_\+status)
+\begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status without doing any cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{linux_2stdlib_2__exit_8c_a6a7c6128f83e1cabd41803e0065bdaca}\label{linux_2stdlib_2__exit_8c_a6a7c6128f83e1cabd41803e0065bdaca}} 
+\index{\_exit.c@{\_exit.c}!\_exit@{\_exit}}
+\index{\_exit@{\_exit}!\_exit.c@{\_exit.c}}
+\doxysubsubsection{\texorpdfstring{\_exit()}{\_exit()}}
+{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+
+
+
+Terminate program execution with code \+\_\+\+\_\+status without doing any cleanup. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+status} & is the code to exit with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Like exit, something is wrong if this happens 
+\end{DoxyReturn}

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['va_5farg_74',['va_arg',['../stdarg_8h.html#aa3d344ec3114e21b558ead5c3bb1935e',1,'stdarg.h']]],
-  ['va_5fcopy_75',['va_copy',['../stdarg_8h.html#aaf5addb1c590c55d01c32ffec8f7d84f',1,'stdarg.h']]],
-  ['va_5fend_76',['va_end',['../stdarg_8h.html#a04a7859729c93333664072300d9af51b',1,'stdarg.h']]],
-  ['va_5flist_77',['va_list',['../stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1',1,'stdarg.h']]],
-  ['va_5fstart_78',['va_start',['../stdarg_8h.html#a04b43378a230e60f16693f6c482ba657',1,'stdarg.h']]]
+  ['wchar_5ft_78',['wchar_t',['../stddef_8h.html#ab0d0587e8a710c41b13ba8f3c9e2fcdc',1,'stddef.h']]],
+  ['write_79',['write',['../unistd_8h.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c'],['../linux_2unistd_2write_8c.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c'],['../win32_2unistd_2write_8c.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c']]],
+  ['write_2ec_80',['write.c',['../linux_2unistd_2write_8c.html',1,'(Global Namespace)'],['../win32_2unistd_2write_8c.html',1,'(Global Namespace)']]]
 ];

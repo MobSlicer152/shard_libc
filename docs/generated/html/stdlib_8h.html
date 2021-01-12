@@ -87,12 +87,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="stdlib_8h__dep__incl.png" border="0" usemap="#include_2stdlib_8hdep" alt=""/></div>
 <map name="include_2stdlib_8hdep" id="include_2stdlib_8hdep">
-<area shape="rect" title=" " alt="" coords="364,5,485,32"/>
+<area shape="rect" title=" " alt="" coords="451,5,572,32"/>
 <area shape="rect" href="stack__prot_8c.html" title=" " alt="" coords="5,80,140,121"/>
 <area shape="rect" href="startup_8h.html" title=" " alt="" coords="165,87,322,114"/>
-<area shape="rect" href="linux_2stdlib_2exit_8c.html" title=" " alt="" coords="346,87,503,114"/>
-<area shape="rect" href="win32_2stdlib_2exit_8c.html" title=" " alt="" coords="528,87,692,114"/>
-<area shape="rect" href="malloc_8c.html" title=" " alt="" coords="716,87,899,114"/>
+<area shape="rect" href="linux_2stdlib_2__exit_8c.html" title=" " alt="" coords="347,87,511,114"/>
+<area shape="rect" href="exit_8c.html" title=" " alt="" coords="535,87,656,114"/>
+<area shape="rect" href="win32_2stdlib_2__exit_8c.html" title=" " alt="" coords="681,87,851,114"/>
+<area shape="rect" href="malloc_8c.html" title=" " alt="" coords="876,87,1059,114"/>
 <area shape="rect" href="startup_8c.html" title=" " alt="" coords="83,169,239,196"/>
 <area shape="rect" href="crt0_8c.html" title=" " alt="" coords="263,169,387,196"/>
 </map>
@@ -113,6 +114,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab891002608ada5a90a82d9cf71d5fe05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdlib_8h.html#ab891002608ada5a90a82d9cf71d5fe05">exit</a> (int __status) <a class="el" href="stack__prot_8c.html#a1b6824bfd4ec0404a4f875ed8db0274e">__attribute__</a>((__noreturn__))</td></tr>
 <tr class="memdesc:ab891002608ada5a90a82d9cf71d5fe05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate program execution with code __status and do cleanup (and once I implement it, atexit registered functions).  <a href="stdlib_8h.html#ab891002608ada5a90a82d9cf71d5fe05">More...</a><br /></td></tr>
 <tr class="separator:ab891002608ada5a90a82d9cf71d5fe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b6ca18ef307f34c9afb3826b23956b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdlib_8h.html#a90b6ca18ef307f34c9afb3826b23956b">_exit</a> (int __status) <a class="el" href="stack__prot_8c.html#a1b6824bfd4ec0404a4f875ed8db0274e">__attribute__</a>((__noreturn__))</td></tr>
+<tr class="memdesc:a90b6ca18ef307f34c9afb3826b23956b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate program execution with code __status without doing any cleanup.  <a href="stdlib_8h.html#a90b6ca18ef307f34c9afb3826b23956b">More...</a><br /></td></tr>
+<tr class="separator:a90b6ca18ef307f34c9afb3826b23956b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae91b3dc6530d8a443eb7f01137f5aeff"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdlib_8h.html#ae91b3dc6530d8a443eb7f01137f5aeff">malloc</a> (<a class="el" href="stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> __size)</td></tr>
 <tr class="memdesc:ae91b3dc6530d8a443eb7f01137f5aeff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate some memory from the heap of size __size.  <a href="stdlib_8h.html#ae91b3dc6530d8a443eb7f01137f5aeff">More...</a><br /></td></tr>
 <tr class="separator:ae91b3dc6530d8a443eb7f01137f5aeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,6 +137,33 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a90b6ca18ef307f34c9afb3826b23956b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b6ca18ef307f34c9afb3826b23956b">&#9670;&nbsp;</a></span>_exit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _exit </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>__status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminate program execution with code __status without doing any cleanup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">__status</td><td>is the code to exit with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Like exit, something is wrong if this happens </dd></dl>
+
+</div>
+</div>
 <a id="abc9b459c7ea0783bdfd40fa8ae77aa01"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc9b459c7ea0783bdfd40fa8ae77aa01">&#9670;&nbsp;</a></span>abort()</h2>
 
