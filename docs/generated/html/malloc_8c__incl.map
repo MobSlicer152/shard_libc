@@ -1,9 +1,8 @@
 <map id="src/win32/stdlib/malloc.c" name="src/win32/stdlib/malloc.c">
-<area shape="rect" id="node1" title=" " alt="" coords="119,5,301,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="60,5,243,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,87,92,114"/>
-<area shape="rect" id="node3" href="$dumbass__windows__stuff_8h.html" title=" " alt="" coords="116,80,304,121"/>
-<area shape="rect" id="node6" href="$stdlib_8h.html" title=" " alt="" coords="328,87,399,114"/>
-<area shape="rect" id="node4" title=" " alt="" coords="91,169,163,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="187,169,278,196"/>
-<area shape="rect" id="node7" href="$stddef_8h.html" title=" " alt="" coords="326,169,401,196"/>
+<area shape="rect" id="node3" href="$dumbass__windows__stuff_8h.html" title=" " alt="" coords="211,80,399,121"/>
+<area shape="rect" id="node6" href="$stdlib_8h.html" title=" " alt="" coords="116,87,187,114"/>
+<area shape="rect" id="node4" href="$stddef_8h.html" title=" " alt="" coords="138,169,213,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,169,350,196"/>
 </map>

@@ -1,6 +1,6 @@
 \hypertarget{dumbass__windows__stuff_8h}{}\doxysection{src/win32/dumbass\+\_\+windows\+\_\+stuff.h File Reference}
 \label{dumbass__windows__stuff_8h}\index{src/win32/dumbass\_windows\_stuff.h@{src/win32/dumbass\_windows\_stuff.h}}
-{\ttfamily \#include \char`\"{}wchar.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$windows.\+h$>$}\newline
 Include dependency graph for dumbass\+\_\+windows\+\_\+stuff.\+h\+:\nopagebreak
 \begin{figure}[H]
@@ -35,7 +35,15 @@ H\+A\+N\+D\+LE \mbox{\hyperlink{dumbass__windows__stuff_8h_a1e5919f236fbe478eb86
 \doxysubsubsection{\texorpdfstring{\_WIN32\_DUMBASS\_WINDOWS\_STUFF\_H}{\_WIN32\_DUMBASS\_WINDOWS\_STUFF\_H}}
 {\footnotesize\ttfamily \#define \+\_\+\+W\+I\+N32\+\_\+\+D\+U\+M\+B\+A\+S\+S\+\_\+\+W\+I\+N\+D\+O\+W\+S\+\_\+\+S\+T\+U\+F\+F\+\_\+H~1}
 
+and other dumb Win32 stuff.
 
+Dear Microsoft\+:
+
+I kind of don\textquotesingle{}t like the Windows A\+PI that much. It\textquotesingle{}s easy to use and really well documented, but I hate the way it\textquotesingle{}s designed. I mean, a handle is {\itshape literally just an arbitrary value with no f$\ast$cking use or meaning} that the kernel gives you and keeps track of. I would much rather just use {\itshape sane, logical, Hungarian notation and Camel\+Case free structs and parameter names, and non-\/renamed P\+O\+S\+IX functions \char`\"{}for standard conformance\char`\"{}}, like Linux has.
+
+It drives people away from developping for Windows. Please consider this.
+
+That said, this file contains handles for Windows-\/y stuff such as the process\textquotesingle{}s heap. 
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{dumbass__windows__stuff_8h_a1e5919f236fbe478eb860777ce130e00}\label{dumbass__windows__stuff_8h_a1e5919f236fbe478eb860777ce130e00}} 
@@ -48,12 +56,3 @@ H\+A\+N\+D\+LE \mbox{\hyperlink{dumbass__windows__stuff_8h_a1e5919f236fbe478eb86
 
 A handle to the heap returned by Get\+Process\+Heap. 
 
-and other dumb Win32 stuff.
-
-Dear Microsoft\+:
-
-I kind of don\textquotesingle{}t like the Windows A\+PI that much. It\textquotesingle{}s easy to use and really well documented, but I hate the way it\textquotesingle{}s designed. I mean, a handle is {\itshape literally just an arbitrary value with no f$\ast$cking use or meaning} that the kernel gives you and keeps track of. I would much rather just use {\itshape sane, logical, Hungarian notation and Camel\+Case free structs and parameter names, and non-\/renamed P\+O\+S\+IX functions \char`\"{}for standard conformance\char`\"{}}, like Linux has.
-
-It drives people away from developping for Windows. Please consider this.
-
-That said, this file contains handles for Windows-\/y stuff such as the process\textquotesingle{}s heap. 
