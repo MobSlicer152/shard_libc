@@ -31,6 +31,19 @@ extern void exit(int __status) __attribute__((__noreturn__));
 #endif /* _MSC_VER */
 
 /**
+ * @brief Terminate program execution with code __status without
+ *  doing any cleanup.
+ * 
+ * @param __status is the code to exit with.
+ * @returns Like exit, something is wrong if this happens
+ */
+#ifdef _MSC_VER
+__declspec(noreturn) extern void _exit(int __status);
+#else /* _MSC_VER */
+extern void _exit(int __status) __attribute__((__noreturn__));
+#endif /* _MSC_VER */
+
+/**
  * @brief Allocate some memory from the heap of size __size.
  * 
  */

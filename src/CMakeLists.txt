@@ -14,7 +14,7 @@ set(LINUX_SOURCES
 	linux/${SHARD_LIBC_TARGET_ARCH}/env.c
 
 	# stdlib.h implementations that are Linux specific
-	linux/stdlib/exit.c
+	linux/stdlib/_exit.c
 
 	# unistd.h implementations
 	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.c
@@ -34,7 +34,7 @@ set(WINDOWS_SOURCES
 	win32/env.c
 
 	# stdlib.h implementations that are platform specific
-	win32/stdlib/exit.c
+	win32/stdlib/_exit.c
 	win32/stdlib/malloc.c
 )
 
@@ -47,6 +47,10 @@ set(INTERNAL_SOURCES
 	internal/startup.c
 )
 
+set(STDLIB_SOURCES
+	stdlib/exit.c
+)
+
 set(STRING_SOURCES
 	string/memccpy.c
 	string/memcpy.c
@@ -54,7 +58,7 @@ set(STRING_SOURCES
 	string/strlen.c
 )
 
-set(PUBLIC_SOURCES ${STRING_SOURCES})
+set(PUBLIC_SOURCES ${STDLIB_SOURCES} ${STRING_SOURCES})
 
 if (NOT MSVC)
 	list(APPEND INTERNAL_SOURCES

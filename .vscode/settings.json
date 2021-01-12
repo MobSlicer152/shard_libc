@@ -13,7 +13,12 @@
 	
 	"editor.insertSpaces": false,
 	"editor.tabCompletion": "on",
-	"files.associations": {
-		"startup.h": "c"
-	}
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/**": true,
+		"**/.hg/store/**": true,
+		"**/deps/**": true
+	},
+	"files.eol": "\n"
 }

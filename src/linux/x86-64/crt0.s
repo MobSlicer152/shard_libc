@@ -21,15 +21,4 @@ _start:
 	# Call the function that sets up some other stuff then calls main
 	call __libc_call_main
 
-	# Call destructors
-	call _fini
-
-	# Exit
-	movl %eax, %edi
-	call exit
-
-	# Already said this in the exit file, but
-	# exit returning means something is really wrong
-	hlt
-
 .size _start, . - _start

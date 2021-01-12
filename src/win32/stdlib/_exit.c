@@ -4,7 +4,7 @@
 #include <windows.h>
 #include "stdlib.h"
 
-void exit(int __status)
+void _exit(int __status)
 {
 	ExitProcess(__status);
 
