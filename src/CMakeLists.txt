@@ -26,6 +26,11 @@ set(WINDOWS_HEADERS
 	win32/env.h
 )
 
+set(WINDOWS_FIXUP_HEADERS
+	../include/excpt.h
+	../include/sal.h
+)
+
 set(WINDOWS_SOURCES
 	# Startup stuff (which can be written in C quite easily, unlike Linux)
 	win32/crt0.c
@@ -45,6 +50,17 @@ set(INTERNAL_HEADERS
 
 set(INTERNAL_SOURCES
 	internal/startup.c
+)
+
+set(STANDARD_HEADERS
+	../include/sys/syscall.h
+	../include/ctype.h
+	../include/stdarg.h
+	../include/stddef.h
+	../include/stdint.h
+	../include/stdlib.h
+	../include/string.h
+	../include/unistd.h
 )
 
 set(STDLIB_SOURCES
@@ -68,7 +84,7 @@ endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES Windows)
 	include_directories(win32)
-	list(APPEND INTERNAL_HEADERS ${WINDOWS_HEADERS})
+	list(APPEND INTERNAL_HEADERS ${WINDOWS_HEADERS} ${WINDOWS_FIXUP_HEADERS})
 	list(APPEND INTERNAL_SOURCES ${WINDOWS_SOURCES})
 endif()
 

@@ -1,6 +1,7 @@
 /* Windows needs wchar_t */
 #include "stddef.h"
 
+#include <io.h>
 #include <windows.h>
 #include "unistd.h"
 
