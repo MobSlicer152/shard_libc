@@ -14,8 +14,9 @@
 #include "win32/env.h"
 #endif /* defined __linux__ && defined __X86_64__ */
 
-/** @brief The signature for _fini, which is for global destructors in GCC */
-void _fini(void);
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /** @brief The signature for the main function */
 extern int main(int argc, char **argv, char **envp);
@@ -25,5 +26,9 @@ int __init_libc(int __argc, char **__argv);
 
 /** @brief Calls main */
 void __libc_call_main(int __argc, char **__argv);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* !_STARTUP_H */

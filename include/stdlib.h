@@ -46,7 +46,16 @@ extern void _exit(int __status) __attribute__((__noreturn__));
 /**
  * @brief Allocate some memory from the heap of size __size.
  * 
+ * @param __size is the number of bytes to allocate
+ * @returns Returns either `NULL` or a buffer of `__size` bytes
  */
 extern void *malloc(size_t __size);
+
+/**
+ * @brief Free a chunk of memory previously allocated by `malloc` or `calloc`
+ * 
+ * @param __chunk is the memory to release
+ */
+extern void free(void *__chunk);
 
 #endif /* !_STDLIB_H */

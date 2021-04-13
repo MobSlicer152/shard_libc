@@ -7,8 +7,6 @@ set(LINUX_HEADERS
 set(LINUX_SOURCES
 	# Startup assembly
 	linux/${SHARD_LIBC_TARGET_ARCH}/crt0.s
-	linux/${SHARD_LIBC_TARGET_ARCH}/crti.s
-	linux/${SHARD_LIBC_TARGET_ARCH}/crtn.s
 
 	# Miscellaneous utility stuff
 	linux/${SHARD_LIBC_TARGET_ARCH}/env.c
@@ -17,6 +15,7 @@ set(LINUX_SOURCES
 	linux/stdlib/_exit.c
 
 	# unistd.h implementations
+	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.s
 	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.c
 	linux/unistd/write.c
 )
@@ -40,7 +39,6 @@ set(WINDOWS_SOURCES
 
 	# stdlib.h implementations that are platform specific
 	win32/stdlib/_exit.c
-	win32/stdlib/malloc.c
 )
 
 set(INTERNAL_HEADERS
@@ -56,6 +54,7 @@ set(STANDARD_HEADERS
 	../include/sys/syscall.h
 	../include/ctype.h
 	../include/stdarg.h
+	../include/stdbool.h
 	../include/stddef.h
 	../include/stdint.h
 	../include/stdlib.h
@@ -65,6 +64,8 @@ set(STANDARD_HEADERS
 
 set(STDLIB_SOURCES
 	stdlib/exit.c
+	stdlib/free.c
+	stdlib/malloc.c
 )
 
 set(STRING_SOURCES
@@ -94,11 +95,20 @@ if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
 	list(APPEND INTERNAL_SOURCES ${LINUX_SOURCES})
 endif()
 
-set(ALL_SOURCES ${INTERNAL_SOURCES} ${PUBLIC_SOURCES})
+set(ALL_SOURCES ${INTERNAL_SOURCES} ${PUBLIC_SOURCES} ${STANDARD_HEADERS})
 
-add_library(c_shard
+add_library(libc_shard
 	${INTERNAL_HEADERS}
 	${ALL_SOURCES}
 )
 
-target_link_libraries(c_shard gcc)
+# Fix the output name
+if (NOT MSVC)
+	set_target_properties(libc_shard PROPERTIES OUTPUT_NAME c_shard)
+endif()
+
+target_link_libraries(libc_shard mimalloc-static)
+
+if (${CMAKE_C_COMPILER} MATCHES "GCC")
+	target_link_libraries(libc_shard gcc)
+endif()

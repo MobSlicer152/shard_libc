@@ -3,12 +3,6 @@
 
 int main(int argc, char **argv, char **envp)
 {
-	int i;
-	
-	for (i = 0; i < argc; i++) {
-		write(1, argv[i], strlen(argv[i]));
-		write(1, "\n", 1);
-	}
-
+	write(1, "Hello, world!\n", 15);
 	return 0;
 }

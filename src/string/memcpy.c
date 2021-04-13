@@ -1,5 +1,9 @@
 #include "string.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void *memcpy(void *restrict __dst, const void *restrict __src, size_t __n)
 {
 	size_t i;
@@ -10,3 +14,7 @@ void *memcpy(void *restrict __dst, const void *restrict __src, size_t __n)
 
 	return __dst;
 }
+
+#ifdef __cplusplus
+}
+#endif

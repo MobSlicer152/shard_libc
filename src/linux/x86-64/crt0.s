@@ -13,12 +13,9 @@ _start:
 	movq %rsp, %rbp
 
 	# Call C library initialization
-	call __init_libc
-
-	# Call global constructors
-	call _init
+	callq __init_libc
 
 	# Call the function that sets up some other stuff then calls main
-	call __libc_call_main
+	callq __libc_call_main
 
 .size _start, . - _start

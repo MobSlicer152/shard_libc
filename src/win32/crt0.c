@@ -7,6 +7,10 @@
 #include "dumbass_windows_stuff.h"
 #include "internal/startup.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef _WINMAIN_
 #define startup WinMainCRTStartup
 #else /* _WINMAIN_ */
@@ -37,3 +41,7 @@ int startup(void)
 		
 	}
 }
+
+#ifdef __cplusplus
+}
+#endif

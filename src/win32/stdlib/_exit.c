@@ -4,6 +4,10 @@
 #include <windows.h>
 #include "stdlib.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void _exit(int __status)
 {
 	ExitProcess(__status);
@@ -13,3 +17,7 @@ void _exit(int __status)
 	__builtin_unreachable();
 #endif /* !_MSC_VER */
 }
+
+#ifdef __cplusplus
+}
+#endif

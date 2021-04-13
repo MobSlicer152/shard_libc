@@ -1,5 +1,9 @@
 #include "startup.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 char **environ;
 char **__env;
 
@@ -20,11 +24,10 @@ void __libc_call_main(int __argc, char **__argv)
 	/* Call main */
 	ret = main(__argc, __argv, environ);
 
-	/* TODO: add a cleanup function when it's needed */
-
-	/* Call destructors */
-	_fini();
-
 	/* Exit */
 	exit(ret);
 }
+
+#ifdef __cplusplus
+}
+#endif

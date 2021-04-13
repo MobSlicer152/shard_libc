@@ -23,6 +23,10 @@
 #ifndef _WIN32_DUMBASS_WINDOWS_STUFF_H
 #define _WIN32_DUMBASS_WINDOWS_STUFF_H 1
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
 #include "stddef.h"
 
@@ -30,5 +34,9 @@
 
 /** @brief A handle to the heap returned by GetProcessHeap */
 extern HANDLE __libc_windows_heap;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
