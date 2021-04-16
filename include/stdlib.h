@@ -4,6 +4,7 @@
 #define _STDLIB_H 1
 
 #include "stddef.h"
+#include "stdnoreturn.h"
 
 /**
  * @brief Terminate program execution abnormally. Only use this
@@ -11,11 +12,7 @@
  * 
  * @returns If this happens, try rebuilding your compiler.
  */
-#ifdef _MSC_VER
-__declspec(noreturn) extern void abort(void);
-#else /* _MSC_VER */
-extern void abort(void) __attribute__((__noreturn__));
-#endif /* _MSC_VER */
+extern _Noreturn void abort(void);
 
 /**
  * @brief Terminate program execution with code __status
@@ -24,11 +21,7 @@ extern void abort(void) __attribute__((__noreturn__));
  * @param __status is the code to exit with.
  * @returns It shouldn't come to this. If it does, something is very, very wrong.
  */
-#ifdef _MSC_VER
-__declspec(noreturn) extern void exit(int __status);
-#else /* _MSC_VER */
-extern void exit(int __status) __attribute__((__noreturn__));
-#endif /* _MSC_VER */
+extern _Noreturn void exit(int __status);
 
 /**
  * @brief Terminate program execution with code __status without
@@ -37,11 +30,7 @@ extern void exit(int __status) __attribute__((__noreturn__));
  * @param __status is the code to exit with.
  * @returns Like exit, something is wrong if this happens
  */
-#ifdef _MSC_VER
-__declspec(noreturn) extern void _exit(int __status);
-#else /* _MSC_VER */
-extern void _exit(int __status) __attribute__((__noreturn__));
-#endif /* _MSC_VER */
+extern _Noreturn void _exit(int __status);
 
 /**
  * @brief Allocate some memory from the heap of size __size.

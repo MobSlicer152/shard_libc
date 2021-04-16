@@ -39,6 +39,12 @@ extern void *memccpy(void *restrict __dst, const void *restrict __src, int __c, 
 extern void *memmove(void *__dst, const void *__src, size_t __n);
 
 /**
+ * @brief Overwrites __n bytes of __dst with __c
+ * @return Returns __dst
+ */
+extern void *memset(void *__dst, int __c, size_t __n);
+
+/**
  * @brief Returns the number of characters in __str.
  */
 extern size_t strlen(const char *__str);

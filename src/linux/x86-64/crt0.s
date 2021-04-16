@@ -2,6 +2,11 @@
 
 .global _start
 _start:
+	xorq %rbp, %rbp
+	pushq %rbp # rip=0
+	pushq %rbp # rbp=0
+	movq %rsp, %rbp
+
 	# Put main's arguments in the right places
 	popq %rdi # argc
 	movq %rsp, %rsi # argv

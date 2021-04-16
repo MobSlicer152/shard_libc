@@ -3,6 +3,15 @@
 
 int main(int argc, char **argv, char **envp)
 {
-	write(1, "Hello, world!\n", 15);
+	int loc;
+
+	/* Unfourtunately, Window's write() takes a handle */
+#ifdef _WIN32
+	loc = -11; /* The value for the CONOUT$ handle */
+#else
+	loc = 1;
+#endif
+
+	write(loc, "Hello, world!\n", 15);
 	return 0;
 }

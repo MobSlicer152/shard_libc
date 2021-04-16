@@ -5,21 +5,25 @@ project(shard_libc VERSION 0.0.1 LANGUAGES C ASM)
 option(SHARD_LIBC_ENABLE_TESTS "Whether build the tests or not" ON)
 set(CMAKE_BUILD_TYPE "Debug") # This _should_ be the default, but it's not, so we have to do this
 
-add_subdirectory(deps)
+if (${CMAKE_BUILD_TYPE} MATCHES ".*Rel.*")
+	set(CMAKE_BUILD_TYPE "Release")
+endif()
 
 if (NOT DEFINED SHARD_LIBC_TARGET_ARCH)
 	set(SHARD_LIBC_TARGET_ARCH "x86-64")
 endif()
 
 if (SHARD_LIBC_TARGET_ARCH STREQUAL "x86-64")
-		set(CMAKE_C_FLAGS "-D_AMD64_")
-	else()
-		set(CMAKE_C_FLAGS "-D_X86_")
-	endif()
+	set(CMAKE_C_FLAGS "-D_AMD64_")
+else()
+	set(CMAKE_C_FLAGS "-D_X86_")
+endif()
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__STD_C__")
 
 if (MSVC)
 	# Disable standard headers and libraries plus enable some other good flags
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Gm- -GR- -EHa- -Za -X -Wall")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -EHc- -Gm- -GS- -GR- -sdl- -X -w -analyze-")
 	set(CMAKE_EXE_LINKER_FLAGS "-nodefaultlib kernel32.lib shell32.lib -subsystem:console")
 	include_directories("C:\\Program Files (x86)\\Windows Kits\\10\\Include\\${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}\\um" "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}\\shared")
 
@@ -36,7 +40,7 @@ else()
 	endif()
 endif()
 
-include_directories(include src ${CMAKE_BINARY_DIR} deps/mimalloc/include)
+include_directories(include src ${CMAKE_BINARY_DIR} deps/gperftools/src)
 
 add_subdirectory(src)
 if (${SHARD_LIBC_ENABLE_TESTS})

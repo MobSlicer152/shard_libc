@@ -17,5 +17,5 @@ uintptr_t __stack_chk_guard = STACK_GUARD;
 __attribute__((noreturn))
 void __stack_chk_fail(void)
 {
-	exit(-1); /* Totally die. Should be abort() but I haven't done that yet */
+	abort(); /* Totally die. */
 }

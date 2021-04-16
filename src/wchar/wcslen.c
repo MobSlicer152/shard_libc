@@ -1,10 +1,10 @@
-#include "string.h"
+#include "wchar.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-size_t strlen(const char *__str)
+size_t wcslen(const wchar_t*__str)
 {
 	size_t i;
 

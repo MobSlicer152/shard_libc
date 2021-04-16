@@ -1,11 +1,13 @@
 /* Windows needs wchar_t */
 #include "stddef.h"
 
-#include <io.h>
-#include <windows.h>
 #include "unistd.h"
 
-long write(int __fd, const void *__buf, size_t __n)
+/* Function signatures */
+extern int WriteFile(void *file, void *buf, unsigned int n,
+		     unsigned int *written, void *unused);
+
+long write(void *__fh, const void *__buf, size_t __n)
 {
 	long ret;
 
@@ -13,7 +15,7 @@ long write(int __fd, const void *__buf, size_t __n)
 	 * This is almost as simple as on Linux except for
 	 * the number of written bytes being put in a parameter
 	 */
-	WriteFile(_get_osfhandle(__fd), __buf, &ret, NULL);
+	WriteFile(__fh, __buf, __n, &ret, NULL);
 
 	return ret;
 }

@@ -1,25 +1,31 @@
-/* wchar_t might not be defined by the compiler, and the Win32 headers need it defined */
-#include "stddef.h"
-
-#include <heapapi.h>
-#include <shellapi.h>
-#include <windows.h>
 #include "dumbass_windows_stuff.h"
 #include "internal/startup.h"
+
+/* We need these to transform the Windows commandline into ASCII argv */
+#include "stdlib.h"
+#include "string.h"
+#include "wchar.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/* Windows functions signatures */
+extern void *GetProcessHeap(void);
+extern wchar_t *GetCommandLineW(void);
+extern wchar_t **CommandLineToArgvW(wchar_t *cmdline, int *argc);
+extern void *LocalFree(void *chunk);
+
+/* Windows' application loader calls this */
 #ifdef _WINMAIN_
 #define startup WinMainCRTStartup
 #else /* _WINMAIN_ */
 #define startup mainCRTStartup
 #endif /* _WINMAIN_ */
 
-HANDLE __libc_windows_heap;
+void *__libc_windows_heap;
 
-int startup(void)
+void startup(void)
 {
 	int argc;
 	char **argv;
@@ -36,10 +42,26 @@ int startup(void)
 	/* Now turn it into an array of strings */
 	argv_w = CommandLineToArgvW(cmdline, &argc);
 
-	/* And finally turn it into ASCII */
+	/* Allocate space for each argument */
+	argv = malloc(argc * sizeof(char *));
 	for (i = 0; i < argc; i++) {
-		
+		argv[i] = malloc(wcslen(argv_w[i]) * sizeof(wchar_t));
+		if (!argv[i]) {
+			LocalFree(cmdline);
+			LocalFree(argv_w);
+			abort();
+		}
 	}
+
+	/* Free the memory Windows gave us */
+	LocalFree(cmdline);
+	LocalFree(argv_w);
+
+	/* Initialize stuff */
+	__init_libc(argc, argv);
+
+	/* Call main (this function exits and cleans up for us) */
+	__libc_call_main(argc, argv);
 }
 
 #ifdef __cplusplus

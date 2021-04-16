@@ -22,10 +22,10 @@ extern "C" {
 extern int main(int argc, char **argv, char **envp);
 
 /** @brief Sets stuff up, and retrieves envp */
-int __init_libc(int __argc, char **__argv);
+extern int __init_libc(int __argc, char **__argv);
 
 /** @brief Calls main */
-void __libc_call_main(int __argc, char **__argv);
+extern void __libc_call_main(int __argc, char **__argv);
 
 #ifdef __cplusplus
 }

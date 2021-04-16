@@ -30,11 +30,17 @@ extern long syscall(unsigned long __number, long __rdi, long __rsi, long __rdx, 
 
 /**
  * @brief Writes __n bytes of __buf to __fd.
+ * @param __fh is the Win32 file handle to write to
  * @param __fd is the file descriptor to write to
  * @param __buf is the buffer to write
  * @param __n is the number of bytes to write
+ * 
  * @returns The number of bytes written or -1 if an error occurs
  */
+#ifdef _WIN32
+extern long write(void *__fh, const void *__buf, size_t __n);
+#else /* _WIN32 */
 extern long write(int __fd, const void *__buf, size_t __n);
+#endif  /* _WIN32 */
 
 #endif /* !_UNISTD_H */

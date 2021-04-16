@@ -4,7 +4,7 @@
 extern "C" {
 #endif
 
-void exit(int __status)
+_Noreturn void exit(int __status)
 {
 	_exit(__status);
 }
