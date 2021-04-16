@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.10)
 set(LINUX_HEADERS
 	linux/${SHARD_LIBC_TARGET_ARCH}/env.h
 )
-source_group("Linux" FILES ${LINUX_HEADERS})
 
 set(LINUX_INTERNAL_SOURCES
 	# Startup assembly
@@ -12,19 +11,16 @@ set(LINUX_INTERNAL_SOURCES
 	# Miscellaneous utility stuff
 	linux/${SHARD_LIBC_TARGET_ARCH}/env.c
 )
-source_group("Linux" FILES ${LINUX_INTERNAL_SOURCES})
 
 set(LINUX_STDLIB_SOURCES
 	linux/stdlib/_exit.c
 )
-source_group("Linux\\stdlib.h" FILES ${LINUX_STDLIB_SOURCES})
 
 set(LINUX_UNISTD_SOURCES
 	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.s
 	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.c
 	linux/unistd/write.c
 )
-source_group("Linux\\unistd.h" FILES ${LINUX_UNISTD_SOURCES})
 
 set(LINUX_SOURCES ${LINUX_INTERNAL_SOURCES} ${LINUX_STDLIB_SOURCES} ${LINUX_UNISTD_SOURCES})
 
@@ -34,7 +30,6 @@ set(WINDOWS_HEADERS
 	../include/excpt.h
 	../include/ms_sal_fixup.h
 )
-source_group("Windows" FILES ${WINDOWS_HEADERS})
 
 set(WINDOWS_INTERNAL_SOURCES
 	# Startup stuff (which can be written in C quite easily, unlike Linux)
@@ -42,19 +37,15 @@ set(WINDOWS_INTERNAL_SOURCES
 
 	# Miscellaneous utility stuff
 	win32/env.c
-	win32/stack_fixup.c
 )
-source_group("Windows" FILES ${WINDOWS_INTERNAL_SOURCES})
 
 set(WINDOWS_STDLIB_SOURCES
 	win32/stdlib/_exit.c
 )
-source_group("Windows\\stdlib.h" FILES ${WINDOWS_STDLIB_SOURCES})
 
 set(WINDOWS_UNISTD_SOURCES
 	win32/unistd/write.c
 )
-source_group("Windows\\unistd.h" FILES ${WINDOWS_UNISTD_SOURCES})
 
 set(WINDOWS_SOURCES ${WINDOWS_INTERNAL_SOURCES} ${WINDOWS_STDLIB_SOURCES} ${WINDOWS_UNISTD_SOURCES})
 
@@ -66,11 +57,8 @@ set(INTERNAL_HEADERS
 set(INTERNAL_SOURCES
 	internal/startup.c
 )
-source_group("Internal" FILES ${INTERNAL_HEADERS} ${INTERNAL_SOURCES})
 
 set(STANDARD_HEADERS
-	../include/sys/syscall.h
-	../include/sys/types.h
 	../include/assert.h
 	../include/ctype.h
 	../include/errno.h
@@ -87,14 +75,17 @@ set(STANDARD_HEADERS
 	../include/unistd.h
 	../include/wchar.h
 )
-source_group("Standard Headers" FILES ${STANDARD_HEADERS})
+
+set(STANDARD_SYS_HEADERS
+	../include/sys/syscall.h
+	../include/sys/types.h
+)
 
 set(STDLIB_SOURCES
 	stdlib/abort.c
 	stdlib/exit.c
 	stdlib/malloc.c
 )
-source_group("stdlib.h" FILES ${STDLIB_SOURCES})
 
 set(STRING_SOURCES
 	string/memccpy.c
@@ -103,16 +94,18 @@ set(STRING_SOURCES
 	string/memset.c
 	string/strlen.c
 )
-source_group("string.h" FILES ${STRING_SOURCES})
 
 set(WCHAR_SOURCES
 	wchar/wcslen.c
 )
-source_group("wchar.h" FILES ${WCHAR_SOURCES})
 
 set(PUBLIC_SOURCES ${STDLIB_SOURCES} ${STRING_SOURCES} ${WCHAR_SOURCES})
 
-if (NOT MSVC)
+if (MSVC)
+	list(APPEND WINDOWS_INTERNAL_SOURCES
+		win32/stack_fixup.c
+	)
+else()
 	list(APPEND INTERNAL_SOURCES
 		internal/stack_prot.c
 	)
@@ -130,7 +123,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
 	list(APPEND INTERNAL_SOURCES ${LINUX_SOURCES})
 endif()
 
-set(ALL_SOURCES ${INTERNAL_HEADERS} ${INTERNAL_SOURCES} ${PUBLIC_SOURCES} ${STANDARD_HEADERS})
+set(ALL_SOURCES ${INTERNAL_HEADERS} ${INTERNAL_SOURCES} ${PUBLIC_SOURCES} ${STANDARD_HEADERS} ${STANDARD_SYS_HEADERS})
 
 add_library(libc_shard ${ALL_SOURCES})
 
@@ -144,3 +137,20 @@ target_link_libraries(libc_shard)
 if (${CMAKE_C_COMPILER} MATCHES "GCC")
 	target_link_libraries(libc_shard gcc)
 endif()
+
+# IDE groupings
+source_group("Header\ Files\\Linux" FILES ${LINUX_HEADERS})
+source_group("Source\ Files\\Linux" FILES ${LINUX_INTERNAL_SOURCES})
+source_group("Source\ Files\\Linux\\stdlib.h" FILES ${LINUX_STDLIB_SOURCES})
+source_group("Source\ Files\\Linux\\unistd.h" FILES ${LINUX_UNISTD_SOURCES})
+source_group("Header\ Files\\Windows" FILES ${WINDOWS_HEADERS})
+source_group("Source\ Files\\Windows" FILES ${WINDOWS_INTERNAL_SOURCES})
+source_group("Source\ Files\\Windows\\stdlib.h" FILES ${WINDOWS_STDLIB_SOURCES})
+source_group("Source\ Files\\Windows\\unistd.h" FILES ${WINDOWS_UNISTD_SOURCES})
+source_group("Header\ Files\\Internal" FILES ${INTERNAL_HEADERS})
+source_group("Source\ Files\\Internal" FILES ${INTERNAL_SOURCES})
+source_group("Header\ Files\\Standard Headers" FILES ${STANDARD_HEADERS})
+source_group("Header\ Files\\Standard Headers\\sys" FILES ${STANDARD_SYS_HEADERS})
+source_group("Source\ Files\\stdlib.h" FILES ${STDLIB_SOURCES})
+source_group("Source\ Files\\string.h" FILES ${STRING_SOURCES})
+source_group("Source\ Files\\wchar.h" FILES ${WCHAR_SOURCES})
