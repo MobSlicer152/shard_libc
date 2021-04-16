@@ -1,6 +1,6 @@
 [submodule "deps/linux"]
 	path = deps/linux
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/
-[submodule "deps/mimalloc"]
-	path = deps/mimalloc
-	url = https://github.com/microsoft/mimalloc.git
+[submodule "deps/gperftools"]
+	path = deps/gperftools
+	url = https://github.com/gperftools/gperftools.git
