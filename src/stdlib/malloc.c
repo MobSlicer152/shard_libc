@@ -227,7 +227,7 @@
 #include "stdlib.h"
 
 /* Just in case, make sure to enable locking */
-#define USE_MALLOC_LOCK 1
+//#define USE_MALLOC_LOCK TODO: implement threading stuff so this works
 
 /* Debugging can be based on the standard value */
 #define DL_DEBUG !NDEBUG
@@ -1410,29 +1410,29 @@ void     public_mSTATs(void);
 
 /* Declare all routines as internal */
 #if __STD_C
-static void*  mALLOc(size_t);
-static void     fREe(void*);
-static void*  rEALLOc(void*, size_t);
-static void*  mEMALIGn(size_t, size_t);
-static void*  vALLOc(size_t);
-static void*  pVALLOc(size_t);
-static void*  cALLOc(size_t, size_t);
-static void** iCALLOc(size_t, size_t, void**);
-static void** iCOMALLOc(size_t, size_t*, void**);
-static void     cFREe(void*);
-static int      mTRIm(size_t);
-static size_t   mUSABLe(void*);
-static void     mSTATs();
-static int      mALLOPt(int, int);
+static void*  malloc(size_t);
+static void     free(void*);
+static void*  realloc(void*, size_t);
+static void*  memalign(size_t, size_t);
+static void*  valloc(size_t);
+static void*  pvalloc(size_t);
+static void*  calloc(size_t, size_t);
+static void** icalloc(size_t, size_t, void**);
+static void** icommalloc(size_t, size_t*, void**);
+static void     cfree(void*);
+static int      mtrim(size_t);
+static size_t   musable(void*);
+static void     mstats();
+static int      mallopt(int, int);
 static struct mallinfo mALLINFo(void);
 #else
-static void*  mALLOc();
-static void     fREe();
-static void*  rEALLOc();
+static void*  malloc();
+static void     free();
+static void*  realloc();
 static void*  mEMALIGn();
 static void*  vALLOc();
 static void*  pVALLOc();
-static void*  cALLOc();
+static void*  calloc();
 static void** iCALLOc();
 static void** iCOMALLOc();
 static void     cFREe();
@@ -1485,7 +1485,7 @@ void* malloc(size_t bytes) {
   if (MALLOC_PREACTION != 0) {
     return 0;
   }
-  m = mALLOc(bytes);
+  m = malloc(bytes);
   if (MALLOC_POSTACTION != 0) {
   }
   return m;
@@ -1495,7 +1495,7 @@ void free(void* m) {
   if (MALLOC_PREACTION != 0) {
     return;
   }
-  fREe(m);
+  free(m);
   if (MALLOC_POSTACTION != 0) {
   }
 }
@@ -1504,7 +1504,7 @@ void* realloc(void* m, size_t bytes) {
   if (MALLOC_PREACTION != 0) {
     return 0;
   }
-  m = rEALLOc(m, bytes);
+  m = realloc(m, bytes);
   if (MALLOC_POSTACTION != 0) {
   }
   return m;
@@ -1548,7 +1548,7 @@ void* public_cALLOc(size_t n, size_t elem_size) {
   if (MALLOC_PREACTION != 0) {
     return 0;
   }
-  m = cALLOc(n, elem_size);
+  m = calloc(n, elem_size);
   if (MALLOC_POSTACTION != 0) {
   }
   return m;
@@ -2810,7 +2810,7 @@ static void* sYSMALLOc(nb, av) INTERNAL_SIZE_T nb; mstate av;
   if (have_fastchunks(av)) {
     assert(in_smallbin_range(nb));
     malloc_consolidate(av);
-    return mALLOc(nb - MALLOC_ALIGN_MASK);
+    return malloc(nb - MALLOC_ALIGN_MASK);
   }
 
 
@@ -3153,7 +3153,7 @@ static void* sYSMALLOc(nb, av) INTERNAL_SIZE_T nb; mstate av;
           if (old_size >= MINSIZE) {
             INTERNAL_SIZE_T tt = av->trim_threshold;
             av->trim_threshold = (INTERNAL_SIZE_T)(-1);
-            fREe(chunk2mem(old_top));
+            free(chunk2mem(old_top));
             av->trim_threshold = tt;
           }
         }
@@ -3269,9 +3269,9 @@ static int sYSTRIm(pad, av) size_t pad; mstate av;
 
 
 #if __STD_C
-void* mALLOc(size_t bytes)
+void* malloc(size_t bytes)
 #else
-  void* mALLOc(bytes) size_t bytes;
+  void* malloc(bytes) size_t bytes;
 #endif
 {
   mstate av = get_malloc_state();
@@ -3622,9 +3622,9 @@ void* mALLOc(size_t bytes)
 */
 
 #if __STD_C
-void fREe(void* mem)
+void free(void* mem)
 #else
-void fREe(mem) void* mem;
+void free(mem) void* mem;
 #endif
 {
   mstate av = get_malloc_state();
@@ -3890,9 +3890,9 @@ static void malloc_consolidate(av) mstate av;
 
 
 #if __STD_C
-void* rEALLOc(void* oldmem, size_t bytes)
+void* realloc(void* oldmem, size_t bytes)
 #else
-void* rEALLOc(oldmem, bytes) void* oldmem; size_t bytes;
+void* realloc(oldmem, bytes) void* oldmem; size_t bytes;
 #endif
 {
   mstate av = get_malloc_state();
@@ -3922,13 +3922,13 @@ void* rEALLOc(oldmem, bytes) void* oldmem; size_t bytes;
 
 #ifdef REALLOC_ZERO_BYTES_FREES
   if (bytes == 0) {
-    fREe(oldmem);
+    free(oldmem);
     return 0;
   }
 #endif
 
   /* realloc of null is supposed to be same as malloc */
-  if (oldmem == 0) return mALLOc(bytes);
+  if (oldmem == 0) return malloc(bytes);
 
   checked_request2size(bytes, nb);
 
@@ -3969,7 +3969,7 @@ void* rEALLOc(oldmem, bytes) void* oldmem; size_t bytes;
 
       /* allocate, copy, free */
       else {
-        newmem = mALLOc(nb - MALLOC_ALIGN_MASK);
+        newmem = malloc(nb - MALLOC_ALIGN_MASK);
         if (newmem == 0)
           return 0; /* propagate failure */
       
@@ -4017,7 +4017,7 @@ void* rEALLOc(oldmem, bytes) void* oldmem; size_t bytes;
             }
           }
           
-          fREe(oldmem);
+          free(oldmem);
           check_inuse_chunk(newp);
           return chunk2mem(newp);
         }
@@ -4040,7 +4040,7 @@ void* rEALLOc(oldmem, bytes) void* oldmem; size_t bytes;
       set_head(remainder, remainder_size | PREV_INUSE);
       /* Mark remainder as inuse so free() won't complain */
       set_inuse_bit_at_offset(remainder, remainder_size);
-      fREe(chunk2mem(remainder)); 
+      free(chunk2mem(remainder)); 
     }
 
     check_inuse_chunk(newp);
@@ -4094,10 +4094,10 @@ void* rEALLOc(oldmem, bytes) void* oldmem; size_t bytes;
       newmem = oldmem; /* do nothing */
     else {
       /* Must alloc, copy, free. */
-      newmem = mALLOc(nb - MALLOC_ALIGN_MASK);
+      newmem = malloc(nb - MALLOC_ALIGN_MASK);
       if (newmem != 0) {
         MALLOC_COPY(newmem, oldmem, oldsize - 2*SIZE_SZ);
-        fREe(oldmem);
+        free(oldmem);
       }
     }
     return newmem;
@@ -4134,7 +4134,7 @@ void* mEMALIGn(alignment, bytes) size_t alignment; size_t bytes;
 
   /* If need less alignment than we give anyway, just relay to malloc */
 
-  if (alignment <= MALLOC_ALIGNMENT) return mALLOc(bytes);
+  if (alignment <= MALLOC_ALIGNMENT) return malloc(bytes);
 
   /* Otherwise, ensure that it is at least a minimum chunk size */
 
@@ -4157,7 +4157,7 @@ void* mEMALIGn(alignment, bytes) size_t alignment; size_t bytes;
 
   /* Call malloc with worst case padding to hit alignment. */
 
-  m  = (char*)(mALLOc(nb + alignment + MINSIZE));
+  m  = (char*)(malloc(nb + alignment + MINSIZE));
 
   if (m == 0) return 0; /* propagate failure */
 
@@ -4193,7 +4193,7 @@ void* mEMALIGn(alignment, bytes) size_t alignment; size_t bytes;
     set_head(newp, newsize | PREV_INUSE);
     set_inuse_bit_at_offset(newp, newsize);
     set_head_size(p, leadsize);
-    fREe(chunk2mem(p));
+    free(chunk2mem(p));
     p = newp;
 
     assert (newsize >= nb &&
@@ -4208,7 +4208,7 @@ void* mEMALIGn(alignment, bytes) size_t alignment; size_t bytes;
       remainder = chunk_at_offset(p, nb);
       set_head(remainder, remainder_size | PREV_INUSE);
       set_head_size(p, nb);
-      fREe(chunk2mem(remainder));
+      free(chunk2mem(remainder));
     }
   }
 
@@ -4221,9 +4221,9 @@ void* mEMALIGn(alignment, bytes) size_t alignment; size_t bytes;
 */
 
 #if __STD_C
-void* cALLOc(size_t n_elements, size_t elem_size)
+void* calloc(size_t n_elements, size_t elem_size)
 #else
-void* cALLOc(n_elements, elem_size) size_t n_elements; size_t elem_size;
+void* calloc(n_elements, elem_size) size_t n_elements; size_t elem_size;
 #endif
 {
   mchunkptr p;
@@ -4231,7 +4231,7 @@ void* cALLOc(n_elements, elem_size) size_t n_elements; size_t elem_size;
   CHUNK_SIZE_T  nclears;
   INTERNAL_SIZE_T* d;
 
-  void* mem = mALLOc(n_elements * elem_size);
+  void* mem = malloc(n_elements * elem_size);
 
   if (mem != 0) {
     p = mem2chunk(mem);
@@ -4295,7 +4295,7 @@ void cFREe(void *mem)
 void cFREe(mem) void *mem;
 #endif
 {
-  fREe(mem);
+  free(mem);
 }
 
 /*
@@ -4373,7 +4373,7 @@ static void** iALLOc(n_elements, sizes, opts, chunks) size_t n_elements; size_t*
   else {
     /* if empty req, must still return chunk representing empty array */
     if (n_elements == 0) 
-      return (void**) mALLOc(0);
+      return (void**) malloc(0);
     marray = 0;
     array_size = request2size(n_elements * (sizeof(void*)));
   }
@@ -4401,7 +4401,7 @@ static void** iALLOc(n_elements, sizes, opts, chunks) size_t n_elements; size_t*
  */
   mmx = av->n_mmaps_max;   /* disable mmap */
   av->n_mmaps_max = 0;
-  mem = mALLOc(size);
+  mem = malloc(size);
   av->n_mmaps_max = mmx;   /* reset mmap */
   if (mem == 0) 
     return 0;
@@ -5385,7 +5385,7 @@ History:
            usage of 'assert' in non-WIN32 code
          * Improve WIN32 'sbrk()' emulation's 'findRegion()' routine to
            avoid infinite loop
-      * Always call 'fREe()' rather than 'free()'
+      * Always call 'free()' rather than 'free()'
 
     V2.6.5 Wed Jun 17 15:57:31 1998  Doug Lea  (dl at gee)
       * Fixed ordering problem with boundary-stamping
