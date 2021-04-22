@@ -26,6 +26,34 @@ extern char **environ;
  * @returns the return value of the syscall (RAX)
  */
 extern long syscall(unsigned long __number, long __rdi, long __rsi, long __rdx, long __rcx, long __r8, long __r9);
+#elif _WIN32
+/* 
+ * We need a *function* in assembly to put a number in a register
+ *  because of MS making __asm 32-bit only
+ */
+extern void __move_to_r15(long number);
+
+/* I gotta say, the Windows calling convention is pretty dumb compared to SysV */
+extern long __syscall(long rcx, long rdx, long r8, long r9, ...);
+
+/**
+ * @brief My own implementation of NTDLL's syscall gate
+ */
+#define syscall(number, rcx, rdx, r8, r9, ...)           \
+	{                                                       \
+		__move_to_r15(number);                          \
+		__syscall(rcx, rdx, r8, r9, __VA_ARGS__); \
+	}
+
+/**
+ * @brief `syscall` but you get the return value (usually you want this one)
+ */
+#define syscall_r(ret, number, rcx, rdx, r8, r9, ...)           \
+	{                                                       \
+		__move_to_r15(number);                          \
+		ret = __syscall(rcx, rdx, r8, r9, __VA_ARGS__); \
+	}
+
 #endif
 
 /**

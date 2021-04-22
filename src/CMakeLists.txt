@@ -5,7 +5,7 @@ set(LINUX_HEADERS
 )
 
 set(LINUX_INTERNAL_SOURCES
-	# Startup assembly
+	# Startup assembly (I love assembly so it's fine)
 	linux/${SHARD_LIBC_TARGET_ARCH}/crt0.s
 
 	# Miscellaneous utility stuff
@@ -17,15 +17,13 @@ set(LINUX_STDLIB_SOURCES
 )
 
 set(LINUX_UNISTD_SOURCES
-	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.s
 	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.c
+	linux/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.s
 	linux/unistd/write.c
 )
 
-set(LINUX_SOURCES ${LINUX_INTERNAL_SOURCES} ${LINUX_STDLIB_SOURCES} ${LINUX_UNISTD_SOURCES})
-
 set(WINDOWS_HEADERS
-	win32/dumbass_windows_stuff.h
+	win32/windows_stuff.h
 	win32/env.h
 	../include/excpt.h
 	../include/ms_sal_fixup.h
@@ -37,6 +35,12 @@ set(WINDOWS_INTERNAL_SOURCES
 
 	# Miscellaneous utility stuff
 	win32/env.c
+	win32/dll_loader.c
+	win32/shutdown.c
+)
+
+set(WINDOWS_STDIO_SOURCES
+	win32/stdio/init.c
 )
 
 set(WINDOWS_STDLIB_SOURCES
@@ -44,10 +48,14 @@ set(WINDOWS_STDLIB_SOURCES
 )
 
 set(WINDOWS_UNISTD_SOURCES
+	win32/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.asm
 	win32/unistd/write.c
 )
 
-set(WINDOWS_SOURCES ${WINDOWS_INTERNAL_SOURCES} ${WINDOWS_STDLIB_SOURCES} ${WINDOWS_UNISTD_SOURCES})
+set_source_files_properties(
+	win32/${SHARD_LIBC_TARGET_ARCH}/unistd/syscall.asm
+	PROPERTY LANGUAGE ASM_MASM
+)
 
 set(INTERNAL_HEADERS
 	internal/registers.h
@@ -93,6 +101,7 @@ set(STRING_SOURCES
 	string/memmove.c
 	string/memset.c
 	string/strlen.c
+	string/strncpy.c
 )
 
 set(WCHAR_SOURCES
@@ -113,12 +122,14 @@ endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES Windows)
 	include_directories(win32)
+	set(WINDOWS_SOURCES ${WINDOWS_INTERNAL_SOURCES} ${WINDOWS_STDIO_SOURCES} ${WINDOWS_STDLIB_SOURCES} ${WINDOWS_UNISTD_SOURCES})
 	list(APPEND INTERNAL_HEADERS ${WINDOWS_HEADERS})
 	list(APPEND INTERNAL_SOURCES ${WINDOWS_SOURCES})
 endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
 	include_directories(linux/${SHARD_LIBC_TARGET_ARCH})
+	set(LINUX_SOURCES ${LINUX_INTERNAL_SOURCES} ${LINUX_STDLIB_SOURCES} ${LINUX_UNISTD_SOURCES})
 	list(APPEND INTERNAL_HEADERS ${LINUX_HEADERS})
 	list(APPEND INTERNAL_SOURCES ${LINUX_SOURCES})
 endif()
@@ -145,6 +156,7 @@ source_group("Source\ Files\\Linux\\stdlib.h" FILES ${LINUX_STDLIB_SOURCES})
 source_group("Source\ Files\\Linux\\unistd.h" FILES ${LINUX_UNISTD_SOURCES})
 source_group("Header\ Files\\Windows" FILES ${WINDOWS_HEADERS})
 source_group("Source\ Files\\Windows" FILES ${WINDOWS_INTERNAL_SOURCES})
+source_group("Source\ Files\\Windows\\stdio.h" FILES ${WINDOWS_STDIO_SOURCES})
 source_group("Source\ Files\\Windows\\stdlib.h" FILES ${WINDOWS_STDLIB_SOURCES})
 source_group("Source\ Files\\Windows\\unistd.h" FILES ${WINDOWS_UNISTD_SOURCES})
 source_group("Header\ Files\\Internal" FILES ${INTERNAL_HEADERS})

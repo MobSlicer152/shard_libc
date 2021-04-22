@@ -24,13 +24,15 @@
  * @param __n is how many bytes to copy
  * @returns The value of __dst.
  */
-extern void *memcpy(void *restrict __dst, const void *restrict __src, size_t __n);
+extern void *memcpy(void *restrict __dst, const void *restrict __src,
+		    size_t __n);
 
 /**
  * @brief Copies up to __n bytes of __src to __dst until __c occurs.
  * Returns a pointer to the byte after __c's occurence or NULL.
  */
-extern void *memccpy(void *restrict __dst, const void *restrict __src, int __c, size_t __n);
+extern void *memccpy(void *restrict __dst, const void *restrict __src, int __c,
+		     size_t __n);
 
 /**
  * @brief Copies __n bytes of __src to a temporary buffer and then into __dst.
@@ -48,5 +50,11 @@ extern void *memset(void *__dst, int __c, size_t __n);
  * @brief Returns the number of characters in __str.
  */
 extern size_t strlen(const char *__str);
+
+/**
+ * @brief Copies up to __n characters of __src to __dst,
+ *  until '\0' is encountered.
+ */
+extern char *strncpy(char *__dst, const char *__src, size_t __n);
 
 #endif /* !_STRING_H */

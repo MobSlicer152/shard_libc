@@ -1,21 +1,20 @@
-/* Windows needs wchar_t */
 #include "stddef.h"
-
 #include "unistd.h"
 
-/* Function signatures */
-extern int WriteFile(void *file, void *buf, unsigned int n,
-		     unsigned int *written, void *unused);
+#include <wdm.h>
+
+extern unsigned char WriteFile(void *file, const void *buf, unsigned int n,
+			       unsigned int *written, void *unused);
 
 long write(void *__fh, const void *__buf, size_t __n)
 {
-	long ret;
+	IO_STATUS_BLOCK iostat = { 0 };
+	int ret;
 
-	/*
-	 * This is almost as simple as on Linux except for
-	 * the number of written bytes being put in a parameter
-	 */
-	WriteFile(__fh, __buf, __n, &ret, NULL);
+	/* We have to check if the handle is a kernel handle or not */
+	syscall_r(ret, 0x8, __fh, NULL, NULL, NULL, &iostat, __buf, __n);
+	if (ret != 0) /* Try again in user mode */
+		WriteFile(__fh, __buf, __n, &iostat.Information, NULL);
 
-	return ret;
+	return iostat.Information;
 }

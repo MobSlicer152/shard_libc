@@ -21,11 +21,18 @@ extern "C" {
 /** @brief The signature for the main function */
 extern int main(int argc, char **argv, char **envp);
 
+/** @brief Initializes I/O stuff */
+extern void __init_stdio(void);
+
 /** @brief Sets stuff up, and retrieves envp */
 extern int __init_libc(int __argc, char **__argv);
 
 /** @brief Calls main */
-extern void __libc_call_main(int __argc, char **__argv);
+extern int __libc_call_main(int __argc, char **__argv);
+
+/** @brief Clean up */
+extern void __shutdown_libc(int __argc, char **__argv,
+			    char **__envp);
 
 #ifdef __cplusplus
 }

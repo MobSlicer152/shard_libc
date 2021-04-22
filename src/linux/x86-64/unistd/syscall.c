@@ -1,5 +1,3 @@
-#include "internal/registers.h"
-#include "stdarg.h"
 #include "unistd.h"
 
 /* The assembly implementation of this function */
