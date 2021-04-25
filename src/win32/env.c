@@ -4,9 +4,6 @@
 extern "C" {
 #endif
 
-/* Function signatures */
-extern char **GetEnvironmentStrings(void);
-
 char **__get_envp(int __argc, char **__argv)
 {
 	/* 
@@ -15,7 +12,7 @@ char **__get_envp(int __argc, char **__argv)
 	 */
 	(void)__argc;
 	(void)__argv;
-	return GetEnvironmentStrings();
+	return __libc_windows_peb->params->environ;
 }
 
 #ifdef __cplusplus

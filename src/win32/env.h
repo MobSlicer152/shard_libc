@@ -3,6 +3,8 @@
 #ifndef _WIN32_ENV_H
 #define _WIN32_ENV_H 1
 
+#include "windows_stuff.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

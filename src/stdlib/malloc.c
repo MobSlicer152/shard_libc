@@ -235,6 +235,7 @@
 #ifdef _WIN32
 
 #define WIN32_LEAN_AND_MEAN
+extern char *__libc_windows_peb;
 #include "ms_sal_fixup.h"
 #include "stddef.h"
 #include <windows.h>
@@ -4906,7 +4907,7 @@ typedef struct _region_list_entry {
 
 /* Allocate and link a region entry in the region list */
 static int region_list_append (region_list_entry **last, void *base_reserved, long reserve_size) {
-    region_list_entry *next = HeapAlloc (GetProcessHeap (), 0, sizeof (region_list_entry));
+    region_list_entry *next = HeapAlloc ((__libc_windows_peb + 42), 0, sizeof (region_list_entry));
     if (! next)
         return FALSE;
     next->top_allocated = (char *) base_reserved;
@@ -4920,7 +4921,7 @@ static int region_list_append (region_list_entry **last, void *base_reserved, lo
 /* Free and unlink the last region entry from the region list */
 static int region_list_remove (region_list_entry **last) {
     region_list_entry *previous = (*last)->previous;
-    if (! HeapFree (GetProcessHeap (), sizeof (region_list_entry), *last))
+    if (! HeapFree ((__libc_windows_peb + 42), sizeof (region_list_entry), *last))
         return FALSE;
     *last = previous;
     return TRUE;

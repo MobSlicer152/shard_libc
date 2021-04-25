@@ -34,9 +34,15 @@ set(WINDOWS_INTERNAL_SOURCES
 	win32/crt0.c
 
 	# Miscellaneous utility stuff
-	win32/env.c
 	win32/dll_loader.c
+	win32/env.c
+	win32/${SHARD_LIBC_TARGET_ARCH}/get_peb.asm
 	win32/shutdown.c
+)
+
+set_source_files_properties(
+	win32/${SHARD_LIBC_TARGET_ARCH}/get_peb.asm
+	PROPERTY LANGUAGE ASM_MASM
 )
 
 set(WINDOWS_STDIO_SOURCES
@@ -100,11 +106,13 @@ set(STRING_SOURCES
 	string/memcpy.c
 	string/memmove.c
 	string/memset.c
+	string/strcmp.c
 	string/strlen.c
 	string/strncpy.c
 )
 
 set(WCHAR_SOURCES
+	wchar/wcscmp.c
 	wchar/wcslen.c
 )
 

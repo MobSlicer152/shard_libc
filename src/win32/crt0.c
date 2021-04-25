@@ -12,31 +12,8 @@
 extern "C" {
 #endif
 
-/* Two typedefs from ntdef.h because it doesn't work */
-typedef struct _UTF8_STRING {
-	unsigned short len;
-	unsigned short max_len;
-	char *buf;
-} UTF8_STRING;
-
-typedef struct _UNICODE_STRING {
-	unsigned short len;
-	unsigned short max_len;
-	wchar_t *buf;
-} UNICODE_STRING;
-
-/* Windows function signatures */
-extern wchar_t **CommandLineToArgvW(wchar_t *cmdline, int *argc);
-extern wchar_t *GetCommandLineW(void);
-extern void *GetProcessHeap(void);
-extern void *LocalFree(void *chunk);
-extern long RtlUnicodeStringToUTF8String(UTF8_STRING *dst,
-					 const UNICODE_STRING *src,
-					 unsigned char alloc_dst);
-extern long RtlInitUnicodeString(UNICODE_STRING *dst, const wchar_t *src);
-extern void RtlFreeUTF8String(UTF8_STRING *str);
-
 void *__libc_windows_heap;
+PEB *__libc_windows_peb;
 
 void mainCRTStartup(void)
 {
@@ -49,14 +26,14 @@ void mainCRTStartup(void)
 	int ret;
 	int i;
 
-	/* Before anything else, load all the functions we need */
+	/* Before anything else, load all the functions we need and the PEB */
 	__load_w32_funcs();
 
 	/* Retrieve a handle to the heap */
-	__libc_windows_heap = GetProcessHeap();
+	__libc_windows_heap = __libc_windows_peb->main_heap;
 
 	/* Get the commandline */
-	cmdline = GetCommandLineW();
+	cmdline = __libc_windows_peb->params->cmdline.buf;
 
 	/* Now turn it into an array of strings */
 	argv_w = CommandLineToArgvW(cmdline, &argc);
@@ -66,7 +43,6 @@ void mainCRTStartup(void)
 	for (i = 0; i < argc; i++) {
 		argv[i] = malloc(wcslen(argv_w[i]) * sizeof(wchar_t));
 		if (!argv[i]) {
-			LocalFree(cmdline);
 			LocalFree(argv_w);
 			abort();
 		}
@@ -80,7 +56,6 @@ void mainCRTStartup(void)
 	}
 
 	/* Free the memory Windows gave us */
-	LocalFree(cmdline);
 	LocalFree(argv_w);
 
 	/* Initialize stuff */

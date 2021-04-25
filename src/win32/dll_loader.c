@@ -3,15 +3,16 @@
 #include "stdlib.h"
 #include "string.h"
 #include "unistd.h"
-
-#include <ntdef.h>
+#include "wchar.h"
+#include "windows_stuff.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* DLL base addresses and handles */
-void *kernel32_handle; /* This is always mapped but the actual kernel isn't? */
+void *ntdll_base;
+void *kernel32_handle;
 void *shell32_base;
 void *shell32_handle;
 
@@ -35,57 +36,122 @@ ANSI_STRING writefile_str;
 /* Function pointers */
 void *commandlinetoargvw;
 void *exitprocess;
-void *getcommandlinew;
-void *getenvironmentstrings;
 void *getlasterror;
 void *getsysteminfo;
-void *getprocessheap;
-void *getstdhandle;
 void *heapalloc;
 void *heapfree;
+void *ldrgetdllhandle;
+void *ldrgetprocedureaddress;
+void *ldrloaddll;
 void *localfree;
 void *virtualalloc;
 void *virtualfree;
 void *virtualquery;
 void *writefile;
 
-/* 
- * We only link against NTDLL for the loader functions. These function signatures are
- *  based on ReactOS's source code
- */
-extern NTSTATUS LdrLoadDll(void *unused_1, void *unused_2, UNICODE_STRING *name,
-			   void **base_addr);
-extern NTSTATUS LdrGetDllHandle(void *unused_1, void *unused_2,
-				UNICODE_STRING *name, void **handle);
-extern NTSTATUS LdrGetProcedureAddress(void *base_addr, ANSI_STRING *procedure,
-				       size_t ordinal, void **function);
+/* This function gets the addresses of NTDLL and the Ldr* functions that we use */
+void __load_ntdll_funcs(void)
+{
+	PEB_LDR_DATA *ldr;
+	LIST_ENTRY *head;
+	LIST_ENTRY *current;
+	LDR_MODULE *dll;
+	LDR_MODULE *ntdll = 0;
+	IMAGE_DOS_HEADER *dos_hdr;
+	IMAGE_NT_HEADERS64 *nt_hdrs;
+	unsigned int exports_va;
+	IMAGE_SECTION_HEADER *sect_hdr;
+	unsigned int sect_count;
+	unsigned int export_sect;
+	IMAGE_EXPORT_DIRECTORY *exports;
+	unsigned char **func_names;
+	int i;
 
-/*
- * The Rtl* functions are implemented in the kernel and are mode-independant
- *  for our purposes
- */
-extern long RtlInitAnsiString(ANSI_STRING *dst, const char *src);
-extern long RtlInitUnicodeString(UNICODE_STRING *dst, const wchar_t *src);
-extern 
+	/* First, load the PEB */
+	__libc_windows_peb = __get_peb();
+	if (!__libc_windows_peb)
+		abort();
+
+	/* Alias the PEB's loader data */
+	ldr = __libc_windows_peb->ldr;
+
+	/* Set the head of the list */
+	head = &ldr->mem_order_mod_list;
+
+	/* Enumerate the loaded modules until we bump into NTDLL */
+	for (current = head->f; current != head; current = current->f) {
+		dll = CONTAINING_RECORD(current, LDR_MODULE,
+					mem_order_mod_list);
+		if (wcscmp(dll->full_name.buf,
+			   L"C:\\WINDOWS\\SYSTEM32\\ntdll.dll") == 0) {
+			ntdll = dll;
+			break;
+		}
+	}
+
+	/* Check if we got the DLL */
+	if (!ntdll)
+		abort();
+
+	/* Store NTDLL's base address */
+	ntdll_base = ntdll->base_addr;
+
+	/* Parse the DLL header so we can find the functions we need */
+	dos_hdr = ntdll_base;
+	if (dos_hdr->magic != IMAGE_DOS_SIGNATURE)
+		abort();
+	nt_hdrs = ((unsigned char *)ntdll_base + (dos_hdr->nt_hdr_addr));
+	if (nt_hdrs->sig != IMAGE_NT_SIGNATURE)
+		abort();
+	if (nt_hdrs->ohdr.magic != IMAGE_NT_OPTIONAL_HDR64_MAGIC)
+		abort();
+	if (!nt_hdrs->ohdr.num_rvas_and_sizes)
+		abort();
+
+	/* Find the export table */
+	exports_va = nt_hdrs->ohdr.data_dir[0].virt_addr;
+	sect_count = nt_hdrs->fhdr.n_sects;
+	sect_hdr = ((unsigned char *)ntdll_base + dos_hdr->nt_hdr_addr +
+		    sizeof(*nt_hdrs));
+	for (export_sect = 0;
+	     export_sect < sect_count && sect_hdr->virt_addr <= exports_va;
+	     sect_hdr++, export_sect++)
+		;
+	sect_hdr--;
+	exports = ((unsigned char *)ntdll_base + sect_hdr->raw_ptr) +
+		  (exports_va - sect_hdr->virt_addr);
+
+	/* Find our functions */
+	func_names = ((unsigned char *)ntdll_base + exports->names_addr);
+	for (i = 0; i < exports->n_names; i++) {
+		if (strcmp(((((unsigned long long)func_names -
+			      sect_hdr->virt_addr) +
+			     sect_hdr->raw_ptr) +
+			    (unsigned char *)ntdll_base - sect_hdr->virt_addr +
+			    sect_hdr->raw_ptr + (unsigned long long)ntdll_base),
+			   "LdrLoadDll") == 0)
+			ldrloaddll = ((unsigned char *)ntdll_base +
+				      exports->funcs_addr)[i];
+	}
+}
 
 /* Loads necessary DLLs and gets function pointers for wrappers */
-void *__load_w32_funcs(void)
+void __load_w32_funcs(void)
 {
 	UNICODE_STRING kernel32_unicode_str;
 	UNICODE_STRING shell32_unicode_str;
-	NTSTATUS err;
+	long err;
+
+	/* Load the NTDLL functions */
+	__load_ntdll_funcs();
 
 	/* Fill in the strings we need */
 	RtlInitUnicodeString(&kernel32_unicode_str, L"kernel32.dll");
 	RtlInitUnicodeString(&shell32_unicode_str, L"shell32.dll");
 	RtlInitAnsiString(&commandlinetoargvw_str, "CommandLineToArgvW");
 	RtlInitAnsiString(&exitprocess_str, "ExitProcess");
-	RtlInitAnsiString(&getcommandlinew_str, "GetCommandLineW");
-	RtlInitAnsiString(&getenvironmentstrings_str, "GetEnvironmentStrings");
 	RtlInitAnsiString(&getlasterror_str, "GetLastError");
 	RtlInitAnsiString(&getsysteminfo_str, "GetSystemInfo");
-	RtlInitAnsiString(&getprocessheap_str, "GetProcessHeap");
-	RtlInitAnsiString(&getstdhandle_str, "GetStdHandle");
 	RtlInitAnsiString(&heapalloc_str, "HeapAlloc");
 	RtlInitAnsiString(&heapfree_str, "HeapFree");
 	RtlInitAnsiString(&localfree_str, "LocalFree");
@@ -94,7 +160,7 @@ void *__load_w32_funcs(void)
 	RtlInitAnsiString(&virtualquery_str, "VirtualQuery");
 	RtlInitAnsiString(&writefile_str, "WriteFile");
 
-	/* Call LdrLoadDll to load the DLLs we need */	
+	/* Call LdrLoadDll to load the DLLs we need */
 	err = LdrLoadDll(NULL, NULL, &shell32_unicode_str, &shell32_base);
 	if (err != 0)
 		abort();
@@ -104,7 +170,7 @@ void *__load_w32_funcs(void)
 			      &kernel32_handle);
 	if (err != 0)
 		abort();
-	
+
 	err = LdrGetDllHandle(NULL, NULL, &shell32_unicode_str,
 			      &shell32_handle);
 	if (err != 0)
@@ -121,34 +187,13 @@ void *__load_w32_funcs(void)
 	if (err != 0)
 		abort();
 
-	err = LdrGetProcedureAddress(kernel32_handle, &getcommandlinew_str, 0,
-				     &getcommandlinew);
-	if (err != 0)
-		abort();
-
-	err = LdrGetProcedureAddress(kernel32_handle,
-				     &getenvironmentstrings_str, 0,
-				     &getenvironmentstrings);
-	if (err != 0)
-		abort();
-
 	err = LdrGetProcedureAddress(kernel32_handle, &getlasterror_str, 0,
 				     &getlasterror);
 	if (err != 0)
 		abort();
 
-	err = LdrGetProcedureAddress(kernel32_handle, &getprocessheap_str, 0,
-				     &getprocessheap);
-	if (err != 0)
-		abort();
-
 	err = LdrGetProcedureAddress(kernel32_handle, &getsysteminfo_str, 0,
 				     &getsysteminfo);
-	if (err != 0)
-		abort();
-
-	err = LdrGetProcedureAddress(kernel32_handle, &getstdhandle_str, 0,
-				     &getstdhandle);
 	if (err != 0)
 		abort();
 
@@ -200,16 +245,6 @@ void ExitProcess(int code)
 		code); /* This will segfault if it's not loaded */
 }
 
-wchar_t *GetCommandLineW(void)
-{
-	return ((wchar_t * (*)(void)) getcommandlinew)();
-}
-
-char *GetEnvironmentStrings(void)
-{
-	return ((char *(*)(void))getenvironmentstrings)();
-}
-
 unsigned int GetLastError(void)
 {
 	return ((unsigned int (*)(void))getlasterror)();
@@ -218,16 +253,6 @@ unsigned int GetLastError(void)
 void GetSystemInfo(void *info)
 {
 	((void (*)(void *))getsysteminfo)(info);
-}
-
-void *GetProcessHeap(void)
-{
-	return ((void *(*)(void))getprocessheap)();
-}
-
-void *GetStdHandle(unsigned int fd)
-{
-	return ((void *(*)(unsigned int))getstdhandle)(fd);
 }
 
 void *HeapAlloc(void *heap, unsigned int flags, size_t size)
@@ -269,7 +294,9 @@ size_t VirtualQuery(const void *addr, void *buf, size_t len)
 unsigned char WriteFile(void *file, const void *buf, unsigned int n,
 			unsigned int *written, void *overlapped)
 {
-	return ((unsigned char (*)(void *, const void *, unsigned int, unsigned int *, void *))writefile)(file, buf, n, written, overlapped);
+	return ((unsigned char (*)(void *, const void *, unsigned int,
+				   unsigned int *, void *))writefile)(
+		file, buf, n, written, overlapped);
 }
 
 #ifdef __cplusplus

@@ -47,6 +47,11 @@ extern void *memmove(void *__dst, const void *__src, size_t __n);
 extern void *memset(void *__dst, int __c, size_t __n);
 
 /**
+ * @brief Returns the difference between __s1 and __s2
+ */
+extern int strcmp(const char *__s1, const char *__s2);
+
+/**
  * @brief Returns the number of characters in __str.
  */
 extern size_t strlen(const char *__str);

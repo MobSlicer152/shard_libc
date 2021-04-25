@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.10)
 
 # Default library disabler from StackOverflow
 file(WRITE "${CMAKE_BINARY_DIR}/MakeRulesOverwrite.cmake"
-	[=[
-	if (MSVC)
-		set(CMAKE_C_STANDARD_LIBRARIES_INIT "ntdll.lib")
-		set(CMAKE_CXX_STANDARD_LIBRARIES_INIT "ntdll.lib")
-	endif()
-	]=]
+[=[
+if (MSVC)
+	set(CMAKE_C_STANDARD_LIBRARIES_INIT "ntdll.lib")
+	set(CMAKE_CXX_STANDARD_LIBRARIES_INIT "ntdll.lib")
+endif()
+]=]
 )
 set(CMAKE_USER_MAKE_RULES_OVERRIDE "${CMAKE_BINARY_DIR}/MakeRulesOverwrite.cmake")
 

@@ -1,11 +1,11 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+#include "windows_stuff.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-extern void *GetStdHandle(unsigned int fd);
 
 FILE *___stdin;
 FILE *___stdout;
@@ -23,10 +23,10 @@ void __init_stdio(void)
 	*___stdout = malloc(sizeof(struct file));
 	*___stderr = malloc(sizeof(struct file));
 
-	/* Here, this uses GetStdHandle to get the handles */
-	(*___stdin)->fd = GetStdHandle(-10);
-	(*___stdout)->fd = GetStdHandle(-11);
-	(*___stderr)->fd = GetStdHandle(-12);
+	/* The function that loads the PEB has been called by now */
+	(*___stdin)->fd = __libc_windows_peb->params->in;
+	(*___stdout)->fd = __libc_windows_peb->params->out;
+	(*___stderr)->fd = __libc_windows_peb->params->err;
 }
 
 #ifdef __cplusplus
