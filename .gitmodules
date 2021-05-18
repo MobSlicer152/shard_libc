@@ -1,3 +1,4 @@
+ 
 [submodule "deps/linux"]
 	path = deps/linux
-	url = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+	url = https://git.kernel.org/git/torvalds/linux.git

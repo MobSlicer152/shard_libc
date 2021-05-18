@@ -1,4 +1,4 @@
-#include "windows_stuff.h"
+#include "win32/windows_stuff.h"
 #include "internal/startup.h"
 
 /* We need these to transform the Windows commandline into ASCII argv */
@@ -26,7 +26,10 @@ void mainCRTStartup(void)
 	int ret;
 	int i;
 
-	/* Before anything else, load all the functions we need and the PEB */
+	/* First, load the PEB */
+	__libc_windows_peb = __get_peb();
+
+	/* Load all the functions we need */
 	__load_w32_funcs();
 
 	/* Retrieve a handle to the heap */
@@ -39,9 +42,10 @@ void mainCRTStartup(void)
 	argv_w = CommandLineToArgvW(cmdline, &argc);
 
 	/* Allocate space for each argument and copy the translated string in */
-	argv = malloc(argc * sizeof(char *));
+	i = argc * sizeof(char *);
+	argv = malloc(i);
 	for (i = 0; i < argc; i++) {
-		argv[i] = malloc(wcslen(argv_w[i]) * sizeof(wchar_t));
+		argv[i] = malloc(wcslen(argv_w[i]) * sizeof(char));
 		if (!argv[i]) {
 			LocalFree(argv_w);
 			abort();
@@ -70,6 +74,13 @@ void mainCRTStartup(void)
 	/* Exit */
 	exit(ret);
 }
+
+#ifndef _MSC_VER
+void __main(void)
+{
+	mainCRTStartup();
+}
+#endif
 
 #ifdef __cplusplus
 }

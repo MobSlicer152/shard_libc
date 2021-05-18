@@ -1,0 +1,52 @@
+arch = x86-64
+outdir = bin
+objdir = obj
+
+include_paths = -nostdinc -Ideps/linux/usr/include -Iinclude -Isrc
+cflags = -Wall -Wextra -ffreestanding -nostdlib -O2 -g $include_paths
+ldflags = -L$outdir
+
+rule cc
+    command = gcc $cflags -c $in -o $out
+
+rule ld
+    command = ld $ldflags -o $out $in
+
+rule ar_create
+    command = ar rcs $out $in
+
+build $objdir/internal/errno.c.o: cc src/internal/errno.c
+build $objdir/internal/stack_prot.c.o: cc src/internal/stack_prot.c
+build $objdir/internal/startup.c.o: cc src/internal/startup.c
+build $objdir/linux/stdio/init.c.o: cc src/linux/stdio/init.c
+build $objdir/linux/stdlib/_exit.c.o: cc src/linux/stdlib/_exit.c
+build $objdir/linux/unistd/mmap.c.o: cc src/linux/unistd/mmap.c
+build $objdir/linux/unistd/mremap.c.o: cc src/linux/unistd/mremap.c
+build $objdir/linux/unistd/munmap.c.o: cc src/linux/unistd/munmap.c
+build $objdir/linux/unistd/sbrk.c.o: cc src/linux/unistd/sbrk.c
+build $objdir/linux/unistd/write.c.o: cc src/linux/unistd/write.c
+build $objdir/linux/$arch/crt0.s.o: cc src/linux/$arch/crt0.s
+build $objdir/linux/$arch/env.c.o: cc src/linux/$arch/env.c
+build $objdir/linux/$arch/unistd/syscall.c.o: cc src/linux/$arch/unistd/syscall.c
+build $objdir/linux/$arch/unistd/syscall.s.o: cc src/linux/$arch/unistd/syscall.s
+build $objdir/stdio/fprintf.c.o: cc src/stdio/fprintf.c
+build $objdir/stdio/sprintf.c.o: cc src/stdio/sprintf.c
+build $objdir/stdio/vfprintf.c.o: cc src/stdio/vfprintf.c
+build $objdir/stdlib/abort.c.o: cc src/stdlib/abort.c
+build $objdir/stdlib/atexit.c.o: cc src/stdlib/atexit.c
+build $objdir/stdlib/exit.c.o: cc src/stdlib/exit.c
+build $objdir/stdlib/malloc.c.o: cc src/stdlib/malloc.c
+build $objdir/string/memccpy.c.o: cc src/string/memccpy.c
+build $objdir/string/memcpy.c.o: cc src/string/memcpy.c
+build $objdir/string/memmove.c.o: cc src/string/memset.c
+build $objdir/string/strcmp.c.o: cc src/string/strcmp.c
+build $objdir/string/strlen.c.o: cc src/string/strlen.c
+build $objdir/string/strncpy.c.o: cc src/string/strncpy.c
+build $objdir/wchar/wcscmp.c.o: cc src/wchar/wcscmp.c
+build $objdir/wchar/wcslen.c.o: cc src/wchar/wcslen.c
+
+build $outdir/libc_shard.a: ar_create $objdir/internal/errno.c.o $objdir/internal/stack_prot.c.o $objdir/internal/startup.c.o $objdir/linux/stdio/init.c.o $objdir/linux/stdlib/_exit.c.o $objdir/linux/unistd/mmap.c.o $objdir/linux/unistd/mremap.c.o $objdir/linux/unistd/munmap.c.o $objdir/linux/unistd/sbrk.c.o $objdir/linux/unistd/write.c.o $objdir/linux/$arch/crt0.s.o $objdir/linux/$arch/env.c.o $objdir/linux/$arch/unistd/syscall.c.o $objdir/linux/$arch/unistd/syscall.s.o $objdir/stdio/fprintf.c.o $objdir/stdio/sprintf.c.o $objdir/stdio/vfprintf.c.o $objdir/stdlib/abort.c.o $objdir/stdlib/atexit.c.o $objdir/stdlib/exit.c.o $objdir/stdlib/malloc.c.o $objdir/string/memccpy.c.o $objdir/string/memcpy.c.o $objdir/string/memmove.c.o $objdir/string/strcmp.c.o $objdir/string/strlen.c.o $objdir/string/strncpy.c.o $objdir/wchar/wcscmp.c.o $objdir/wchar/wcslen.c.o
+
+build $objdir/tests/main.o: cc tests/main/main.c
+build $outdir/tests/main: ld $objdir/tests/main.o
+    ldflags = $ldflags -lc_shard

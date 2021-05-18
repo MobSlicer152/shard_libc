@@ -4,52 +4,66 @@
 #include "string.h"
 #include "unistd.h"
 #include "wchar.h"
-#include "windows_stuff.h"
+#include "win32/windows_stuff.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* DLL base addresses and handles */
-void *ntdll_base;
-void *kernel32_handle;
-void *shell32_base;
-void *shell32_handle;
+static void *ntdll_base;
+static void *kernel32_handle;
+static void *shell32_base;
+static void *shell32_handle;
 
 /* Function names */
-ANSI_STRING commandlinetoargvw_str;
-ANSI_STRING exitprocess_str;
-ANSI_STRING getcommandlinew_str;
-ANSI_STRING getenvironmentstrings_str;
-ANSI_STRING getlasterror_str;
-ANSI_STRING getsysteminfo_str;
-ANSI_STRING getprocessheap_str;
-ANSI_STRING getstdhandle_str;
-ANSI_STRING heapalloc_str;
-ANSI_STRING heapfree_str;
-ANSI_STRING localfree_str;
-ANSI_STRING virtualalloc_str;
-ANSI_STRING virtualfree_str;
-ANSI_STRING virtualquery_str;
-ANSI_STRING writefile_str;
+static ANSI_STRING commandlinetoargvw_str;
+static ANSI_STRING exitprocess_str;
+static ANSI_STRING getcommandlinew_str;
+static ANSI_STRING getcurrentprocess_str;
+static ANSI_STRING getcurrentthread_str;
+static ANSI_STRING getenvironmentstrings_str;
+static ANSI_STRING getlasterror_str;
+static ANSI_STRING getprocessheap_str;
+static ANSI_STRING getprocesstimes_str;
+static ANSI_STRING getstdhandle_str;
+static ANSI_STRING getsysteminfo_str;
+static ANSI_STRING getthreadtimes_str;
+static ANSI_STRING heapalloc_str;
+static ANSI_STRING heapfree_str;
+static ANSI_STRING localfree_str;
+static ANSI_STRING virtualalloc_str;
+static ANSI_STRING virtualfree_str;
+static ANSI_STRING virtualquery_str;
+static ANSI_STRING writefile_str;
 
 /* Function pointers */
-void *commandlinetoargvw;
-void *exitprocess;
-void *getlasterror;
-void *getsysteminfo;
-void *heapalloc;
-void *heapfree;
-void *ldrgetdllhandle;
-void *ldrgetprocedureaddress;
-void *ldrloaddll;
-void *localfree;
-void *virtualalloc;
-void *virtualfree;
-void *virtualquery;
-void *writefile;
+static void *commandlinetoargvw;
+static void *exitprocess;
+static void *getcommandlinew;
+static void *getcurrentprocess;
+static void *getcurrentthread;
+static void *getlasterror;
+static void *getprocessheap;
+static void *getprocesstimes;
+static void *getsysteminfo;
+static void *getthreadtimes;
+static void *heapalloc;
+static void *heapfree;
+static void *ldrgetdllhandle;
+static void *ldrgetprocedureaddress;
+static void *ldrloaddll;
+static void *localfree;
+static void *rtlfreeutf8string;
+static void *rtlinitansistring;
+static void *rtlinitunicodestring;
+static void *rtlunicodestringtoutf8string;
+static void *virtualalloc;
+static void *virtualfree;
+static void *virtualquery;
+static void *writefile;
 
-/* This function gets the addresses of NTDLL and the Ldr* functions that we use */
+/* This function gets the addresses of NTDLL and the Ldr and Rtl functions that we use */
 void __load_ntdll_funcs(void)
 {
 	PEB_LDR_DATA *ldr;
@@ -59,18 +73,9 @@ void __load_ntdll_funcs(void)
 	LDR_MODULE *ntdll = 0;
 	IMAGE_DOS_HEADER *dos_hdr;
 	IMAGE_NT_HEADERS64 *nt_hdrs;
-	unsigned int exports_va;
-	IMAGE_SECTION_HEADER *sect_hdr;
-	unsigned int sect_count;
-	unsigned int export_sect;
 	IMAGE_EXPORT_DIRECTORY *exports;
-	unsigned char **func_names;
+	unsigned int *funcs;
 	int i;
-
-	/* First, load the PEB */
-	__libc_windows_peb = __get_peb();
-	if (!__libc_windows_peb)
-		abort();
 
 	/* Alias the PEB's loader data */
 	ldr = __libc_windows_peb->ldr;
@@ -109,30 +114,38 @@ void __load_ntdll_funcs(void)
 		abort();
 
 	/* Find the export table */
-	exports_va = nt_hdrs->ohdr.data_dir[0].virt_addr;
-	sect_count = nt_hdrs->fhdr.n_sects;
-	sect_hdr = ((unsigned char *)ntdll_base + dos_hdr->nt_hdr_addr +
-		    sizeof(*nt_hdrs));
-	for (export_sect = 0;
-	     export_sect < sect_count && sect_hdr->virt_addr <= exports_va;
-	     sect_hdr++, export_sect++)
-		;
-	sect_hdr--;
-	exports = ((unsigned char *)ntdll_base + sect_hdr->raw_ptr) +
-		  (exports_va - sect_hdr->virt_addr);
+	exports = ((unsigned char *)ntdll_base +
+		   nt_hdrs->ohdr.data_dir->virt_addr);
 
-	/* Find our functions */
-	func_names = ((unsigned char *)ntdll_base + exports->names_addr);
-	for (i = 0; i < exports->n_names; i++) {
-		if (strcmp(((((unsigned long long)func_names -
-			      sect_hdr->virt_addr) +
-			     sect_hdr->raw_ptr) +
-			    (unsigned char *)ntdll_base - sect_hdr->virt_addr +
-			    sect_hdr->raw_ptr + (unsigned long long)ntdll_base),
-			   "LdrLoadDll") == 0)
-			ldrloaddll = ((unsigned char *)ntdll_base +
-				      exports->funcs_addr)[i];
-	}
+	/* Make a pointer to our functions */
+	funcs = ((unsigned char *)ntdll_base + exports->funcs_addr);
+
+	/* Find our functions by ordinal */
+	ldrgetdllhandle =
+		((unsigned char *)ntdll_base +
+		 (funcs[129 -
+			exports->base])); /* According to PE viewer, LdrGetDllHandle is 129 */
+	ldrgetprocedureaddress =
+		((unsigned char *)ntdll_base +
+		 (funcs[137 -
+			exports->base])); /* LdrGetProcedureAddress is 137 */
+	ldrloaddll = ((unsigned char *)ntdll_base +
+		      (funcs[147 - exports->base])); /* LdrLoadDll is 147 */
+	rtlfreeutf8string =
+		((unsigned char *)ntdll_base +
+		 (funcs[1045 -
+			exports->base])); /* RtlFreeUTF8String is 1045 (damn, NTDLL is dummy thicc) */
+	rtlinitansistring =
+		((unsigned char *)ntdll_base +
+		 (funcs[1149 - exports->base])); /* RtlInitAnsiString is 1149 */
+	rtlinitunicodestring =
+		((unsigned char *)ntdll_base +
+		 (funcs[1162 -
+			exports->base])); /* RtlInitUnicodeString is 1162 */
+	rtlunicodestringtoutf8string =
+		((unsigned char *)ntdll_base +
+		 (funcs[1565 -
+			exports->base])); /* RtlUnicodeStringToUTF8String is 1565 */
 }
 
 /* Loads necessary DLLs and gets function pointers for wrappers */
@@ -150,8 +163,16 @@ void __load_w32_funcs(void)
 	RtlInitUnicodeString(&shell32_unicode_str, L"shell32.dll");
 	RtlInitAnsiString(&commandlinetoargvw_str, "CommandLineToArgvW");
 	RtlInitAnsiString(&exitprocess_str, "ExitProcess");
+	RtlInitAnsiString(&getcommandlinew_str, "GetCommandLineW");
+	RtlInitAnsiString(&getcurrentprocess_str, "GetCurrentProcess");
+	RtlInitAnsiString(&getcurrentthread_str, "GetCurrentThread");
 	RtlInitAnsiString(&getlasterror_str, "GetLastError");
+	RtlInitAnsiString(
+		&getprocessheap_str,
+		"GetProcessHeap"); /* I don't know why, but this works and the address in the PEB doesn't */
+	RtlInitAnsiString(&getprocesstimes_str, "GetProcessTimes");
 	RtlInitAnsiString(&getsysteminfo_str, "GetSystemInfo");
+	RtlInitAnsiString(&getthreadtimes_str, "GetThreadTimes");
 	RtlInitAnsiString(&heapalloc_str, "HeapAlloc");
 	RtlInitAnsiString(&heapfree_str, "HeapFree");
 	RtlInitAnsiString(&localfree_str, "LocalFree");
@@ -187,13 +208,43 @@ void __load_w32_funcs(void)
 	if (err != 0)
 		abort();
 
+	err = LdrGetProcedureAddress(kernel32_handle, &getcommandlinew_str, 0,
+				     &getcommandlinew);
+	if (err != 0)
+		abort();
+
+	err = LdrGetProcedureAddress(kernel32_handle, &getcurrentprocess_str, 0,
+				     &getcurrentprocess);
+	if (err != 0)
+		abort();
+
+	err = LdrGetProcedureAddress(kernel32_handle, &getcurrentthread_str, 0,
+				     &getcurrentthread);
+	if (err != 0)
+		abort();
+
 	err = LdrGetProcedureAddress(kernel32_handle, &getlasterror_str, 0,
 				     &getlasterror);
 	if (err != 0)
 		abort();
 
+	err = LdrGetProcedureAddress(kernel32_handle, &getprocessheap_str, 0,
+				     &getprocessheap);
+	if (err != 0)
+		abort();
+
+	err = LdrGetProcedureAddress(kernel32_handle, &getprocesstimes_str, 0,
+				     &getprocesstimes);
+	if (err != 0)
+		abort();
+
 	err = LdrGetProcedureAddress(kernel32_handle, &getsysteminfo_str, 0,
 				     &getsysteminfo);
+	if (err != 0)
+		abort();
+
+	err = LdrGetProcedureAddress(kernel32_handle, &getthreadtimes_str, 0,
+				     &getthreadtimes);
 	if (err != 0)
 		abort();
 
@@ -245,14 +296,50 @@ void ExitProcess(int code)
 		code); /* This will segfault if it's not loaded */
 }
 
+wchar_t *GetCommandLineW(void)
+{
+	return ((wchar_t * (*)(void)) getcommandlinew)();
+}
+
+void *GetCurrentProcess(void)
+{
+	return ((void *(*)(void))getcurrentprocess)();
+}
+
+void *GetCurrentThread(void)
+{
+	return ((void *(*)(void))getcurrentthread)();
+}
+
 unsigned int GetLastError(void)
 {
 	return ((unsigned int (*)(void))getlasterror)();
 }
 
+void *GetProcessHeap(void)
+{
+	return ((void *(*)(void))getprocessheap)();
+}
+
+unsigned char GetProcessTimes(void *process, FILETIME *creation, FILETIME *exit,
+			      FILETIME *kernel, FILETIME *user)
+{
+	return ((unsigned char (*)(void *, FILETIME *, FILETIME *, FILETIME *,
+				   FILETIME *))getprocesstimes)(
+		process, creation, exit, kernel, user);
+}
+
 void GetSystemInfo(void *info)
 {
 	((void (*)(void *))getsysteminfo)(info);
+}
+
+unsigned char GetThreadTimes(void *process, FILETIME *creation, FILETIME *exit,
+			      FILETIME *kernel, FILETIME *user)
+{
+	return ((unsigned char (*)(void *, FILETIME *, FILETIME *, FILETIME *,
+				   FILETIME *))getthreadtimes)(
+		process, creation, exit, kernel, user);
 }
 
 void *HeapAlloc(void *heap, unsigned int flags, size_t size)
@@ -267,9 +354,57 @@ unsigned char HeapFree(void *heap, unsigned int flags, void *chunk)
 		heap, flags, chunk);
 }
 
+long LdrGetDllHandle(void *unused_1, void *unused_2, UNICODE_STRING *name,
+		     void **handle)
+{
+	return ((long (*)(void *, void *, UNICODE_STRING *,
+			  void **))ldrgetdllhandle)(unused_1, unused_2, name,
+						    handle);
+}
+
+long LdrGetProcedureAddress(void *base_addr, ANSI_STRING *procedure,
+			    unsigned long ordinal, void **function)
+{
+	return ((long (*)(void *, ANSI_STRING *, unsigned long,
+			  void **))ldrgetprocedureaddress)(base_addr, procedure,
+							   ordinal, function);
+}
+
+long LdrLoadDll(void *unused_1, void *unused_2, UNICODE_STRING *name,
+		void **base_addr)
+{
+	return ((long (*)(void *, void *, UNICODE_STRING *,
+			  void **))ldrloaddll)(unused_1, unused_2, name,
+					       base_addr);
+}
+
 void *LocalFree(void *chunk)
 {
 	return ((void *(*)(void *))localfree)(chunk);
+}
+
+void RtlFreeUTF8String(UTF8_STRING *str)
+{
+	((void (*)(UTF8_STRING *))rtlfreeutf8string)(str);
+}
+
+long RtlInitAnsiString(ANSI_STRING *dst, const char *src)
+{
+	return ((long (*)(ANSI_STRING *, const char *))rtlinitansistring)(dst,
+									  src);
+}
+
+long RtlInitUnicodeString(UNICODE_STRING *dst, const wchar_t *src)
+{
+	return ((long (*)(UNICODE_STRING *,
+			  const wchar_t *))rtlinitunicodestring)(dst, src);
+}
+
+long RtlUnicodeStringToUTF8String(UTF8_STRING *dst, const UNICODE_STRING *src,
+				  unsigned char alloc_dst)
+{
+	return ((long (*)(UTF8_STRING *, const UNICODE_STRING *, unsigned char))
+			rtlunicodestringtoutf8string)(dst, src, alloc_dst);
 }
 
 void *VirtualAlloc(void *addr, size_t size, unsigned int type,

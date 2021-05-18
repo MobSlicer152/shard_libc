@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Internal">
+      <UniqueIdentifier>{a24a255d-c0c7-493e-a736-dfff09b499f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\string.h">
+      <UniqueIdentifier>{441f0957-e0a5-4e6b-b5e4-1e0ded2e7d29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stdlib.h">
+      <UniqueIdentifier>{df17a487-2f6d-4b6f-a064-8a3141f6d355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\wchar.h">
+      <UniqueIdentifier>{5cf382c6-bf63-47dc-bb05-9b611641d94b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows">
+      <UniqueIdentifier>{2e92dc4b-fc51-4be9-9ba4-a9243752e408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\x86_64">
+      <UniqueIdentifier>{3ff564bd-08c8-4461-9098-6d146f19abef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\x86_64\unistd.h">
+      <UniqueIdentifier>{b081e8bc-8301-4c0f-9e4f-b9436b4e083d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\stdio.h">
+      <UniqueIdentifier>{778aa803-eb80-441f-bc06-982b13748fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\stdlib.h">
+      <UniqueIdentifier>{132239cb-b751-4e7d-a12f-cec0b407b95d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\unistd.h">
+      <UniqueIdentifier>{8a1c1aab-bb29-4075-b7ff-d6f919e85d95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows">
+      <UniqueIdentifier>{cb4e0a83-d659-41c5-bc54-740adabd50c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sys">
+      <UniqueIdentifier>{27c85a0f-a747-4a92-889b-01fda4cbfc2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stdio.h">
+      <UniqueIdentifier>{ee729bda-85c9-4963-8c5a-39aa7fedcc5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal">
+      <UniqueIdentifier>{b4bdd4a6-f577-433e-94e6-42758ad54325}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\internal\errno.c">
+      <Filter>Source Files\Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\unistd\write.c">
+      <Filter>Source Files\Windows\unistd.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wchar\wcscmp.c">
+      <Filter>Source Files\wchar.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wchar\wcslen.c">
+      <Filter>Source Files\wchar.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdlib\abort.c">
+      <Filter>Source Files\stdlib.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdlib\atexit.c">
+      <Filter>Source Files\stdlib.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdlib\exit.c">
+      <Filter>Source Files\stdlib.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\memccpy.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\memcpy.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\memmove.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\memset.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\strcmp.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\strlen.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\string\strncpy.c">
+      <Filter>Source Files\string.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\stdlib\_exit.c">
+      <Filter>Source Files\Windows\stdlib.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\stdio\init.c">
+      <Filter>Source Files\Windows\stdio.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\stack_fixup.c">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdlib\malloc.c">
+      <Filter>Source Files\stdlib.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdio\fprintf.c">
+      <Filter>Source Files\stdio.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdio\fwrite.c">
+      <Filter>Source Files\stdio.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdio\sprintf.c">
+      <Filter>Source Files\stdio.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdio\vfprintf.c">
+      <Filter>Source Files\stdio.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\env.c">
+      <Filter>Source Files\Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\internal\startup.c">
+      <Filter>Source Files\Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\crt0.c">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\dll_loader.c">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\shutdown.c">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\win32\windows_stuff.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="include\assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ctype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\errno.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\excpt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\fcntl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\limits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\malloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ms_sal_fixup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdarg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdbool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stddef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdnoreturn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\unistd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\wchar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sys\mman.h">
+      <Filter>Header Files\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sys\param.h">
+      <Filter>Header Files\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sys\syscall.h">
+      <Filter>Header Files\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sys\types.h">
+      <Filter>Header Files\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stdio\stb_sprintf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\env.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal\startup.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="src\win32\x86-64\unistd\syscall.asm">
+      <Filter>Source Files\Windows\x86_64\unistd.h</Filter>
+    </MASM>
+    <MASM Include="src\win32\x86-64\get_peb.asm">
+      <Filter>Source Files\Windows\x86_64</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>

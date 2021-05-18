@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.detectIndentation": false,
+		"editor.insertSpaces": false,
+		"files.eol": "\n",
+		"files.autoSave": "afterDelay",
+		"files.autoSaveDelay": 1000,
+		"[c]": {
+			"editor.tabSize": 8
+		},
+		"[cpp]": {
+			"editor.tabSize": 8
+		},
+		"[json]": {
+			"editor.tabSize": 4
+		},
+		"[jsonc]": {
+			"editor.tabSize": 4
+		},
+		"[python]": {
+			"editor.tabSize": 4
+		},
+		"[ninja]": {
+			"editor.tabSize": 4,
+			"editor.insertSpaces": true,
+			"editor.wordWrap": "on"
+		},
+		"files.associations": {
+			"stdexcept": "cpp"
+		}
+	}
+}
