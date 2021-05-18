@@ -1,26 +1,37 @@
 \hypertarget{memmove_8c}{}\doxysection{src/string/memmove.c File Reference}
 \label{memmove_8c}\index{src/string/memmove.c@{src/string/memmove.c}}
 {\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
-Include dependency graph for memmove.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=206pt]{memmove_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for memmove.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void $\ast$ \mbox{\hyperlink{memmove_8c_ae3c07f47a52b48692ea924fa8299ebef}{memmove}} (void $\ast$\+\_\+\+\_\+dst, const void $\ast$\+\_\+\+\_\+src, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+void $\ast$ \mbox{\hyperlink{memmove_8c_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc}} (\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}} \+\_\+\+\_\+size)
+\item 
+void \mbox{\hyperlink{memmove_8c_a55423a3e275c8dcb92138a5f39f8661f}{free}} (void $\ast$\+\_\+\+\_\+chunk)
+\item 
+void $\ast$ \mbox{\hyperlink{memmove_8c_ae3c07f47a52b48692ea924fa8299ebef}{memmove}} (void $\ast$\+\_\+\+\_\+dst, const void $\ast$\+\_\+\+\_\+src, \mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}} \+\_\+\+\_\+n)
 \begin{DoxyCompactList}\small\item\em Copies \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to a temporary buffer and then into \+\_\+\+\_\+dst. Returns \+\_\+\+\_\+dst. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memmove_8c_a55423a3e275c8dcb92138a5f39f8661f}\label{memmove_8c_a55423a3e275c8dcb92138a5f39f8661f}} 
+\index{memmove.c@{memmove.c}!free@{free}}
+\index{free@{free}!memmove.c@{memmove.c}}
+\doxysubsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily void free (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+\+\_\+chunk }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{memmove_8c_ae91b3dc6530d8a443eb7f01137f5aeff}\label{memmove_8c_ae91b3dc6530d8a443eb7f01137f5aeff}} 
+\index{memmove.c@{memmove.c}!malloc@{malloc}}
+\index{malloc@{malloc}!memmove.c@{memmove.c}}
+\doxysubsubsection{\texorpdfstring{malloc()}{malloc()}}
+{\footnotesize\ttfamily void$\ast$ malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}]{\+\_\+\+\_\+size }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{memmove_8c_ae3c07f47a52b48692ea924fa8299ebef}\label{memmove_8c_ae3c07f47a52b48692ea924fa8299ebef}} 
 \index{memmove.c@{memmove.c}!memmove@{memmove}}
 \index{memmove@{memmove}!memmove.c@{memmove.c}}
 \doxysubsubsection{\texorpdfstring{memmove()}{memmove()}}
-{\footnotesize\ttfamily void$\ast$ memmove (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$}]{\+\_\+\+\_\+src,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void$\ast$ memmove (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$}]{\+\_\+\+\_\+src,  }\item[{\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
 
 
 

@@ -1,7 +1,0 @@
-<map id="include/string.h" name="include/string.h">
-<area shape="rect" id="node1" title=" " alt="" coords="295,5,418,32"/>
-<area shape="rect" id="node2" href="$memccpy_8c.html" title=" " alt="" coords="5,80,164,107"/>
-<area shape="rect" id="node3" href="$memcpy_8c.html" title=" " alt="" coords="189,80,341,107"/>
-<area shape="rect" id="node4" href="$memmove_8c.html" title=" " alt="" coords="365,80,533,107"/>
-<area shape="rect" id="node5" href="$strlen_8c.html" title=" " alt="" coords="557,80,692,107"/>
-</map>

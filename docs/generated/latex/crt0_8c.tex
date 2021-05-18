@@ -1,47 +1,59 @@
 \hypertarget{crt0_8c}{}\doxysection{src/win32/crt0.c File Reference}
 \label{crt0_8c}\index{src/win32/crt0.c@{src/win32/crt0.c}}
-{\ttfamily \#include \char`\"{}wchar.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$heapapi.\+h$>$}\newline
-{\ttfamily \#include $<$shellapi.\+h$>$}\newline
-{\ttfamily \#include $<$windows.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}dumbass\+\_\+windows\+\_\+stuff.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}win32/windows\+\_\+stuff.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}internal/startup.\+h\char`\"{}}\newline
-Include dependency graph for crt0.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{crt0_8c__incl}
-\end{center}
-\end{figure}
-\doxysubsection*{Macros}
+{\ttfamily \#include \char`\"{}stdbool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}wchar.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
+Include dependency graph for crt0.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{crt0_8c_ab7862540fda67cb6cc6b55355ecc4e4e}{startup}}~main\+C\+R\+T\+Startup
+void \mbox{\hyperlink{crt0_8c_a9c2c5bd34b5a5de3a5a41d20addd67f4}{main\+CRTStartup}} (void)
+\item 
+void \mbox{\hyperlink{crt0_8c_a0960c8571aac1536f7e7e5f2590d1ff9}{\+\_\+\+\_\+main}} (void)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-H\+A\+N\+D\+LE \mbox{\hyperlink{crt0_8c_a1e5919f236fbe478eb860777ce130e00}{\+\_\+\+\_\+libc\+\_\+windows\+\_\+heap}}
-\begin{DoxyCompactList}\small\item\em A handle to the heap returned by Get\+Process\+Heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void $\ast$ \mbox{\hyperlink{crt0_8c_a186b3064f13b2786e97631c4efc53bd1}{\+\_\+\+\_\+libc\+\_\+windows\+\_\+heap}}
+\begin{DoxyCompactList}\small\item\em A handle to the heap returned by Get\+Process\+Heap. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{windows__stuff_8h_aea4240d10e4dd01b9040bd2c4402a3af}{PEB}} $\ast$ \mbox{\hyperlink{crt0_8c_ac271000a35a7e6b134daad494972ebe0}{\+\_\+\+\_\+libc\+\_\+windows\+\_\+peb}}
+\end{DoxyCompactItemize}
 
 
-\doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{crt0_8c_ab7862540fda67cb6cc6b55355ecc4e4e}\label{crt0_8c_ab7862540fda67cb6cc6b55355ecc4e4e}} 
-\index{crt0.c@{crt0.c}!startup@{startup}}
-\index{startup@{startup}!crt0.c@{crt0.c}}
-\doxysubsubsection{\texorpdfstring{startup}{startup}}
-{\footnotesize\ttfamily int startup~main\+C\+R\+T\+Startup}
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{crt0_8c_a0960c8571aac1536f7e7e5f2590d1ff9}\label{crt0_8c_a0960c8571aac1536f7e7e5f2590d1ff9}} 
+\index{crt0.c@{crt0.c}!\_\_main@{\_\_main}}
+\index{\_\_main@{\_\_main}!crt0.c@{crt0.c}}
+\doxysubsubsection{\texorpdfstring{\_\_main()}{\_\_main()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{crt0_8c_a9c2c5bd34b5a5de3a5a41d20addd67f4}\label{crt0_8c_a9c2c5bd34b5a5de3a5a41d20addd67f4}} 
+\index{crt0.c@{crt0.c}!mainCRTStartup@{mainCRTStartup}}
+\index{mainCRTStartup@{mainCRTStartup}!crt0.c@{crt0.c}}
+\doxysubsubsection{\texorpdfstring{mainCRTStartup()}{mainCRTStartup()}}
+{\footnotesize\ttfamily void main\+CRTStartup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{crt0_8c_a1e5919f236fbe478eb860777ce130e00}\label{crt0_8c_a1e5919f236fbe478eb860777ce130e00}} 
+\mbox{\Hypertarget{crt0_8c_a186b3064f13b2786e97631c4efc53bd1}\label{crt0_8c_a186b3064f13b2786e97631c4efc53bd1}} 
 \index{crt0.c@{crt0.c}!\_\_libc\_windows\_heap@{\_\_libc\_windows\_heap}}
 \index{\_\_libc\_windows\_heap@{\_\_libc\_windows\_heap}!crt0.c@{crt0.c}}
 \doxysubsubsection{\texorpdfstring{\_\_libc\_windows\_heap}{\_\_libc\_windows\_heap}}
-{\footnotesize\ttfamily H\+A\+N\+D\+LE \+\_\+\+\_\+libc\+\_\+windows\+\_\+heap}
+{\footnotesize\ttfamily void$\ast$ \+\_\+\+\_\+libc\+\_\+windows\+\_\+heap}
 
 
 
 A handle to the heap returned by Get\+Process\+Heap. 
+
+\mbox{\Hypertarget{crt0_8c_ac271000a35a7e6b134daad494972ebe0}\label{crt0_8c_ac271000a35a7e6b134daad494972ebe0}} 
+\index{crt0.c@{crt0.c}!\_\_libc\_windows\_peb@{\_\_libc\_windows\_peb}}
+\index{\_\_libc\_windows\_peb@{\_\_libc\_windows\_peb}!crt0.c@{crt0.c}}
+\doxysubsubsection{\texorpdfstring{\_\_libc\_windows\_peb}{\_\_libc\_windows\_peb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{windows__stuff_8h_aea4240d10e4dd01b9040bd2c4402a3af}{PEB}}$\ast$ \+\_\+\+\_\+libc\+\_\+windows\+\_\+peb}
 

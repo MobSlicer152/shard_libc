@@ -1,30 +1,25 @@
 \hypertarget{stddef_8h}{}\doxysection{include/stddef.h File Reference}
 \label{stddef_8h}\index{include/stddef.h@{include/stddef.h}}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{stddef_8h__dep__incl}
-\end{center}
-\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{stddef_8h_a65fb66d7555d907b1d7a572f2a25e38a}{\+\_\+\+S\+T\+D\+D\+E\+F\+\_\+H}}~1
+\#define \mbox{\hyperlink{stddef_8h_a65fb66d7555d907b1d7a572f2a25e38a}{\+\_\+\+STDDEF\+\_\+H}}~1
 \item 
-\#define \mbox{\hyperlink{stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+LL}}~(void $\ast$)0
-\begin{DoxyCompactList}\small\item\em N\+U\+LL is used to represent pointers that don\textquotesingle{}t point anywhere (hence the name) \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{stddef_8h_af56bd87da089588d6d2fe49f96e10492}{offsetof}}(structure,  member)~((\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}})\&(((structure $\ast$)0)-\/$>$member))
+\#define \mbox{\hyperlink{stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}~(void $\ast$)0
+\begin{DoxyCompactList}\small\item\em NULL is used to represent pointers that don\textquotesingle{}t point anywhere (hence the name) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{stddef_8h_af56bd87da089588d6d2fe49f96e10492}{offsetof}}(structure,  member)~ ((\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}})\&(((structure $\ast$)0)-\/$>$member))
 \begin{DoxyCompactList}\small\item\em The offsetof macro finds the offset of a given member of a structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef long long \mbox{\hyperlink{stddef_8h_ac3686a882b6a4aadded1cd099caeffef}{intmax\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Can hold the max value for an integer. \end{DoxyCompactList}\item 
-typedef unsigned long \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}
+typedef unsigned long long \mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Used to store the sizes of things. \end{DoxyCompactList}\item 
 typedef short \mbox{\hyperlink{stddef_8h_ab0d0587e8a710c41b13ba8f3c9e2fcdc}{wchar\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em wchar\+\_\+t holds wide characters (i.\+e. beyond A\+S\+C\+II) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em wchar\+\_\+t holds wide characters (i.\+e. beyond ASCII) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -32,23 +27,23 @@ typedef short \mbox{\hyperlink{stddef_8h_ab0d0587e8a710c41b13ba8f3c9e2fcdc}{wcha
 \index{stddef.h@{stddef.h}!\_STDDEF\_H@{\_STDDEF\_H}}
 \index{\_STDDEF\_H@{\_STDDEF\_H}!stddef.h@{stddef.h}}
 \doxysubsubsection{\texorpdfstring{\_STDDEF\_H}{\_STDDEF\_H}}
-{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+D\+D\+E\+F\+\_\+H~1}
+{\footnotesize\ttfamily \#define \+\_\+\+STDDEF\+\_\+H~1}
 
 \mbox{\Hypertarget{stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}\label{stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}} 
 \index{stddef.h@{stddef.h}!NULL@{NULL}}
 \index{NULL@{NULL}!stddef.h@{stddef.h}}
 \doxysubsubsection{\texorpdfstring{NULL}{NULL}}
-{\footnotesize\ttfamily \#define N\+U\+LL~(void $\ast$)0}
+{\footnotesize\ttfamily \#define NULL~(void $\ast$)0}
 
 
 
-N\+U\+LL is used to represent pointers that don\textquotesingle{}t point anywhere (hence the name) 
+NULL is used to represent pointers that don\textquotesingle{}t point anywhere (hence the name) 
 
 \mbox{\Hypertarget{stddef_8h_af56bd87da089588d6d2fe49f96e10492}\label{stddef_8h_af56bd87da089588d6d2fe49f96e10492}} 
 \index{stddef.h@{stddef.h}!offsetof@{offsetof}}
 \index{offsetof@{offsetof}!stddef.h@{stddef.h}}
 \doxysubsubsection{\texorpdfstring{offsetof}{offsetof}}
-{\footnotesize\ttfamily \#define offsetof(\begin{DoxyParamCaption}\item[{}]{structure,  }\item[{}]{member }\end{DoxyParamCaption})~((\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}})\&(((structure $\ast$)0)-\/$>$member))}
+{\footnotesize\ttfamily \#define offsetof(\begin{DoxyParamCaption}\item[{}]{structure,  }\item[{}]{member }\end{DoxyParamCaption})~ ((\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}})\&(((structure $\ast$)0)-\/$>$member))}
 
 
 
@@ -61,7 +56,7 @@ The offsetof macro finds the offset of a given member of a structure.
 {\em member} & is the name of the member to get the offset of\\
 \hline
 \end{DoxyParams}
-This version is totally cribbed off of Wikipedia\textquotesingle{}s. Basically it gets the address of the member as if it was part of a structure starting at 0, which means it\textquotesingle{}s just the offset of the member from 0 or in other words the start of the structure. 
+This version is totally cribbed off of Wikipedia\textquotesingle{}s. Basically it gets the address of the member as if it was part of a structure starting at 0, which means it\textquotesingle{}s just the offset of the member from 0 or in other words the start of the structure. {\itshape taps head to indicate bigbrain} 
 
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{stddef_8h_ac3686a882b6a4aadded1cd099caeffef}\label{stddef_8h_ac3686a882b6a4aadded1cd099caeffef}} 
@@ -74,11 +69,11 @@ This version is totally cribbed off of Wikipedia\textquotesingle{}s. Basically i
 
 Can hold the max value for an integer. 
 
-\mbox{\Hypertarget{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}\label{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}} 
+\mbox{\Hypertarget{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}\label{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}} 
 \index{stddef.h@{stddef.h}!size\_t@{size\_t}}
 \index{size\_t@{size\_t}!stddef.h@{stddef.h}}
 \doxysubsubsection{\texorpdfstring{size\_t}{size\_t}}
-{\footnotesize\ttfamily typedef unsigned long \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}
+{\footnotesize\ttfamily typedef unsigned long long \mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}
 
 
 
@@ -92,5 +87,5 @@ Used to store the sizes of things.
 
 
 
-wchar\+\_\+t holds wide characters (i.\+e. beyond A\+S\+C\+II) 
+wchar\+\_\+t holds wide characters (i.\+e. beyond ASCII) 
 

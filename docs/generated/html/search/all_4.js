@@ -1,9 +1,25 @@
 var searchData=
 [
-  ['env_2ec_30',['env.c',['../linux_2x86-64_2env_8c.html',1,'(Global Namespace)'],['../win32_2env_8c.html',1,'(Global Namespace)']]],
-  ['env_2eh_31',['env.h',['../linux_2x86-64_2env_8h.html',1,'(Global Namespace)'],['../win32_2env_8h.html',1,'(Global Namespace)']]],
-  ['environ_32',['environ',['../unistd_8h.html#aa006daaf11f1e2e45a6ababaf463212b',1,'environ():&#160;startup.c'],['../startup_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'environ():&#160;startup.c']]],
-  ['excpt_2eh_33',['excpt.h',['../excpt_8h.html',1,'']]],
-  ['exit_34',['exit',['../stdlib_8h.html#ab891002608ada5a90a82d9cf71d5fe05',1,'exit(int __status) __attribute__((__noreturn__)):&#160;exit.c'],['../exit_8c.html#a037e1211798125c945a26bfbfdf26b8f',1,'exit(int __status):&#160;exit.c']]],
-  ['exit_2ec_35',['exit.c',['../exit_8c.html',1,'']]]
+  ['data_5fdir_343',['data_dir',['../struct__IMAGE__OPTIONAL__HEADER64.html#a9cb1e20a8937879bbdb1fcc6c3cb65f3',1,'_IMAGE_OPTIONAL_HEADER64']]],
+  ['dbg_5fflags_344',['dbg_flags',['../struct__RTL__USER__PROCESS__PARAMETERS.html#a820023b7945681d61fd694a7c62d056e',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['def_5fthrd_5fpool_5fcpu_5fset_5fmask_5fcount_345',['def_thrd_pool_cpu_set_mask_count',['../struct__RTL__USER__PROCESS__PARAMETERS.html#acd66c7157100cebc86a25f9ed8b9f381',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['def_5fthrd_5fpool_5fcpu_5fset_5fmasks_346',['def_thrd_pool_cpu_set_masks',['../struct__RTL__USER__PROCESS__PARAMETERS.html#aabaa425408a67e8565b7e25b1e1a6a81',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['def_5fthrd_5fpool_5fmax_347',['def_thrd_pool_max',['../struct__RTL__USER__PROCESS__PARAMETERS.html#a330f4c4ab450edf45b824ba9bf2111b6',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['default_5fmmap_5fmax_348',['DEFAULT_MMAP_MAX',['../malloc_8c.html#aa504a2885d7c047ebbeca1038808b308',1,'malloc.c']]],
+  ['default_5fmmap_5fthreshold_349',['DEFAULT_MMAP_THRESHOLD',['../malloc_8c.html#a3d78f5f17cc66ad4b567a39a55bb4837',1,'malloc.c']]],
+  ['default_5fmxfast_350',['DEFAULT_MXFAST',['../malloc_8c.html#a57e748e99a87633d6cdfee030d1b3867',1,'malloc.c']]],
+  ['default_5ftop_5fpad_351',['DEFAULT_TOP_PAD',['../malloc_8c.html#aad87bcebd13178ed16c83658db630a26',1,'malloc.c']]],
+  ['default_5ftrim_5fthreshold_352',['DEFAULT_TRIM_THRESHOLD',['../malloc_8c.html#aed027da2fe85e7618851151184d04f49',1,'malloc.c']]],
+  ['desktop_5finfo_353',['desktop_info',['../struct__RTL__USER__PROCESS__PARAMETERS.html#a9cd613ff304afa5f3e774796a03ce4a3',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['dll_5fcharacteristics_354',['dll_characteristics',['../struct__IMAGE__OPTIONAL__HEADER64.html#a33b5ecefb75415d7a4fc27902f08651d',1,'_IMAGE_OPTIONAL_HEADER64']]],
+  ['dll_5floader_2ec_355',['dll_loader.c',['../dll__loader_8c.html',1,'']]],
+  ['dllpath_356',['dllpath',['../struct__RTL__USER__PROCESS__PARAMETERS.html#a52e9d96c43f0bb08b00ca87aea609ea4',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['dwactiveprocessormask_357',['dwActiveProcessorMask',['../struct__SYSTEM__INFO.html#adb26e65c23bd723d1fd236cda6c29fea',1,'_SYSTEM_INFO']]],
+  ['dwallocationgranularity_358',['dwAllocationGranularity',['../struct__SYSTEM__INFO.html#ad0990050fdbe38a04fab95de8eb94d73',1,'_SYSTEM_INFO']]],
+  ['dwhighdatetime_359',['dwHighDateTime',['../struct__FILETIME.html#a7ea84e3655a56e32286005f5a9961d86',1,'_FILETIME']]],
+  ['dwlowdatetime_360',['dwLowDateTime',['../struct__FILETIME.html#aefb0835cecf5918f0633847df1a98ca6',1,'_FILETIME']]],
+  ['dwnumberofprocessors_361',['dwNumberOfProcessors',['../struct__SYSTEM__INFO.html#a45b54306ce16810b2723054485dffa3a',1,'_SYSTEM_INFO']]],
+  ['dwoemid_362',['dwOemId',['../struct__SYSTEM__INFO.html#aea3e3526fa2b7d2ce1c2f776ebb284c6',1,'_SYSTEM_INFO']]],
+  ['dwpagesize_363',['dwPageSize',['../struct__SYSTEM__INFO.html#a714eb26e00a3a62f4496f457c41e67a1',1,'_SYSTEM_INFO']]],
+  ['dwprocessortype_364',['dwProcessorType',['../struct__SYSTEM__INFO.html#a16c8de69a85b0b3d6957f7090a9567b0',1,'_SYSTEM_INFO']]]
 ];

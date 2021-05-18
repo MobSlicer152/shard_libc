@@ -1,25 +1,20 @@
 \hypertarget{startup_8c}{}\doxysection{src/internal/startup.c File Reference}
 \label{startup_8c}\index{src/internal/startup.c@{src/internal/startup.c}}
 {\ttfamily \#include \char`\"{}startup.\+h\char`\"{}}\newline
-Include dependency graph for startup.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{startup_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for startup.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{startup_8c_a9c86baa57011b326981ccdc98b28fbac}{\+\_\+\+\_\+init\+\_\+libc}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
 \begin{DoxyCompactList}\small\item\em Sets stuff up, and retrieves envp. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{startup_8c_ab87a2d62aa906189a4e708e6f75f1aeb}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
+int \mbox{\hyperlink{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}{\+\_\+\+\_\+libc\+\_\+call\+\_\+main}} (int \+\_\+\+\_\+argc, char $\ast$$\ast$\+\_\+\+\_\+argv)
 \begin{DoxyCompactList}\small\item\em Calls main. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 char $\ast$$\ast$ \mbox{\hyperlink{startup_8c_aa006daaf11f1e2e45a6ababaf463212b}{environ}}
-\begin{DoxyCompactList}\small\item\em The P\+O\+S\+I\+X-\/specified variable that contains the environment variables for the program. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The POSIX-\/specified buffer that contains the environment variables for the program. \end{DoxyCompactList}\item 
 char $\ast$$\ast$ \mbox{\hyperlink{startup_8c_ab8b8619e373c6d9c2f44b31219f2d8ab}{\+\_\+\+\_\+env}}
 \end{DoxyCompactItemize}
 
@@ -35,11 +30,11 @@ char $\ast$$\ast$ \mbox{\hyperlink{startup_8c_ab8b8619e373c6d9c2f44b31219f2d8ab}
 
 Sets stuff up, and retrieves envp. 
 
-\mbox{\Hypertarget{startup_8c_ab87a2d62aa906189a4e708e6f75f1aeb}\label{startup_8c_ab87a2d62aa906189a4e708e6f75f1aeb}} 
+\mbox{\Hypertarget{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}\label{startup_8c_ae3ae52ba2f276c1db1d047d10288e7b5}} 
 \index{startup.c@{startup.c}!\_\_libc\_call\_main@{\_\_libc\_call\_main}}
 \index{\_\_libc\_call\_main@{\_\_libc\_call\_main}!startup.c@{startup.c}}
 \doxysubsubsection{\texorpdfstring{\_\_libc\_call\_main()}{\_\_libc\_call\_main()}}
-{\footnotesize\ttfamily void \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int \+\_\+\+\_\+libc\+\_\+call\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+argc,  }\item[{char $\ast$$\ast$}]{\+\_\+\+\_\+argv }\end{DoxyParamCaption})}
 
 
 
@@ -62,5 +57,5 @@ Calls main.
 
 
 
-The P\+O\+S\+I\+X-\/specified variable that contains the environment variables for the program. 
+The POSIX-\/specified buffer that contains the environment variables for the program. 
 

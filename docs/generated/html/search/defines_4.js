@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['va_5farg_157',['va_arg',['../stdarg_8h.html#aa3d344ec3114e21b558ead5c3bb1935e',1,'stdarg.h']]],
-  ['va_5fcopy_158',['va_copy',['../stdarg_8h.html#aaf5addb1c590c55d01c32ffec8f7d84f',1,'stdarg.h']]],
-  ['va_5fend_159',['va_end',['../stdarg_8h.html#a04a7859729c93333664072300d9af51b',1,'stdarg.h']]],
-  ['va_5fstart_160',['va_start',['../stdarg_8h.html#a04b43378a230e60f16693f6c482ba657',1,'stdarg.h']]]
+  ['default_5fmmap_5fmax_2025',['DEFAULT_MMAP_MAX',['../malloc_8c.html#aa504a2885d7c047ebbeca1038808b308',1,'malloc.c']]],
+  ['default_5fmmap_5fthreshold_2026',['DEFAULT_MMAP_THRESHOLD',['../malloc_8c.html#a3d78f5f17cc66ad4b567a39a55bb4837',1,'malloc.c']]],
+  ['default_5fmxfast_2027',['DEFAULT_MXFAST',['../malloc_8c.html#a57e748e99a87633d6cdfee030d1b3867',1,'malloc.c']]],
+  ['default_5ftop_5fpad_2028',['DEFAULT_TOP_PAD',['../malloc_8c.html#aad87bcebd13178ed16c83658db630a26',1,'malloc.c']]],
+  ['default_5ftrim_5fthreshold_2029',['DEFAULT_TRIM_THRESHOLD',['../malloc_8c.html#aed027da2fe85e7618851151184d04f49',1,'malloc.c']]]
 ];

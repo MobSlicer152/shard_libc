@@ -1,28 +1,25 @@
 \hypertarget{win32_2unistd_2write_8c}{}\doxysection{src/win32/unistd/write.c File Reference}
 \label{win32_2unistd_2write_8c}\index{src/win32/unistd/write.c@{src/win32/unistd/write.c}}
 {\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$windows.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
-Include dependency graph for write.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=254pt]{win32_2unistd_2write_8c__incl}
-\end{center}
-\end{figure}
+{\ttfamily \#include \char`\"{}win32/windows\+\_\+stuff.\+h\char`\"{}}\newline
+Include dependency graph for write.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-long \mbox{\hyperlink{win32_2unistd_2write_8c_a673831ddd118b3f2f97c19a399d5881b}{write}} (int \+\_\+\+\_\+fd, const void $\ast$\+\_\+\+\_\+buf, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+unsigned char \mbox{\hyperlink{win32_2unistd_2write_8c_a65479dc7992b7f5d8fab03d093039c37}{Write\+File}} (void $\ast$\mbox{\hyperlink{structfile}{file}}, const void $\ast$buf, unsigned int n, unsigned int $\ast$written, void $\ast$unused)
+\item 
+long \mbox{\hyperlink{win32_2unistd_2write_8c_a7fb6312e81e578531ca3ee9f183a8493}{write}} (int \+\_\+\+\_\+fh, const void $\ast$\+\_\+\+\_\+buf, \mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}} \+\_\+\+\_\+n)
 \begin{DoxyCompactList}\small\item\em Writes \+\_\+\+\_\+n bytes of \+\_\+\+\_\+buf to \+\_\+\+\_\+fd. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{win32_2unistd_2write_8c_a673831ddd118b3f2f97c19a399d5881b}\label{win32_2unistd_2write_8c_a673831ddd118b3f2f97c19a399d5881b}} 
+\mbox{\Hypertarget{win32_2unistd_2write_8c_a7fb6312e81e578531ca3ee9f183a8493}\label{win32_2unistd_2write_8c_a7fb6312e81e578531ca3ee9f183a8493}} 
 \index{write.c@{write.c}!write@{write}}
 \index{write@{write}!write.c@{write.c}}
 \doxysubsubsection{\texorpdfstring{write()}{write()}}
-{\footnotesize\ttfamily long write (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+fd,  }\item[{const void $\ast$}]{\+\_\+\+\_\+buf,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily long write (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+fd,  }\item[{const void $\ast$}]{\+\_\+\+\_\+buf,  }\item[{\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
 
 
 
@@ -30,13 +27,21 @@ Writes \+\_\+\+\_\+n bytes of \+\_\+\+\_\+buf to \+\_\+\+\_\+fd.
 
 
 \begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+fh} & is the Win32 file handle to write to \\
+\hline
 {\em \+\_\+\+\_\+fd} & is the file descriptor to write to \\
 \hline
 {\em \+\_\+\+\_\+buf} & is the buffer to write \\
 \hline
-{\em \+\_\+\+\_\+n} & is the number of bytes to write \\
+{\em \+\_\+\+\_\+n} & is the number of bytes to write\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The number of bytes written or -\/1 if an error occurs 
 \end{DoxyReturn}
+\mbox{\Hypertarget{win32_2unistd_2write_8c_a65479dc7992b7f5d8fab03d093039c37}\label{win32_2unistd_2write_8c_a65479dc7992b7f5d8fab03d093039c37}} 
+\index{write.c@{write.c}!WriteFile@{WriteFile}}
+\index{WriteFile@{WriteFile}!write.c@{write.c}}
+\doxysubsubsection{\texorpdfstring{WriteFile()}{WriteFile()}}
+{\footnotesize\ttfamily unsigned char Write\+File (\begin{DoxyParamCaption}\item[{void $\ast$}]{file,  }\item[{const void $\ast$}]{buf,  }\item[{unsigned int}]{n,  }\item[{unsigned int $\ast$}]{written,  }\item[{void $\ast$}]{unused }\end{DoxyParamCaption})}
+

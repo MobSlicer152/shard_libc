@@ -1,27 +1,28 @@
 \hypertarget{syscall_8c}{}\doxysection{src/linux/x86-\/64/unistd/syscall.c File Reference}
 \label{syscall_8c}\index{src/linux/x86-\/64/unistd/syscall.c@{src/linux/x86-\/64/unistd/syscall.c}}
-{\ttfamily \#include \char`\"{}internal/registers.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}stdarg.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
-Include dependency graph for syscall.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=338pt]{syscall_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for syscall.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-long \mbox{\hyperlink{syscall_8c_a2485816888633ce82efea564e855618f}{syscall}} (unsigned long \+\_\+\+\_\+number,...)
+long \mbox{\hyperlink{syscall_8c_af337c029c954b84cadd29c57d5565931}{\+\_\+\+\_\+syscall}} (long rdi, long rsi, long rdx, long rcx, long r8, long r9)
+\item 
+long \mbox{\hyperlink{syscall_8c_a76c442a3ec8b4b94f32a8ecdd301a9b6}{syscall}} (unsigned long \+\_\+\+\_\+number, long \+\_\+\+\_\+rdi, long \+\_\+\+\_\+rsi, long \+\_\+\+\_\+rdx, long \+\_\+\+\_\+rcx, long \+\_\+\+\_\+r8, long \+\_\+\+\_\+r9)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{syscall_8c_a2485816888633ce82efea564e855618f}\label{syscall_8c_a2485816888633ce82efea564e855618f}} 
+\mbox{\Hypertarget{syscall_8c_af337c029c954b84cadd29c57d5565931}\label{syscall_8c_af337c029c954b84cadd29c57d5565931}} 
+\index{syscall.c@{syscall.c}!\_\_syscall@{\_\_syscall}}
+\index{\_\_syscall@{\_\_syscall}!syscall.c@{syscall.c}}
+\doxysubsubsection{\texorpdfstring{\_\_syscall()}{\_\_syscall()}}
+{\footnotesize\ttfamily long \+\_\+\+\_\+syscall (\begin{DoxyParamCaption}\item[{long}]{rdi,  }\item[{long}]{rsi,  }\item[{long}]{rdx,  }\item[{long}]{rcx,  }\item[{long}]{r8,  }\item[{long}]{r9 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syscall_8c_a76c442a3ec8b4b94f32a8ecdd301a9b6}\label{syscall_8c_a76c442a3ec8b4b94f32a8ecdd301a9b6}} 
 \index{syscall.c@{syscall.c}!syscall@{syscall}}
 \index{syscall@{syscall}!syscall.c@{syscall.c}}
 \doxysubsubsection{\texorpdfstring{syscall()}{syscall()}}
-{\footnotesize\ttfamily long syscall (\begin{DoxyParamCaption}\item[{unsigned long}]{\+\_\+\+\_\+number,  }\item[{}]{... }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily long syscall (\begin{DoxyParamCaption}\item[{unsigned long}]{\+\_\+\+\_\+number,  }\item[{long}]{\+\_\+\+\_\+rdi,  }\item[{long}]{\+\_\+\+\_\+rsi,  }\item[{long}]{\+\_\+\+\_\+rdx,  }\item[{long}]{\+\_\+\+\_\+rcx,  }\item[{long}]{\+\_\+\+\_\+r8,  }\item[{long}]{\+\_\+\+\_\+r9 }\end{DoxyParamCaption})}
 
-Thank you G\+NU and Linus Torvalds for making this function so easy to make. This implementation is somewhere between musl libc\textquotesingle{}s and glibc\textquotesingle{}s. 
+Thank you GNU and Linus Torvalds for making this function so easy to make. 

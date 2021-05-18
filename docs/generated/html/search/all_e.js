@@ -1,6 +1,19 @@
 var searchData=
 [
-  ['wchar_5ft_79',['wchar_t',['../stddef_8h.html#ab0d0587e8a710c41b13ba8f3c9e2fcdc',1,'stddef.h']]],
-  ['write_80',['write',['../unistd_8h.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c'],['../linux_2unistd_2write_8c.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c'],['../win32_2unistd_2write_8c.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c']]],
-  ['write_2ec_81',['write.c',['../linux_2unistd_2write_8c.html',1,'(Global Namespace)'],['../win32_2unistd_2write_8c.html',1,'(Global Namespace)']]]
+  ['oem_5fcodepage_5fdata_767',['oem_codepage_data',['../struct__PEB.html#acbf62267bdea9040b10c261f13620671',1,'_PEB']]],
+  ['oemid_768',['oemid',['../struct__IMAGE__DOS__HEADER.html#a1ef29929064eb5a04374e59bc9421c7a',1,'_IMAGE_DOS_HEADER']]],
+  ['oeminfo_769',['oeminfo',['../struct__IMAGE__DOS__HEADER.html#a719868f0ec997cc2701e9a94f338ca16',1,'_IMAGE_DOS_HEADER']]],
+  ['off_770',['off',['../structfile.html#ab7f30bb9234b01fcd187507cf51624a3',1,'file']]],
+  ['offsetof_771',['offsetof',['../stddef_8h.html#af56bd87da089588d6d2fe49f96e10492',1,'stddef.h']]],
+  ['ohdr_772',['ohdr',['../struct__IMAGE__NT__HEADERS64.html#afc02f4196aa0bd17c3128ea79e9d7a8f',1,'_IMAGE_NT_HEADERS64']]],
+  ['opt_5fhdr_5fsize_773',['opt_hdr_size',['../struct__IMAGE__FILE__HEADER.html#a4e232ca21121391637ecb0a6886d7a4d',1,'_IMAGE_FILE_HEADER']]],
+  ['ordblks_774',['ordblks',['../structmallinfo.html#a84990d8dd9c37c99db036a981af8d921',1,'mallinfo']]],
+  ['ordinals_5faddr_775',['ordinals_addr',['../struct__IMAGE__EXPORT__DIRECTORY.html#a87dce5c316bba737a89136b6f58a3db8',1,'_IMAGE_EXPORT_DIRECTORY']]],
+  ['os_5fbuild_5fno_776',['os_build_no',['../struct__PEB.html#af753e2decbc34591e4604cc6fd343ed3',1,'_PEB']]],
+  ['os_5fcsd_5fver_777',['os_csd_ver',['../struct__PEB.html#a1aefc4ee8603f52eeed31960bf9edfae',1,'_PEB']]],
+  ['os_5fmaj_5fver_778',['os_maj_ver',['../struct__PEB.html#a4a67aa4cd1d280921781e1a55eea56f5',1,'_PEB::os_maj_ver()'],['../struct__IMAGE__OPTIONAL__HEADER64.html#a81f5e3f363f288eeaa0f016542165cfa',1,'_IMAGE_OPTIONAL_HEADER64::os_maj_ver()']]],
+  ['os_5fmin_5fver_779',['os_min_ver',['../struct__PEB.html#aabe26451b6bd909ebf10f194a233492c',1,'_PEB::os_min_ver()'],['../struct__IMAGE__OPTIONAL__HEADER64.html#a0bb6b4e09aaef2fbedf3311a96b70b92',1,'_IMAGE_OPTIONAL_HEADER64::os_min_ver()']]],
+  ['os_5fplatform_5fid_780',['os_platform_id',['../struct__PEB.html#aa3ff0b07a4e1a4a0c06acb7ab97a524a',1,'_PEB']]],
+  ['out_781',['out',['../struct__RTL__USER__PROCESS__PARAMETERS.html#a1f70153916e09ed9d07a1abd57fe46e0',1,'_RTL_USER_PROCESS_PARAMETERS']]],
+  ['overlay_5fnum_782',['overlay_num',['../struct__IMAGE__DOS__HEADER.html#a22ca80d79904e7f2829b16846d5161c1',1,'_IMAGE_DOS_HEADER']]]
 ];

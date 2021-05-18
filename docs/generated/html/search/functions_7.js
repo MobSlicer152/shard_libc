@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['set_126',['set',['../CMakeLists_8txt.html#a10a373f76ece3a55c945bb8302e3785a',1,'CMakeLists.txt']]],
-  ['strlen_127',['strlen',['../string_8h.html#accd92aebde496377aff85f39aa99071f',1,'strlen(const char *__str):&#160;strlen.c'],['../strlen_8c.html#accd92aebde496377aff85f39aa99071f',1,'strlen(const char *__str):&#160;strlen.c']]],
-  ['syscall_128',['syscall',['../syscall_8c.html#a2485816888633ce82efea564e855618f',1,'syscall.c']]]
+  ['icalloc_1382',['iCALLOc',['../malloc_8c.html#a16bde84a5b043f7890120af85a147b9a',1,'malloc.c']]],
+  ['icomalloc_1383',['iCOMALLOc',['../malloc_8c.html#a9850a44d052e98ee4dc8da201810521e',1,'malloc.c']]],
+  ['independent_5fcalloc_1384',['independent_calloc',['../malloc_8h.html#a6a62b8a1622537ac12e9c3bc053e432c',1,'malloc.h']]],
+  ['independent_5fcomalloc_1385',['independent_comalloc',['../malloc_8h.html#a6798049a343e74391ee439b3c7c68165',1,'malloc.h']]]
 ];

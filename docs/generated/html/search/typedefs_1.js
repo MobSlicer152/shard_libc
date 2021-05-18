@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['size_5ft_134',['size_t',['../stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984',1,'stddef.h']]]
+  ['char_5fstring_1759',['CHAR_STRING',['../windows__stuff_8h.html#a69db4a32da3d5c022c173ad604a7a6a3',1,'windows_stuff.h']]],
+  ['curdir_1760',['CURDIR',['../windows__stuff_8h.html#ade9d7401b18bb758a171db2a4501ec58',1,'windows_stuff.h']]]
 ];

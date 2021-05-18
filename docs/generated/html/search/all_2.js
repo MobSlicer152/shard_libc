@@ -1,7 +1,21 @@
 var searchData=
 [
-  ['cmake_5fminimum_5frequired_25',['cmake_minimum_required',['../CMakeLists_8txt.html#ae58b77b78a8541069365a366c625eda3',1,'CMakeLists.txt']]],
-  ['cmakelists_2etxt_26',['CMakeLists.txt',['../CMakeLists_8txt.html',1,'']]],
-  ['crt0_2ec_27',['crt0.c',['../crt0_8c.html',1,'']]],
-  ['ctype_2eh_28',['ctype.h',['../ctype_8h.html',1,'']]]
+  ['b_272',['b',['../struct__LIST__ENTRY.html#a606f63b527c45191fbe1505d73713dff',1,'_LIST_ENTRY']]],
+  ['base_273',['base',['../structfile.html#a9905312a98dc97353d4eaf0c564549d3',1,'file::base()'],['../struct__PEB.html#a4540abbe085aea8a5ca9fce8e3096f9b',1,'_PEB::base()'],['../struct__IMAGE__EXPORT__DIRECTORY.html#aa4c2b87579a14a392042cbb5119d0920',1,'_IMAGE_EXPORT_DIRECTORY::base()']]],
+  ['base_5faddr_274',['base_addr',['../struct__LDR__MODULE.html#a72362bc5249f9aca34d5236e1afdb7fa',1,'_LDR_MODULE']]],
+  ['base_5fname_275',['base_name',['../struct__LDR__MODULE.html#a83b533c0c195920337cc770cb020e8c2',1,'_LDR_MODULE']]],
+  ['baseaddress_276',['BaseAddress',['../struct__MEMORY__BASIC__INFORMATION.html#ab14e190e5b7ff9fee1c71c7818057ffd',1,'_MEMORY_BASIC_INFORMATION']]],
+  ['bin_5fat_277',['bin_at',['../malloc_8c.html#a03136f3c5c06ab2bfad065b3eef89393',1,'malloc.c']]],
+  ['bin_5findex_278',['bin_index',['../malloc_8c.html#a119c0791a13039c65764db0426e68c51',1,'malloc.c']]],
+  ['binmap_279',['binmap',['../structmalloc__state.html#a6fb7a2d399419703213d4e4be75e8a40',1,'malloc_state']]],
+  ['binmapshift_280',['BINMAPSHIFT',['../malloc_8c.html#ad42cc1d2d8358735b2f8a0bba9c361a9',1,'malloc.c']]],
+  ['binmapsize_281',['BINMAPSIZE',['../malloc_8c.html#a8b35bfde3f93955269f5d22762953a59',1,'malloc.c']]],
+  ['bins_282',['bins',['../structmalloc__state.html#afabbc3675be4444ac3cea1abf3e0aafe',1,'malloc_state']]],
+  ['bitfield_283',['bitfield',['../struct__PEB.html#acde6456c2de0e633bfc273154d9687b4',1,'_PEB']]],
+  ['bitspermap_284',['BITSPERMAP',['../malloc_8c.html#a0a0ceb406bf510f8b1efce72d0999613',1,'malloc.c']]],
+  ['bk_285',['bk',['../structmalloc__chunk.html#a268940e08c9c09fc3b2e23cd804bce3c',1,'malloc_chunk']]],
+  ['bool_286',['bool',['../stdbool_8h.html#abb452686968e48b67397da5f97445f5b',1,'stdbool.h']]],
+  ['bool_5fwidth_287',['BOOL_WIDTH',['../limits_8h.html#a1af1ef99f37dba593ea33d015acd96c5',1,'limits.h']]],
+  ['buf_288',['buf',['../structstbsp____context.html#a1a9680246e7735a45db1b2e077b9eb9e',1,'stbsp__context::buf()'],['../struct__CHAR__STRING.html#ae90a8345570bb4eb8396d3fd9091af22',1,'_CHAR_STRING::buf()'],['../struct__UNICODE__STRING.html#a348b86f699d1a0def770bec77f9692aa',1,'_UNICODE_STRING::buf()']]],
+  ['bytes_5flast_5fpage_289',['bytes_last_page',['../struct__IMAGE__DOS__HEADER.html#a0fd8025ec1e2ce6b57109d29ec423530',1,'_IMAGE_DOS_HEADER']]]
 ];

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['main_119',['main',['../startup_8h.html#a647f21a28344e1d9c643f4115516d7c9',1,'startup.h']]],
-  ['malloc_120',['malloc',['../stdlib_8h.html#ae91b3dc6530d8a443eb7f01137f5aeff',1,'malloc(size_t __size):&#160;malloc.c'],['../malloc_8c.html#ae91b3dc6530d8a443eb7f01137f5aeff',1,'malloc(size_t __size):&#160;malloc.c']]],
-  ['memccpy_121',['memccpy',['../string_8h.html#ae7a771593fafcee568f29c3507cba899',1,'memccpy(void *restrict __dst, const void *restrict __src, int __c, size_t __n):&#160;memccpy.c'],['../memccpy_8c.html#ae7a771593fafcee568f29c3507cba899',1,'memccpy(void *restrict __dst, const void *restrict __src, int __c, size_t __n):&#160;memccpy.c']]],
-  ['memcpy_122',['memcpy',['../string_8h.html#aa96cc5990d853d21a1fcd6af8eaa2dc5',1,'memcpy(void *restrict __dst, const void *restrict __src, size_t __n):&#160;memcpy.c'],['../memcpy_8c.html#aa96cc5990d853d21a1fcd6af8eaa2dc5',1,'memcpy(void *restrict __dst, const void *restrict __src, size_t __n):&#160;memcpy.c']]],
-  ['memmove_123',['memmove',['../string_8h.html#ae3c07f47a52b48692ea924fa8299ebef',1,'memmove(void *__dst, const void *__src, size_t __n):&#160;memmove.c'],['../memmove_8c.html#ae3c07f47a52b48692ea924fa8299ebef',1,'memmove(void *__dst, const void *__src, size_t __n):&#160;memmove.c']]]
+  ['fprintf_1368',['fprintf',['../fprintf_8c.html#a1b4ccef3d903c786db5f0b5fe123ec06',1,'fprintf.c']]],
+  ['free_1369',['fREe',['../malloc_8c.html#ad523ce2076c3fd275650bac2dc2a97c5',1,'malloc.c']]],
+  ['free_1370',['free',['../malloc_8h.html#af07d89f5ceaea0c7c8252cc41fd75f37',1,'free(void *):&#160;malloc.h'],['../stdlib_8h.html#a55423a3e275c8dcb92138a5f39f8661f',1,'free(void *__chunk):&#160;stdlib.h'],['../memmove_8c.html#a55423a3e275c8dcb92138a5f39f8661f',1,'free(void *__chunk):&#160;memmove.c']]],
+  ['fwrite_1371',['fwrite',['../fwrite_8c.html#aead2de923d3f000d1356aa11fa801319',1,'fwrite.c']]]
 ];

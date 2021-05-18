@@ -7,7 +7,7 @@ cflags = -Wall -Wextra -ffreestanding -nostdlib -O2 -g $include_paths
 ldflags = -L$outdir
 
 rule cc
-    command = gcc $cflags -c $in -o $out
+    command = cc $cflags -c $in -o $out
 
 rule ld
     command = ld $ldflags -o $out $in

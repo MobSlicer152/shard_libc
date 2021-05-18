@@ -1,5 +1,22 @@
 var searchData=
 [
-  ['stack_5fguard_155',['STACK_GUARD',['../stack__prot_8c.html#acf6a54e6af777ffbed59a671fed73f19',1,'stack_prot.c']]],
-  ['startup_156',['startup',['../crt0_8c.html#ab7862540fda67cb6cc6b55355ecc4e4e',1,'crt0.c']]]
+  ['calloc_2006',['cALLOc',['../malloc_8c.html#a52e36be72dcd7883b874d8909c06099b',1,'malloc.c']]],
+  ['cfree_2007',['cFREe',['../malloc_8c.html#ab55542b5a224212d54354d61dcdd552d',1,'malloc.c']]],
+  ['char_5fbit_2008',['CHAR_BIT',['../limits_8h.html#a308d9dd2c0028ddb184b455bbd7865de',1,'limits.h']]],
+  ['check_5fchunk_2009',['check_chunk',['../malloc_8c.html#a1faba5971a73f6b951def40c74c4460a',1,'malloc.c']]],
+  ['check_5ffree_5fchunk_2010',['check_free_chunk',['../malloc_8c.html#a2795fcf53b90483b5c66bebd83a7ecb1',1,'malloc.c']]],
+  ['check_5finuse_5fchunk_2011',['check_inuse_chunk',['../malloc_8c.html#abb35eabd5fa212462d07b9055881df25',1,'malloc.c']]],
+  ['check_5fmalloc_5fstate_2012',['check_malloc_state',['../malloc_8c.html#ac432687ec968e5ad0a46c1356665527a',1,'malloc.c']]],
+  ['check_5fmalloced_5fchunk_2013',['check_malloced_chunk',['../malloc_8c.html#afe9a87accc5ccc1474cdde647bf4cbb2',1,'malloc.c']]],
+  ['check_5fremalloced_5fchunk_2014',['check_remalloced_chunk',['../malloc_8c.html#a705f5f2089bfac9cc5437e91fa25db89',1,'malloc.c']]],
+  ['checked_5frequest2size_2015',['checked_request2size',['../malloc_8c.html#a7b56f96dcb78d6b0f5c74e3e236d3c34',1,'malloc.c']]],
+  ['chunk2mem_2016',['chunk2mem',['../malloc_8c.html#accb5f8e767e1e6ca196937cd24f8a1e2',1,'malloc.c']]],
+  ['chunk_5fat_5foffset_2017',['chunk_at_offset',['../malloc_8c.html#adf0ed8ec142910aed073d3fcac842543',1,'malloc.c']]],
+  ['chunk_5fis_5fmmapped_2018',['chunk_is_mmapped',['../malloc_8c.html#a1accd83738152ade5cb47aa5c61ede79',1,'malloc.c']]],
+  ['chunksize_2019',['chunksize',['../malloc_8c.html#a0bd05b2720a9f79a0c066086c4f7e2fa',1,'malloc.c']]],
+  ['clear_5ffastchunks_2020',['clear_fastchunks',['../malloc_8c.html#a4a7743b457d83f59d60512e38dd18fdc',1,'malloc.c']]],
+  ['clear_5finuse_2021',['clear_inuse',['../malloc_8c.html#a3373f3cdb259f76c5338a9903a2fa668',1,'malloc.c']]],
+  ['clear_5finuse_5fbit_5fat_5foffset_2022',['clear_inuse_bit_at_offset',['../malloc_8c.html#a06b309b8186426a6fe6695e5b5aec19f',1,'malloc.c']]],
+  ['containing_5frecord_2023',['CONTAINING_RECORD',['../windows__stuff_8h.html#adec42d53dc3b3e16ab7a1cd98af1c5fc',1,'windows_stuff.h']]],
+  ['contiguous_2024',['contiguous',['../malloc_8c.html#a018dccaf8e290123228adfadbed6dfc3',1,'malloc.c']]]
 ];

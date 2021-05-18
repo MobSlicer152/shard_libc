@@ -1,36 +1,29 @@
 \hypertarget{stdlib_8h}{}\doxysection{include/stdlib.h File Reference}
 \label{stdlib_8h}\index{include/stdlib.h@{include/stdlib.h}}
 {\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
-Include dependency graph for stdlib.\+h\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=171pt]{stdlib_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{stdlib_8h__dep__incl}
-\end{center}
-\end{figure}
+{\ttfamily \#include \char`\"{}stdnoreturn.\+h\char`\"{}}\newline
+Include dependency graph for stdlib.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{stdlib_8h_a1a4b240b10a14e25bb58d14212c5bc2e}{\+\_\+\+S\+T\+D\+L\+I\+B\+\_\+H}}~1
+\#define \mbox{\hyperlink{stdlib_8h_a1a4b240b10a14e25bb58d14212c5bc2e}{\+\_\+\+STDLIB\+\_\+H}}~1
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}{abort}} (void) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\+\_\+\+Noreturn void \mbox{\hyperlink{stdlib_8h_a7d78319026a43c0a5f942436ad3f09a1}{abort}} (void)
 \begin{DoxyCompactList}\small\item\em Terminate program execution abnormally. Only use this when something goes {\itshape really} wrong. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}{exit}} (int \+\_\+\+\_\+status) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\+\_\+\+Noreturn void \mbox{\hyperlink{stdlib_8h_a6dcbf314ab740abcd1cffb3efed6e842}{exit}} (int \+\_\+\+\_\+status)
 \begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and once I implement it, atexit registered functions). \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{stdlib_8h_a90b6ca18ef307f34c9afb3826b23956b}{\+\_\+exit}} (int \+\_\+\+\_\+status) \mbox{\hyperlink{stack__prot_8c_a1b6824bfd4ec0404a4f875ed8db0274e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\+\_\+\+Noreturn void \mbox{\hyperlink{stdlib_8h_ab3dbc55acad8382e11b05723e9155c79}{\+\_\+exit}} (int \+\_\+\+\_\+status)
 \begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status without doing any cleanup. \end{DoxyCompactList}\item 
-void $\ast$ \mbox{\hyperlink{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc}} (\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+size)
-\begin{DoxyCompactList}\small\item\em Allocate some memory from the heap of size \+\_\+\+\_\+size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void $\ast$ \mbox{\hyperlink{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc}} (\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}} \+\_\+\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Allocate some memory from the heap of size \+\_\+\+\_\+size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stdlib_8h_a55423a3e275c8dcb92138a5f39f8661f}{free}} (void $\ast$\+\_\+\+\_\+chunk)
+\begin{DoxyCompactList}\small\item\em Free a chunk of memory previously allocated by {\ttfamily malloc} or {\ttfamily calloc} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -38,16 +31,16 @@ void $\ast$ \mbox{\hyperlink{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}{malloc
 \index{stdlib.h@{stdlib.h}!\_STDLIB\_H@{\_STDLIB\_H}}
 \index{\_STDLIB\_H@{\_STDLIB\_H}!stdlib.h@{stdlib.h}}
 \doxysubsubsection{\texorpdfstring{\_STDLIB\_H}{\_STDLIB\_H}}
-{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+D\+L\+I\+B\+\_\+H~1}
+{\footnotesize\ttfamily \#define \+\_\+\+STDLIB\+\_\+H~1}
 
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{stdlib_8h_a90b6ca18ef307f34c9afb3826b23956b}\label{stdlib_8h_a90b6ca18ef307f34c9afb3826b23956b}} 
+\mbox{\Hypertarget{stdlib_8h_ab3dbc55acad8382e11b05723e9155c79}\label{stdlib_8h_ab3dbc55acad8382e11b05723e9155c79}} 
 \index{stdlib.h@{stdlib.h}!\_exit@{\_exit}}
 \index{\_exit@{\_exit}!stdlib.h@{stdlib.h}}
 \doxysubsubsection{\texorpdfstring{\_exit()}{\_exit()}}
-{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+Noreturn void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
 
 
 
@@ -61,11 +54,11 @@ Terminate program execution with code \+\_\+\+\_\+status without doing any clean
 \begin{DoxyReturn}{Returns}
 Like exit, something is wrong if this happens 
 \end{DoxyReturn}
-\mbox{\Hypertarget{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}\label{stdlib_8h_abc9b459c7ea0783bdfd40fa8ae77aa01}} 
+\mbox{\Hypertarget{stdlib_8h_a7d78319026a43c0a5f942436ad3f09a1}\label{stdlib_8h_a7d78319026a43c0a5f942436ad3f09a1}} 
 \index{stdlib.h@{stdlib.h}!abort@{abort}}
 \index{abort@{abort}!stdlib.h@{stdlib.h}}
 \doxysubsubsection{\texorpdfstring{abort()}{abort()}}
-{\footnotesize\ttfamily void abort (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+Noreturn void abort (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -74,11 +67,11 @@ Terminate program execution abnormally. Only use this when something goes {\itsh
 \begin{DoxyReturn}{Returns}
 If this happens, try rebuilding your compiler. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}\label{stdlib_8h_ab891002608ada5a90a82d9cf71d5fe05}} 
+\mbox{\Hypertarget{stdlib_8h_a6dcbf314ab740abcd1cffb3efed6e842}\label{stdlib_8h_a6dcbf314ab740abcd1cffb3efed6e842}} 
 \index{stdlib.h@{stdlib.h}!exit@{exit}}
 \index{exit@{exit}!stdlib.h@{stdlib.h}}
 \doxysubsubsection{\texorpdfstring{exit()}{exit()}}
-{\footnotesize\ttfamily void exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+Noreturn void exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
 
 
 
@@ -92,13 +85,36 @@ Terminate program execution with code \+\_\+\+\_\+status and do cleanup (and onc
 \begin{DoxyReturn}{Returns}
 It shouldn\textquotesingle{}t come to this. If it does, something is very, very wrong. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{stdlib_8h_a55423a3e275c8dcb92138a5f39f8661f}\label{stdlib_8h_a55423a3e275c8dcb92138a5f39f8661f}} 
+\index{stdlib.h@{stdlib.h}!free@{free}}
+\index{free@{free}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily void free (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+\+\_\+chunk }\end{DoxyParamCaption})}
+
+
+
+Free a chunk of memory previously allocated by {\ttfamily malloc} or {\ttfamily calloc} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+chunk} & is the memory to release \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}\label{stdlib_8h_ae91b3dc6530d8a443eb7f01137f5aeff}} 
 \index{stdlib.h@{stdlib.h}!malloc@{malloc}}
 \index{malloc@{malloc}!stdlib.h@{stdlib.h}}
 \doxysubsubsection{\texorpdfstring{malloc()}{malloc()}}
-{\footnotesize\ttfamily void$\ast$ malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void$\ast$ malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}]{\+\_\+\+\_\+size }\end{DoxyParamCaption})}
 
 
 
 Allocate some memory from the heap of size \+\_\+\+\_\+size. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+size} & is the number of bytes to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns either {\ttfamily NULL} or a buffer of {\ttfamily \+\_\+\+\_\+size} bytes 
+\end{DoxyReturn}

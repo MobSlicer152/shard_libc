@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['int64_5ft_132',['int64_t',['../stdint_8h.html#a996e72f71b11a5bb8b3b7b6936b1516d',1,'stdint.h']]],
-  ['intmax_5ft_133',['intmax_t',['../stddef_8h.html#ac3686a882b6a4aadded1cd099caeffef',1,'stddef.h']]]
+  ['ansi_5fstring_1758',['ANSI_STRING',['../windows__stuff_8h.html#abae21f33df9f9e9c44565321a3696a2f',1,'windows_stuff.h']]]
 ];

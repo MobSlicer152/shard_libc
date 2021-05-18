@@ -1,18 +1,13 @@
 \hypertarget{memccpy_8c}{}\doxysection{src/string/memccpy.c File Reference}
 \label{memccpy_8c}\index{src/string/memccpy.c@{src/string/memccpy.c}}
 {\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
-Include dependency graph for memccpy.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=199pt]{memccpy_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for memccpy.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void $\ast$ \mbox{\hyperlink{memccpy_8c_ae7a771593fafcee568f29c3507cba899}{memccpy}} (void $\ast$restrict \+\_\+\+\_\+dst, const void $\ast$restrict \+\_\+\+\_\+src, int \+\_\+\+\_\+c, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
-\begin{DoxyCompactList}\small\item\em Copies up to \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst until \+\_\+\+\_\+c occurs. Returns a pointer to the byte after \+\_\+\+\_\+c\textquotesingle{}s occurence or N\+U\+LL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void $\ast$ \mbox{\hyperlink{memccpy_8c_ae7a771593fafcee568f29c3507cba899}{memccpy}} (void $\ast$restrict \+\_\+\+\_\+dst, const void $\ast$restrict \+\_\+\+\_\+src, int \+\_\+\+\_\+c, \mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}} \+\_\+\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Copies up to \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst until \+\_\+\+\_\+c occurs. Returns a pointer to the byte after \+\_\+\+\_\+c\textquotesingle{}s occurence or NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -20,9 +15,9 @@ void $\ast$ \mbox{\hyperlink{memccpy_8c_ae7a771593fafcee568f29c3507cba899}{memcc
 \index{memccpy.c@{memccpy.c}!memccpy@{memccpy}}
 \index{memccpy@{memccpy}!memccpy.c@{memccpy.c}}
 \doxysubsubsection{\texorpdfstring{memccpy()}{memccpy()}}
-{\footnotesize\ttfamily void$\ast$ memccpy (\begin{DoxyParamCaption}\item[{void $\ast$restrict}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$restrict}]{\+\_\+\+\_\+src,  }\item[{int}]{\+\_\+\+\_\+c,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void$\ast$ memccpy (\begin{DoxyParamCaption}\item[{void $\ast$restrict}]{\+\_\+\+\_\+dst,  }\item[{const void $\ast$restrict}]{\+\_\+\+\_\+src,  }\item[{int}]{\+\_\+\+\_\+c,  }\item[{\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
 
 
 
-Copies up to \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst until \+\_\+\+\_\+c occurs. Returns a pointer to the byte after \+\_\+\+\_\+c\textquotesingle{}s occurence or N\+U\+LL. 
+Copies up to \+\_\+\+\_\+n bytes of \+\_\+\+\_\+src to \+\_\+\+\_\+dst until \+\_\+\+\_\+c occurs. Returns a pointer to the byte after \+\_\+\+\_\+c\textquotesingle{}s occurence or NULL. 
 

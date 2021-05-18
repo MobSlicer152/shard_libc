@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['uint64_5ft_135',['uint64_t',['../stdint_8h.html#aaa5d1cd013383c889537491c3cfd9aad',1,'stdint.h']]],
-  ['uintptr_5ft_136',['uintptr_t',['../stdint_8h.html#a83242de74310b4aec3fc506bc3644211',1,'stdint.h']]]
+  ['exception_5fdisposition_1761',['EXCEPTION_DISPOSITION',['../excpt_8h.html#a9cb88c16b74c1968a18b04bf222ac123',1,'excpt.h']]]
 ];

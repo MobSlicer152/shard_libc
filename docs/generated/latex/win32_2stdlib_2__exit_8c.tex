@@ -1,28 +1,23 @@
 \hypertarget{win32_2stdlib_2__exit_8c}{}\doxysection{src/win32/stdlib/\+\_\+exit.c File Reference}
 \label{win32_2stdlib_2__exit_8c}\index{src/win32/stdlib/\_exit.c@{src/win32/stdlib/\_exit.c}}
-{\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$windows.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
-Include dependency graph for \+\_\+exit.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=250pt]{win32_2stdlib_2__exit_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for \+\_\+exit.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{win32_2stdlib_2__exit_8c_a6a7c6128f83e1cabd41803e0065bdaca}{\+\_\+exit}} (int \+\_\+\+\_\+status)
+void \mbox{\hyperlink{win32_2stdlib_2__exit_8c_a8ec9f2329d6a50e05108b46e6e58d8a6}{Exit\+Process}} (int status)
+\item 
+\+\_\+\+Noreturn void \mbox{\hyperlink{win32_2stdlib_2__exit_8c_ab3dbc55acad8382e11b05723e9155c79}{\+\_\+exit}} (int \+\_\+\+\_\+status)
 \begin{DoxyCompactList}\small\item\em Terminate program execution with code \+\_\+\+\_\+status without doing any cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{win32_2stdlib_2__exit_8c_a6a7c6128f83e1cabd41803e0065bdaca}\label{win32_2stdlib_2__exit_8c_a6a7c6128f83e1cabd41803e0065bdaca}} 
+\mbox{\Hypertarget{win32_2stdlib_2__exit_8c_ab3dbc55acad8382e11b05723e9155c79}\label{win32_2stdlib_2__exit_8c_ab3dbc55acad8382e11b05723e9155c79}} 
 \index{\_exit.c@{\_exit.c}!\_exit@{\_exit}}
 \index{\_exit@{\_exit}!\_exit.c@{\_exit.c}}
 \doxysubsubsection{\texorpdfstring{\_exit()}{\_exit()}}
-{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+Noreturn void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+status }\end{DoxyParamCaption})}
 
 
 
@@ -36,3 +31,9 @@ Terminate program execution with code \+\_\+\+\_\+status without doing any clean
 \begin{DoxyReturn}{Returns}
 Like exit, something is wrong if this happens 
 \end{DoxyReturn}
+\mbox{\Hypertarget{win32_2stdlib_2__exit_8c_a8ec9f2329d6a50e05108b46e6e58d8a6}\label{win32_2stdlib_2__exit_8c_a8ec9f2329d6a50e05108b46e6e58d8a6}} 
+\index{\_exit.c@{\_exit.c}!ExitProcess@{ExitProcess}}
+\index{ExitProcess@{ExitProcess}!\_exit.c@{\_exit.c}}
+\doxysubsubsection{\texorpdfstring{ExitProcess()}{ExitProcess()}}
+{\footnotesize\ttfamily void Exit\+Process (\begin{DoxyParamCaption}\item[{int}]{status }\end{DoxyParamCaption})}
+

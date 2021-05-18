@@ -1,2 +1,90 @@
 \hypertarget{excpt_8h}{}\doxysection{include/excpt.h File Reference}
 \label{excpt_8h}\index{include/excpt.h@{include/excpt.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{excpt_8h_ae4d1f49abda28a761e63526be8b4f62f}{\+\_\+\+INC\+\_\+\+EXCPT}}~1
+\item 
+\#define \mbox{\hyperlink{excpt_8h_a3fece785755a75d4c26022cb6f6a7638}{EXCEPTION\+\_\+\+EXECUTE\+\_\+\+HANDLER}}~1
+\item 
+\#define \mbox{\hyperlink{excpt_8h_a9d83094e671af9a36d68c251e2a5eebb}{EXCEPTION\+\_\+\+CONTINUE\+\_\+\+SEARCH}}~0
+\item 
+\#define \mbox{\hyperlink{excpt_8h_ad2a7c817ad669fff32c8711dc4e9f7c3}{EXCEPTION\+\_\+\+CONTINUE\+\_\+\+EXECUTION}}~-\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3}{\+\_\+\+EXCEPTION\+\_\+\+DISPOSITION}} \mbox{\hyperlink{excpt_8h_a9cb88c16b74c1968a18b04bf222ac123}{EXCEPTION\+\_\+\+DISPOSITION}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3}{\+\_\+\+EXCEPTION\+\_\+\+DISPOSITION}} \{ \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3af73a939802f7ec25cf2f80b5897be84c}{Exception\+Continue\+Execution}}
+, \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a2ed676b05618185050f8487702b693eb}{Exception\+Continue\+Search}}
+, \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a6bccce5e4d1e09eaa21a3e9ea5e7362a}{Exception\+Nested\+Exception}}
+, \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a3a569b22fbf51648a94126a888911ad0}{Exception\+Collided\+Unwind}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{excpt_8h_ae4d1f49abda28a761e63526be8b4f62f}\label{excpt_8h_ae4d1f49abda28a761e63526be8b4f62f}} 
+\index{excpt.h@{excpt.h}!\_INC\_EXCPT@{\_INC\_EXCPT}}
+\index{\_INC\_EXCPT@{\_INC\_EXCPT}!excpt.h@{excpt.h}}
+\doxysubsubsection{\texorpdfstring{\_INC\_EXCPT}{\_INC\_EXCPT}}
+{\footnotesize\ttfamily \#define \+\_\+\+INC\+\_\+\+EXCPT~1}
+
+\mbox{\Hypertarget{excpt_8h_ad2a7c817ad669fff32c8711dc4e9f7c3}\label{excpt_8h_ad2a7c817ad669fff32c8711dc4e9f7c3}} 
+\index{excpt.h@{excpt.h}!EXCEPTION\_CONTINUE\_EXECUTION@{EXCEPTION\_CONTINUE\_EXECUTION}}
+\index{EXCEPTION\_CONTINUE\_EXECUTION@{EXCEPTION\_CONTINUE\_EXECUTION}!excpt.h@{excpt.h}}
+\doxysubsubsection{\texorpdfstring{EXCEPTION\_CONTINUE\_EXECUTION}{EXCEPTION\_CONTINUE\_EXECUTION}}
+{\footnotesize\ttfamily \#define EXCEPTION\+\_\+\+CONTINUE\+\_\+\+EXECUTION~-\/1}
+
+\mbox{\Hypertarget{excpt_8h_a9d83094e671af9a36d68c251e2a5eebb}\label{excpt_8h_a9d83094e671af9a36d68c251e2a5eebb}} 
+\index{excpt.h@{excpt.h}!EXCEPTION\_CONTINUE\_SEARCH@{EXCEPTION\_CONTINUE\_SEARCH}}
+\index{EXCEPTION\_CONTINUE\_SEARCH@{EXCEPTION\_CONTINUE\_SEARCH}!excpt.h@{excpt.h}}
+\doxysubsubsection{\texorpdfstring{EXCEPTION\_CONTINUE\_SEARCH}{EXCEPTION\_CONTINUE\_SEARCH}}
+{\footnotesize\ttfamily \#define EXCEPTION\+\_\+\+CONTINUE\+\_\+\+SEARCH~0}
+
+\mbox{\Hypertarget{excpt_8h_a3fece785755a75d4c26022cb6f6a7638}\label{excpt_8h_a3fece785755a75d4c26022cb6f6a7638}} 
+\index{excpt.h@{excpt.h}!EXCEPTION\_EXECUTE\_HANDLER@{EXCEPTION\_EXECUTE\_HANDLER}}
+\index{EXCEPTION\_EXECUTE\_HANDLER@{EXCEPTION\_EXECUTE\_HANDLER}!excpt.h@{excpt.h}}
+\doxysubsubsection{\texorpdfstring{EXCEPTION\_EXECUTE\_HANDLER}{EXCEPTION\_EXECUTE\_HANDLER}}
+{\footnotesize\ttfamily \#define EXCEPTION\+\_\+\+EXECUTE\+\_\+\+HANDLER~1}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{excpt_8h_a9cb88c16b74c1968a18b04bf222ac123}\label{excpt_8h_a9cb88c16b74c1968a18b04bf222ac123}} 
+\index{excpt.h@{excpt.h}!EXCEPTION\_DISPOSITION@{EXCEPTION\_DISPOSITION}}
+\index{EXCEPTION\_DISPOSITION@{EXCEPTION\_DISPOSITION}!excpt.h@{excpt.h}}
+\doxysubsubsection{\texorpdfstring{EXCEPTION\_DISPOSITION}{EXCEPTION\_DISPOSITION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3}{\+\_\+\+EXCEPTION\+\_\+\+DISPOSITION}} \mbox{\hyperlink{excpt_8h_a9cb88c16b74c1968a18b04bf222ac123}{EXCEPTION\+\_\+\+DISPOSITION}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{excpt_8h_a0beb9666aac7b8e8045033f5675416a3}\label{excpt_8h_a0beb9666aac7b8e8045033f5675416a3}} 
+\index{excpt.h@{excpt.h}!\_EXCEPTION\_DISPOSITION@{\_EXCEPTION\_DISPOSITION}}
+\index{\_EXCEPTION\_DISPOSITION@{\_EXCEPTION\_DISPOSITION}!excpt.h@{excpt.h}}
+\doxysubsubsection{\texorpdfstring{\_EXCEPTION\_DISPOSITION}{\_EXCEPTION\_DISPOSITION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{excpt_8h_a0beb9666aac7b8e8045033f5675416a3}{\+\_\+\+EXCEPTION\+\_\+\+DISPOSITION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExceptionContinueExecution@{ExceptionContinueExecution}!excpt.h@{excpt.h}}\index{excpt.h@{excpt.h}!ExceptionContinueExecution@{ExceptionContinueExecution}}}\mbox{\Hypertarget{excpt_8h_a0beb9666aac7b8e8045033f5675416a3af73a939802f7ec25cf2f80b5897be84c}\label{excpt_8h_a0beb9666aac7b8e8045033f5675416a3af73a939802f7ec25cf2f80b5897be84c}} 
+Exception\+Continue\+Execution&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExceptionContinueSearch@{ExceptionContinueSearch}!excpt.h@{excpt.h}}\index{excpt.h@{excpt.h}!ExceptionContinueSearch@{ExceptionContinueSearch}}}\mbox{\Hypertarget{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a2ed676b05618185050f8487702b693eb}\label{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a2ed676b05618185050f8487702b693eb}} 
+Exception\+Continue\+Search&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExceptionNestedException@{ExceptionNestedException}!excpt.h@{excpt.h}}\index{excpt.h@{excpt.h}!ExceptionNestedException@{ExceptionNestedException}}}\mbox{\Hypertarget{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a6bccce5e4d1e09eaa21a3e9ea5e7362a}\label{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a6bccce5e4d1e09eaa21a3e9ea5e7362a}} 
+Exception\+Nested\+Exception&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ExceptionCollidedUnwind@{ExceptionCollidedUnwind}!excpt.h@{excpt.h}}\index{excpt.h@{excpt.h}!ExceptionCollidedUnwind@{ExceptionCollidedUnwind}}}\mbox{\Hypertarget{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a3a569b22fbf51648a94126a888911ad0}\label{excpt_8h_a0beb9666aac7b8e8045033f5675416a3a3a569b22fbf51648a94126a888911ad0}} 
+Exception\+Collided\+Unwind&\\
+\hline
+
+\end{DoxyEnumFields}

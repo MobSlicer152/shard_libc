@@ -2,17 +2,12 @@
 \label{linux_2unistd_2write_8c}\index{src/linux/unistd/write.c@{src/linux/unistd/write.c}}
 {\ttfamily \#include \char`\"{}sys/syscall.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}unistd.\+h\char`\"{}}\newline
-Include dependency graph for write.\+c\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=233pt]{linux_2unistd_2write_8c__incl}
-\end{center}
-\end{figure}
+Include dependency graph for write.\+c\+:
+% FIG 0
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-long \mbox{\hyperlink{linux_2unistd_2write_8c_a673831ddd118b3f2f97c19a399d5881b}{write}} (int \+\_\+\+\_\+fd, const void $\ast$\+\_\+\+\_\+buf, \mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \+\_\+\+\_\+n)
+long \mbox{\hyperlink{linux_2unistd_2write_8c_a673831ddd118b3f2f97c19a399d5881b}{write}} (int \+\_\+\+\_\+fd, const void $\ast$\+\_\+\+\_\+buf, \mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}} \+\_\+\+\_\+n)
 \begin{DoxyCompactList}\small\item\em Writes \+\_\+\+\_\+n bytes of \+\_\+\+\_\+buf to \+\_\+\+\_\+fd. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -21,7 +16,7 @@ long \mbox{\hyperlink{linux_2unistd_2write_8c_a673831ddd118b3f2f97c19a399d5881b}
 \index{write.c@{write.c}!write@{write}}
 \index{write@{write}!write.c@{write.c}}
 \doxysubsubsection{\texorpdfstring{write()}{write()}}
-{\footnotesize\ttfamily long write (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+fd,  }\item[{const void $\ast$}]{\+\_\+\+\_\+buf,  }\item[{\mbox{\hyperlink{stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily long write (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+fd,  }\item[{const void $\ast$}]{\+\_\+\+\_\+buf,  }\item[{\mbox{\hyperlink{stddef_8h_a1e1f4fe6f57edbe9d428d8fd39beb87a}{size\+\_\+t}}}]{\+\_\+\+\_\+n }\end{DoxyParamCaption})}
 
 
 
@@ -29,11 +24,13 @@ Writes \+\_\+\+\_\+n bytes of \+\_\+\+\_\+buf to \+\_\+\+\_\+fd.
 
 
 \begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+fh} & is the Win32 file handle to write to \\
+\hline
 {\em \+\_\+\+\_\+fd} & is the file descriptor to write to \\
 \hline
 {\em \+\_\+\+\_\+buf} & is the buffer to write \\
 \hline
-{\em \+\_\+\+\_\+n} & is the number of bytes to write \\
+{\em \+\_\+\+\_\+n} & is the number of bytes to write\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

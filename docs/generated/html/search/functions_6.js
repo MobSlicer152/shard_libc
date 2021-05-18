@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['write_127',['write',['../unistd_8h.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c'],['../linux_2unistd_2write_8c.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c'],['../win32_2unistd_2write_8c.html#a673831ddd118b3f2f97c19a399d5881b',1,'write(int __fd, const void *__buf, size_t __n):&#160;write.c']]]
+  ['heapalloc_1380',['HeapAlloc',['../dll__loader_8c.html#a1dd29ffb02a0326feee511757fe11c6e',1,'HeapAlloc(void *heap, unsigned int flags, size_t size):&#160;dll_loader.c'],['../windows__stuff_8h.html#a1dd29ffb02a0326feee511757fe11c6e',1,'HeapAlloc(void *heap, unsigned int flags, size_t size):&#160;dll_loader.c']]],
+  ['heapfree_1381',['HeapFree',['../dll__loader_8c.html#a226c9f90dad347695d0ebb09ea499a78',1,'HeapFree(void *heap, unsigned int flags, void *chunk):&#160;dll_loader.c'],['../windows__stuff_8h.html#a226c9f90dad347695d0ebb09ea499a78',1,'HeapFree(void *heap, unsigned int flags, void *chunk):&#160;dll_loader.c']]]
 ];
