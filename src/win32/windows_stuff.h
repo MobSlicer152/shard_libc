@@ -89,6 +89,17 @@ typedef struct _FILETIME {
 #define PAGE_READONLY 0x2
 #define PAGE_READWRITE 0x04
 #define ERROR_INVALID_ADDRESS 0x1E7
+#define OBJ_INHERIT 0x00000002L
+#define OBJ_PERMANENT 0x00000010L
+#define OBJ_EXCLUSIVE 0x00000020L
+#define OBJ_CASE_INSENSITIVE 0x00000040L
+#define OBJ_OPENIF 0x00000080L
+#define OBJ_OPENLINK 0x00000100L
+#define OBJ_KERNEL_HANDLE 0x00000200L
+#define OBJ_FORCE_ACCESS_CHECK 0x00000400L
+#define OBJ_IGNORE_IMPERSONATED_DEVICEMAP 0x00000800L
+#define OBJ_DONT_REPARSE 0x00001000L
+#define OBJ_VALID_ATTRIBUTES 0x00001FF2L
 
 /* Structures used to define the PEB and other stuff (all internal ones from https://www.vergiliusproject.com/kernels/x64/Windows%2010%20%7C%202016/2009%2020H2%20(October%202020%20Update)) */
 typedef struct _LIST_ENTRY {
@@ -127,6 +138,15 @@ typedef struct _IO_STATUS_BLOCK {
 	};
 	unsigned long info;
 } IO_STATUS_BLOCK;
+
+typedef struct _OBJECT_ATTRIBUTES {
+	unsigned long len;
+	void *root_dir;
+	UNICODE_STRING *name;
+	unsigned long attrs;
+	void *sec_descriptr;
+	void *sec_qos;
+} OBJECT_ATTRIBUTES;
 
 typedef struct _PEB_LDR_DATA {
 	unsigned long len;

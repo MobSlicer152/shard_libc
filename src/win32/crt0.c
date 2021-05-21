@@ -45,7 +45,7 @@ void mainCRTStartup(void)
 	i = argc * sizeof(char *);
 	argv = malloc(i);
 	for (i = 0; i < argc; i++) {
-		argv[i] = malloc(wcslen(argv_w[i]) * sizeof(char));
+		argv[i] = malloc((wcslen(argv_w[i]) + 1) * sizeof(char));
 		if (!argv[i]) {
 			LocalFree(argv_w);
 			abort();

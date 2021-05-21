@@ -4,6 +4,10 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#pragma function(memccpy)
+#endif
+
 void *memccpy(void *restrict __dst, const void *restrict __src, int __c, size_t __n)
 {
 	size_t i;

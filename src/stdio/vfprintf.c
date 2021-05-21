@@ -30,8 +30,8 @@ int vfprintf(FILE *__fp, const char *restrict __str, va_list __alist)
 	/* Format the text into buf */
 	vsnprintf(buf, len + 1, __str, args);
 
-	/* Return whatever write returns */
-	return write((*__fp)->fd, buf, len);
+	/* Return whatever fwrite returns */
+	return fwrite(buf, len + 1, 1, __fp);
 }
 
 #ifdef __cplusplus

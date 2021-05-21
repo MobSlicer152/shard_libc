@@ -4,7 +4,11 @@
 extern "C" {
 #endif
 
-size_t wcslen(const wchar_t*__str)
+#ifdef _MSC_VER
+#pragma function(wcslen)
+#endif
+
+size_t wcslen(const wchar_t *__str)
 {
 	size_t i;
 

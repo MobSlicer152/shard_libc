@@ -4,6 +4,10 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#pragma function(memset)
+#endif
+
 void *memset(void *restrict __dst, int __c, size_t __n)
 {
 	size_t i;

@@ -14,6 +14,13 @@
 #include "stddef.h"
 
 /**
+ * @brief Copies up to __n bytes of __src to __dst until __c occurs.
+ * Returns a pointer to the byte after __c's occurence or NULL.
+ */
+extern void *memccpy(void *restrict __dst, const void *restrict __src, int __c,
+		     size_t __n);
+
+/**
  * @brief Copies __n bytes of __src to __dst.
  * 
  * If __src and __dst
@@ -24,15 +31,8 @@
  * @param __n is how many bytes to copy
  * @returns The value of __dst.
  */
-extern void *memcpy(void *restrict __dst, const void *restrict __src,
+extern void *memccpy(void *restrict __dst, const void *restrict __src,
 		    size_t __n);
-
-/**
- * @brief Copies up to __n bytes of __src to __dst until __c occurs.
- * Returns a pointer to the byte after __c's occurence or NULL.
- */
-extern void *memccpy(void *restrict __dst, const void *restrict __src, int __c,
-		     size_t __n);
 
 /**
  * @brief Copies __n bytes of __src to a temporary buffer and then into __dst.

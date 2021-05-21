@@ -1,7 +1,4 @@
-################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs
-/out/build/x64-Debug (default)
-/build
+.vs/**
+bin/**
+obj/**
+.ninja*

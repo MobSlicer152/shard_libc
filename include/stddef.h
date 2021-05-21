@@ -11,12 +11,21 @@ typedef long long intmax_t;
 /**
  * @brief Used to store the sizes of things.
  */
+#ifdef _MSC_VER
 typedef unsigned long long size_t;
+#else
+typedef unsigned long size_t;
+#endif
 
 /**
  * @brief wchar_t holds wide characters (i.e. beyond ASCII)
  */
 typedef short wchar_t;
+
+/**
+ * @brief Can hold the difference between pointers
+ */
+typedef unsigned long long ptrdiff_t;
 
 /**
  * @brief NULL is used to represent pointers

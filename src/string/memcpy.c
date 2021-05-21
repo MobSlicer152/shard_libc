@@ -4,6 +4,14 @@
 extern "C" {
 #endif
 
+/* 
+ * Microsoft, I know your implementation is better
+ *  for now, but I didn't ask you to use it.
+ */
+#ifdef _MSC_VER
+#pragma function(memcpy)
+#endif
+
 void *memcpy(void *restrict __dst, const void *restrict __src, size_t __n)
 {
 	size_t i;

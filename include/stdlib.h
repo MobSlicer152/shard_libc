@@ -33,12 +33,30 @@ extern _Noreturn void exit(int __status);
 extern _Noreturn void _exit(int __status);
 
 /**
+ * @brief Allocate guaranteed-to-be-zero memory from the heap
+ * 
+ * @param __count is the number of elements to allocate
+ * @param __size is the size in bytes of each element
+ * @returns Returns either `NULL` or a zeroed buffer of `__size` bytes
+ */
+extern void *calloc(size_t __count, size_t __size);
+
+/**
  * @brief Allocate some memory from the heap of size __size.
  * 
  * @param __size is the number of bytes to allocate
  * @returns Returns either `NULL` or a buffer of `__size` bytes
  */
 extern void *malloc(size_t __size);
+
+/**
+ * @brief Resize an existing buffer
+ * 
+ * @param __old is the buffer to resize (if NULL, mimics `malloc`)
+ * @param __size is the new size for the buffer
+ * @returns Returns the new buffer
+ */
+extern void *realloc(void *__old, size_t __size);
 
 /**
  * @brief Free a chunk of memory previously allocated by `malloc` or `calloc`

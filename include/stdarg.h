@@ -16,12 +16,12 @@ typedef char *va_list;
 #ifdef _MSC_VER
 #define va_start(__list, __start) __va_start(&__list, __start)
 #define va_end(__list) ((void)(__list = (va_list)0))
-#define va_arg(__list, __start)                              \
-	((sizeof(__type) > sizeof(int64_t) ||                \
+#define va_arg(__list, __type)                              \
+	((sizeof(__type) > sizeof(unsigned long long) ||                \
 	  (sizeof(__type) & (sizeof(__type) - 1)) != 0) ?    \
-		 **(__type **)((__list += sizeof(int64_t)) - \
-			       sizeof(int64_t)) :            \
-		 *(__type *)((__list += sizeof(int64_t)) - sizeof(int64_t)))
+		 **(__type **)((__list += sizeof(unsigned long long)) - \
+			       sizeof(unsigned long long)) :            \
+		 *(__type *)((__list += sizeof(unsigned long long)) - sizeof(unsigned long long)))
 #define va_copy(__dst, __src) ((__dst) = (__src))
 #else /* _MSC_VER */
 #define va_start(__list, __start) __builtin_va_start(__list, __start)

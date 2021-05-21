@@ -7,11 +7,11 @@ extern "C" {
 
 void __shutdown_libc(int __argc, char **__argv, char **__envp)
 {
-	char *arg = 0;
+	int i;
 
 	/* Free stuff */
-	for (arg = __argv[0]; arg; arg += sizeof(char *))
-		free(arg);
+	for (i = 0; i < __argc; i++)
+		free(__argv[i]);
 	LocalFree(__envp);
 }
 

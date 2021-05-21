@@ -4,6 +4,10 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#pragma function(memmove)
+#endif
+
 /* malloc and free are needed here */
 extern void *malloc(size_t __size);
 extern void free(void *__chunk);

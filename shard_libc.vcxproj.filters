@@ -138,6 +138,9 @@
     <ClCompile Include="src\win32\shutdown.c">
       <Filter>Source Files\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\stdio\fopen.c">
+      <Filter>Source Files\stdio.h</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\win32\windows_stuff.h">

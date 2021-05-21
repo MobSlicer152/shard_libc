@@ -4,6 +4,10 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#pragma function(strcmp)
+#endif
+
 int strcmp(const char *__s1, const char *__s2)
 {
 	for (; *__s1 == *__s2; __s1++, __s2++) {

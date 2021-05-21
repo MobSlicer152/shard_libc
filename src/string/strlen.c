@@ -4,6 +4,10 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#pragma function(strlen)
+#endif
+
 size_t strlen(const char *__str)
 {
 	size_t i;
