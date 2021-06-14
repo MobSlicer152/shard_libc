@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef _MSC_VER
 #ifndef _STDARG_H
 #define _STDARG_H 1
 
@@ -31,3 +32,6 @@ typedef char *va_list;
 #endif /* _MSC_VER */
 
 #endif /* !_STDARG_H */
+#else
+#include_next "stdarg.h"
+#endif /* _MSC_VER */

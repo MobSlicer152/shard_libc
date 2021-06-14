@@ -141,11 +141,17 @@
     <ClCompile Include="src\stdio\fopen.c">
       <Filter>Source Files\stdio.h</Filter>
     </ClCompile>
+    <ClCompile Include="src\wchar\wcsicmp.c">
+      <Filter>Source Files\wchar.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\unistd\lseek.c">
+      <Filter>Source Files\Windows\unistd.h</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\unistd\lseek64.c">
+      <Filter>Source Files\Windows\unistd.h</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\win32\windows_stuff.h">
-      <Filter>Header Files\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="include\assert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -215,11 +221,17 @@
     <ClInclude Include="src\stdio\stb_sprintf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\win32\env.h">
+    <ClInclude Include="include\internal\registers.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="src\internal\startup.h">
+    <ClInclude Include="include\internal\startup.h">
       <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\win32\env.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="include\win32\windows_stuff.h">
+      <Filter>Header Files\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

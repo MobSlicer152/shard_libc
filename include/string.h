@@ -23,15 +23,14 @@ extern void *memccpy(void *restrict __dst, const void *restrict __src, int __c,
 /**
  * @brief Copies __n bytes of __src to __dst.
  * 
- * If __src and __dst
- * overlap then you get undefined behaviour. 
+ * If __src and __dst overlap then you get undefined behaviour.
  * 
  * @param __dst is where to copy to
  * @param __src is where to copy from
  * @param __n is how many bytes to copy
  * @returns The value of __dst.
  */
-extern void *memccpy(void *restrict __dst, const void *restrict __src,
+extern void *memcpy(void *restrict __dst, const void *restrict __src,
 		    size_t __n);
 
 /**

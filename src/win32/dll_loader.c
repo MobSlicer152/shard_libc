@@ -32,6 +32,7 @@ static ANSI_STRING getthreadtimes_str;
 static ANSI_STRING heapalloc_str;
 static ANSI_STRING heapfree_str;
 static ANSI_STRING localfree_str;
+static ANSI_STRING setfilepointerex_str;
 static ANSI_STRING virtualalloc_str;
 static ANSI_STRING virtualfree_str;
 static ANSI_STRING virtualquery_str;
@@ -58,6 +59,7 @@ static void *rtlfreeutf8string;
 static void *rtlinitansistring;
 static void *rtlinitunicodestring;
 static void *rtlunicodestringtoutf8string;
+static void *setfilepointerex;
 static void *virtualalloc;
 static void *virtualfree;
 static void *virtualquery;
@@ -74,8 +76,9 @@ void __load_ntdll_funcs(void)
 	IMAGE_DOS_HEADER *dos_hdr;
 	IMAGE_NT_HEADERS64 *nt_hdrs;
 	IMAGE_EXPORT_DIRECTORY *exports;
+	unsigned int *names;
 	unsigned int *funcs;
-	int i;
+	unsigned int i;
 
 	/* Alias the PEB's loader data */
 	ldr = __libc_windows_peb->ldr;
@@ -87,8 +90,8 @@ void __load_ntdll_funcs(void)
 	for (current = head->f; current != head; current = current->f) {
 		dll = CONTAINING_RECORD(current, LDR_MODULE,
 					mem_order_mod_list);
-		if (wcscmp(dll->full_name.buf,
-			   L"C:\\WINDOWS\\SYSTEM32\\ntdll.dll") == 0) {
+		if (wcsicmp(dll->full_name.buf,
+			    L"C:\\Windows\\System32\\ntdll.dll") == 0) {
 			ntdll = dll;
 			break;
 		}
@@ -120,32 +123,24 @@ void __load_ntdll_funcs(void)
 	/* Make a pointer to our functions */
 	funcs = ((unsigned char *)ntdll_base + exports->funcs_addr);
 
-	/* Find our functions by ordinal */
-	ldrgetdllhandle =
-		((unsigned char *)ntdll_base +
-		 (funcs[129 -
-			exports->base])); /* According to PE viewer, LdrGetDllHandle is 129 */
+	/* Find LdrGetProcedureAddress by its ordinal, which is 137 */
 	ldrgetprocedureaddress =
-		((unsigned char *)ntdll_base +
-		 (funcs[137 -
-			exports->base])); /* LdrGetProcedureAddress is 137 */
-	ldrloaddll = ((unsigned char *)ntdll_base +
-		      (funcs[147 - exports->base])); /* LdrLoadDll is 147 */
-	rtlfreeutf8string =
-		((unsigned char *)ntdll_base +
-		 (funcs[1045 -
-			exports->base])); /* RtlFreeUTF8String is 1045 (damn, NTDLL is dummy thicc) */
-	rtlinitansistring =
-		((unsigned char *)ntdll_base +
-		 (funcs[1149 - exports->base])); /* RtlInitAnsiString is 1149 */
-	rtlinitunicodestring =
-		((unsigned char *)ntdll_base +
-		 (funcs[1162 -
-			exports->base])); /* RtlInitUnicodeString is 1162 */
-	rtlunicodestringtoutf8string =
-		((unsigned char *)ntdll_base +
-		 (funcs[1565 -
-			exports->base])); /* RtlUnicodeStringToUTF8String is 1565 */
+		((unsigned char *)ntdll_base + (funcs[137 - exports->base]));
+
+	/* Now that we have LdrGetProcedureAddress, we don't need the function table anymore */
+	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("LdrGetDllHandle"), 0,
+			       &ldrgetdllhandle);
+	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("LdrLoadDll"), 0,
+			       &ldrloaddll);
+	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("RtlFreeUTF8String"),
+			       0, &rtlfreeutf8string);
+	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("RtlInitAnsiString"),
+			       0, &rtlinitansistring);
+	LdrGetProcedureAddress(ntdll_base,
+			       &_TMP_ANSI_STR("RtlInitUnicodeString"), 0,
+			       &rtlinitunicodestring);
+	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("RtlFreeUTF8String"),
+			       0, &rtlunicodestringtoutf8string);
 }
 
 /* Loads necessary DLLs and gets function pointers for wrappers */
@@ -167,15 +162,14 @@ void __load_w32_funcs(void)
 	RtlInitAnsiString(&getcurrentprocess_str, "GetCurrentProcess");
 	RtlInitAnsiString(&getcurrentthread_str, "GetCurrentThread");
 	RtlInitAnsiString(&getlasterror_str, "GetLastError");
-	RtlInitAnsiString(
-		&getprocessheap_str,
-		"GetProcessHeap"); /* I don't know why, but this works and the address in the PEB doesn't */
+	RtlInitAnsiString(&getprocessheap_str, "GetProcessHeap");
 	RtlInitAnsiString(&getprocesstimes_str, "GetProcessTimes");
 	RtlInitAnsiString(&getsysteminfo_str, "GetSystemInfo");
 	RtlInitAnsiString(&getthreadtimes_str, "GetThreadTimes");
 	RtlInitAnsiString(&heapalloc_str, "HeapAlloc");
 	RtlInitAnsiString(&heapfree_str, "HeapFree");
 	RtlInitAnsiString(&localfree_str, "LocalFree");
+	RtlInitAnsiString(&setfilepointerex_str, "SetFilePointerEx");
 	RtlInitAnsiString(&virtualalloc_str, "VirtualAlloc");
 	RtlInitAnsiString(&virtualfree_str, "VirtualFree");
 	RtlInitAnsiString(&virtualquery_str, "VirtualQuery");
@@ -263,6 +257,11 @@ void __load_w32_funcs(void)
 	if (err != 0)
 		abort();
 
+	err = LdrGetProcedureAddress(kernel32_handle, &setfilepointerex_str, 0,
+				     &setfilepointerex);
+	if (err != 0)
+		abort();
+
 	err = LdrGetProcedureAddress(kernel32_handle, &virtualalloc_str, 0,
 				     &virtualalloc);
 	if (err != 0)
@@ -335,7 +334,7 @@ void GetSystemInfo(void *info)
 }
 
 unsigned char GetThreadTimes(void *process, FILETIME *creation, FILETIME *exit,
-			      FILETIME *kernel, FILETIME *user)
+			     FILETIME *kernel, FILETIME *user)
 {
 	return ((unsigned char (*)(void *, FILETIME *, FILETIME *, FILETIME *,
 				   FILETIME *))getthreadtimes)(
@@ -405,6 +404,13 @@ long RtlUnicodeStringToUTF8String(UTF8_STRING *dst, const UNICODE_STRING *src,
 {
 	return ((long (*)(UTF8_STRING *, const UNICODE_STRING *, unsigned char))
 			rtlunicodestringtoutf8string)(dst, src, alloc_dst);
+}
+
+long SetFilePointerEx(void *file, LARGE_INTEGER off, void *unused,
+		      unsigned int whence)
+{
+	return ((long (*)(void *, LARGE_INTEGER, void *,
+		 unsigned int))setfilepointerex)(file, off, unused, whence);
 }
 
 void *VirtualAlloc(void *addr, size_t size, unsigned int type,

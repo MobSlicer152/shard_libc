@@ -152,7 +152,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_SHARD_LIBC_EXPORT=__declspec(dllexport)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS_SERVER_COMPAT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_SHARD_LIBC_EXPORT=__declspec(dllexport)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <CallingConvention>FastCall</CallingConvention>
       <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)src;$(ProjectDir)jemalloc\include;</AdditionalIncludeDirectories>
@@ -221,6 +221,7 @@
     <ClCompile Include="src\string\strlen.c" />
     <ClCompile Include="src\string\strncpy.c" />
     <ClCompile Include="src\wchar\wcscmp.c" />
+    <ClCompile Include="src\wchar\wcsicmp.c" />
     <ClCompile Include="src\wchar\wcslen.c" />
     <ClCompile Include="src\win32\crt0.c" />
     <ClCompile Include="src\win32\dll_loader.c" />
@@ -229,6 +230,8 @@
     <ClCompile Include="src\win32\stack_fixup.c" />
     <ClCompile Include="src\win32\stdio\init.c" />
     <ClCompile Include="src\win32\stdlib\_exit.c" />
+    <ClCompile Include="src\win32\unistd\lseek.c" />
+    <ClCompile Include="src\win32\unistd\lseek64.c" />
     <ClCompile Include="src\win32\unistd\write.c" />
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +254,8 @@
     <ClInclude Include="include\errno.h" />
     <ClInclude Include="include\excpt.h" />
     <ClInclude Include="include\fcntl.h" />
+    <ClInclude Include="include\internal\registers.h" />
+    <ClInclude Include="include\internal\startup.h" />
     <ClInclude Include="include\limits.h" />
     <ClInclude Include="include\malloc.h" />
     <ClInclude Include="include\ms_sal_fixup.h" />
@@ -268,10 +273,9 @@
     <ClInclude Include="include\sys\types.h" />
     <ClInclude Include="include\unistd.h" />
     <ClInclude Include="include\wchar.h" />
-    <ClInclude Include="src\internal\startup.h" />
+    <ClInclude Include="include\win32\env.h" />
+    <ClInclude Include="include\win32\windows_stuff.h" />
     <ClInclude Include="src\stdio\stb_sprintf.h" />
-    <ClInclude Include="src\win32\env.h" />
-    <ClInclude Include="src\win32\windows_stuff.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

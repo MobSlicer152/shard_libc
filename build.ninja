@@ -3,14 +3,14 @@ outdir = bin
 objdir = obj
 
 include_paths = -nostdinc -Ideps/linux/usr/include -Iinclude -Isrc
-cflags = -Wall -Wextra -ffreestanding -nostdlib -O2 -g $include_paths
+cflags = -Wall -Wextra -ffreestanding -nostdlib -O2 -g -fno-inline $include_paths
 ldflags = -L$outdir
 
 rule cc
     command = cc $cflags -c $in -o $out
 
 rule ld
-    command = ld $ldflags -o $out $in
+    command = gcc $ldflags -o $out $in
 
 rule ar_create
     command = ar rcs $out $in
@@ -49,4 +49,4 @@ build $outdir/libc_shard.a: ar_create $objdir/internal/errno.c.o $objdir/interna
 
 build $objdir/tests/main.o: cc tests/main/main.c
 build $outdir/tests/main: ld $objdir/tests/main.o
-    ldflags = $ldflags -lc_shard
+    ldflags = $ldflags -l:libc_shard.a

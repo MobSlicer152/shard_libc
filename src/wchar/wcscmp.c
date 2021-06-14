@@ -15,7 +15,7 @@ int wcscmp(const wchar_t *__s1, const wchar_t *__s2)
 			return *__s1 - *__s2;
 	}
 
-	return (*__s1 < *__s2) ? -1 : 1;
+	return (*__s1) - (*__s2);
 }
 
 #ifdef __cplusplus

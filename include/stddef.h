@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef _MSC_VER
 #ifndef _STDDEF_H
 #define _STDDEF_H 1
 
@@ -50,3 +51,6 @@ typedef unsigned long long ptrdiff_t;
 	((size_t)&(((structure *)0)->member))
 
 #endif /* !_STDDEF_H */
+#else
+#include_next "stddef.h"
+#endif /* _MSC_VER */

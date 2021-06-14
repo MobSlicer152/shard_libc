@@ -13,13 +13,14 @@ extern "C" {
 #endif
 
 #include "stddef.h"
+#include "limits.h"
 
 /** @brief A handle to the heap returned by GetProcessHeap */
 extern void *__libc_windows_heap;
 
 /* Windows macros */
 #define CONTAINING_RECORD(address, type, field) \
-	((type *)((char *)(address) - offsetof(type, field)))
+	((type *)((char *)(address)-offsetof(type, field)))
 
 /* Counted strings used by NTDLL and kernel functions */
 typedef struct _CHAR_STRING {
@@ -35,6 +36,15 @@ typedef struct _UNICODE_STRING {
 	unsigned short max_len;
 	wchar_t *buf;
 } UNICODE_STRING;
+
+#define _TMP_ANSI_STR(str)                    \
+	((ANSI_STRING){ .buf = (str),         \
+			.len = sizeof((str)), \
+			.max_len = sizeof((str)) })
+#define _TMP_UNICODE_STR(wstr)                    \
+	((UNICODE_STRING){ .buf = (wstr),         \
+			   .len = sizeof((wstr)), \
+			   .max_len = sizeof((wstr)) })
 
 /* Stuff added to get Windows parts of dlmalloc to work under MinGW */
 #ifndef _MSC_VER
@@ -130,6 +140,20 @@ typedef union _ULARGE_INTEGER {
 	} u;
 	unsigned long long quad;
 } ULARGE_INTEGER;
+
+#define _TMP_LARGE_INT(val)                             \
+	((LARGE_INTEGER){ .lo = val & UINT_MAX,         \
+			  .hi = val >> 32 & LONG_MAX,   \
+			  .u.lo = val & UINT_MAX,       \
+			  .u.hi = val >> 32 & LONG_MAX, \
+			  .quad = val & LLONG_MAX })
+
+#define _TMP_ULARGE_INT(val)                             \
+	((ULARGE_INTEGER){ .lo = val & UINT_MAX,         \
+			  .hi = val >> 32 & ULONG_MAX,   \
+			  .u.lo = val & UINT_MAX,       \
+			  .u.hi = val >> 32 & ULONG_MAX, \
+			  .quad = val & ULLONG_MAX })
 
 typedef struct _IO_STATUS_BLOCK {
 	union {
@@ -499,6 +523,8 @@ extern long RtlInitUnicodeString(UNICODE_STRING *dst, const wchar_t *src);
 extern long RtlUnicodeStringToUTF8String(UTF8_STRING *dst,
 					 const UNICODE_STRING *src,
 					 unsigned char alloc_dst);
+extern long SetFilePointerEx(void *file, LARGE_INTEGER off, void *unused,
+			     unsigned int whence);
 extern void *VirtualAlloc(void *addr, size_t size, unsigned int type,
 			  unsigned int prot);
 extern unsigned char VirtualFree(void *addr, size_t size, unsigned int type);

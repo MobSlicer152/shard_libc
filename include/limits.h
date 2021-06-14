@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef _MSC_VER
 #ifndef _LIMITS_H
 #define _LIMITS_H 1
 
@@ -127,6 +128,24 @@
 /**
  * @brief Max value of an `unsigned long int`
  */
-#define UINT_MAX 4294967295
+#define ULONG_MAX UINT_MAX
+
+/**
+ * @brief Minimum value of a `long long int`
+ */
+#define LLONG_MIN -9223372036854775807
+
+/**
+ * @brief Max value of a `long long int`
+ */
+#define LLONG_MAX 9223372036854775807
+
+/**
+ * @brief Max value of an `unsigned long long int`
+ */
+#define ULLONG_MAX 18446744073709551615
 
 #endif /* !_LIMITS_H */
+#else
+#include_next "limits.h"
+#endif /* _MSC_VER */

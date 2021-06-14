@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef _MSC_VER
 #ifndef _STDINT_H
 #define _STDINT_H 1
 
@@ -43,4 +44,7 @@ typedef unsigned long long uintmax_t;
  */
 typedef unsigned long long uintptr_t;
 
-#endif
+#endif /* !_STDINT_H */
+#else
+#include_next "stdint.h"
+#endif /* _MSC_VER */

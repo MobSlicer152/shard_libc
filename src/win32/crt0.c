@@ -56,7 +56,7 @@ void mainCRTStartup(void)
 		RtlInitUnicodeString(&ustr, argv_w[i]);
 		RtlUnicodeStringToUTF8String(&astr, &ustr, true);
 		strncpy(argv[i], astr.buf, wcslen(argv_w[i]));
-		RtlFreeUTF8String(&astr);
+		/* RtlFreeUTF8String(&astr); */
 	}
 
 	/* Free the memory Windows gave us */
