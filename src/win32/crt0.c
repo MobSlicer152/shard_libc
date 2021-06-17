@@ -55,7 +55,7 @@ void mainCRTStartup(void)
 		memset(&astr, 0, sizeof(UTF8_STRING));
 		RtlInitUnicodeString(&ustr, argv_w[i]);
 		RtlUnicodeStringToUTF8String(&astr, &ustr, true);
-		strncpy(argv[i], astr.buf, wcslen(argv_w[i]));
+ 		strncpy(argv[i], astr.buf, wcslen(argv_w[i]));
 		/* RtlFreeUTF8String(&astr); */
 	}
 

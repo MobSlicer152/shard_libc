@@ -139,7 +139,7 @@ void __load_ntdll_funcs(void)
 	LdrGetProcedureAddress(ntdll_base,
 			       &_TMP_ANSI_STR("RtlInitUnicodeString"), 0,
 			       &rtlinitunicodestring);
-	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("RtlFreeUTF8String"),
+	LdrGetProcedureAddress(ntdll_base, &_TMP_ANSI_STR("RtlUnicodeStringToUTF8String"),
 			       0, &rtlunicodestringtoutf8string);
 }
 
