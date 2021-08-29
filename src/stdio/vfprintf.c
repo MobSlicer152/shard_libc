@@ -23,7 +23,7 @@ int vfprintf(FILE *__fp, const char *restrict __str, va_list __alist)
 	len = vsnprintf(NULL, 0, __str, args);
 	
 	/* Allocate a buffer */
-	buf = calloc(len + 1, sizeof(char));
+	buf = calloc((size_t)len + 1, sizeof(char));
 	if (!buf)
 		return -1; /* calloc handles errno */
 
@@ -31,7 +31,7 @@ int vfprintf(FILE *__fp, const char *restrict __str, va_list __alist)
 	vsnprintf(buf, len + 1, __str, args);
 
 	/* Return whatever fwrite returns */
-	return fwrite(buf, len + 1, 1, __fp);
+	return fwrite(buf, (size_t)len, 1, __fp);
 }
 
 #ifdef __cplusplus

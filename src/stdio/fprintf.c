@@ -7,7 +7,7 @@ extern "C" {
 
 int fprintf(FILE *__fp, const char *restrict __str, ...)
 {
-	va_list args;
+	va_list args = 0;
 	int ret;
 
 	/* Initialize the arglist and call vfprintf */

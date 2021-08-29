@@ -35,6 +35,15 @@ extern FILE **__stderr(void);
 #ifdef _INTERNAL_STDIO_DEFS
 /* Whether I/O has been initialized */
 extern _Bool *__stdio_initialized(void);
+
+struct __file_op {
+	enum __FILE_OP_TYPE type;
+	FILE *origin;
+	size_t size;
+};
+
+/* The queue of file operations */
+
 #endif
 
 /**
