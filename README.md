@@ -1,6 +1,8 @@
 shard_libc                                                 {#mainpage}
 ==========
 
+# THIS HAS MOVED TO [HERE](https://github.com/MobSlicer152/shardc2)
+
 ### What this project is and why the hell I'm doing it
 This project is an attempt at implementing the ISO C2x standard, purely for the sake of learning as much as possible about how C works internally and maybe (hopefully) creating a usable implementation somewhere down the road. The Windows C runtime is also pretty (unnecessarily) bloated most of the time for smaller apps, so this could eventually be a viable alternative. Another awesome thing is that this implementation breaks the standard by __not renaming implemented POSIX/BSD/more obscure printf-related functions__, which makes it possible to port your existing somewhat POSIX-dependant code to it with less effort.
 
